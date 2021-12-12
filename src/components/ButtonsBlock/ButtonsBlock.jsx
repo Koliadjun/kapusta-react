@@ -11,7 +11,7 @@ export default function ButtonsBlock({
   rectangle = false,
 }) {
   return (
-    <div className={rectangle ? s.rectandleButtons : s.buttons}>
+    <div className={rectangle ? s.rectangleButtons : s.buttons}>
       <Button
         text={textLeftButton}
         onClick={onClickLeftButton}
