@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  width: 264px;
+  justify-content: space-between;
+}
+
+.rectangleButtons {
+  display: flex;
+  width: 100%;
+}
