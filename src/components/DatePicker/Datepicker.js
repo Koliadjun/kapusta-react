@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import ru from 'date-fns/locale/ru';
 
 import { ReactComponent as CalendarIcon } from './calendar.svg';
 import styles from './Datepicker.module.css';
+
+registerLocale('ru', ru);
 
 function Datepicker({ onSelectedDate }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -32,6 +35,7 @@ function Datepicker({ onSelectedDate }) {
           value={formatDate}
           className={styles.date}
           maxDate={new Date()}
+          locale="ru"
         />
       </div>
     </div>
