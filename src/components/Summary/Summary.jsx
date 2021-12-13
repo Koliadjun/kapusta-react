@@ -15,10 +15,10 @@ export default function Summary() {
           </tr>
         </thead>
         <tbody>
-          {items.map(x => (
-            <tr className={s.tr} key={x.month}>
-              <td className={s.month}>{x.month}</td>
-              <td className={s.sum}>{x.sum}</td>
+          {items.map(item => (
+            <tr className={s.tr} key={item.month}>
+              <td className={s.month}>{item.month}</td>
+              <td className={s.sum}>{item.sum}</td>
             </tr>
           ))}
           <tr className={s.empty}>
