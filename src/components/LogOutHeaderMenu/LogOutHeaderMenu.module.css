@@ -1,0 +1,29 @@
+.logoutBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.textBtn {
+  font-size: 12px;
+  color: #52555f;
+  cursor: pointer;
+  border-bottom: 1px solid #52555f;
+}
+
+.userAvatar{
+    display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.userName{
+    display: none;
+border-right: 1px solid #e0e5eb;
+
+}
+
+.userMenu{
+    display: flex;
+    align-items: center;
+}
