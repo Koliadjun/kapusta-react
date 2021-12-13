@@ -5,4 +5,6 @@
   width: 90px;
   height: 31px;
   background-image: url('../../images/logoHeader.svg');
+  cursor: pointer;
+  
 }
