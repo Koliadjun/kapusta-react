@@ -1,11 +1,10 @@
 import './App.css';
-
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+import RegistrationForm from './components/RegistrationForm'
 
 function App() {
   return (
     <div>
-      <ButtonsBlock />
+      <RegistrationForm />
     </div>
   );
 }
