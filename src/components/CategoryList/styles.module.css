@@ -1,0 +1,36 @@
+.inputWrapper{
+    padding:15px 20px;
+    border: 2px solid var(--secondary-background-color) ;
+}
+.categoryInput{
+    margin-right:15px;
+    color:var(--placeholders-text-color);
+    border: none;
+    padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+  
+
+}
+.categoryInput::-ms-expand {
+		display: none;
+}
+.categoryInput::after{
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    background-image: url(../../images/sprite.svg#icon-vector-left);
+    background-size: contain;
+    background-origin: border-box;
+
+
+}
+
+.datalist{
+    color:var(--placeholders-text-color)
+}
+.datalistItem{
+    color:var(--placeholders-text-color)
+}
