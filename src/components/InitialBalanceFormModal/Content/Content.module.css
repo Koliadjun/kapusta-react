@@ -1,0 +1,26 @@
+.text {
+  margin: 24px 30px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.43;
+
+  color: #ffffff;
+}
+
+/* .wrapper {
+  width: 292px;
+  height: 152px;
+} */
+
+.rectangle {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transform: rotateY(0deg) rotate(45deg);
+  top: -8px;
+  left: 40px;
+  background-color: #031634;
+}
