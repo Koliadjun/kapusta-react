@@ -12,7 +12,8 @@ function LogInHeaderMenu() {
         <div className={s.userMenu}>
       <Avatar
               className={s.userAvatar}
-              size="32"
+        size="32"
+        
               color={Avatar.getRandomColor('sitebase', [
                 'red',
                 'green',
@@ -20,9 +21,9 @@ function LogInHeaderMenu() {
                 'orange',
               ])}
       />
-    <div >
+    <div className={s.line}>
         {users.map(user => (
-          <p key={userId}>{user.name}</p>))}
+          <p className={s.userName} key={userId}>{user.name}</p>))}
      </div> 
       <button className={s.logoutBtn}>
         <p className={s.textBtn}>Выйти</p>
