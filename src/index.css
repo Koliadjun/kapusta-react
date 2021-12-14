@@ -1,5 +1,25 @@
+
+:root{
+  --accent-color:#FF751D;
+  --secondary-accent-color: #FFDAC0;
+  --main-text-color:#52555F;
+  --highlight-text-color: #000000;
+  --spending-text-color: #E7192E;
+  --income-text-color:#407946;
+  --main-background-color: #FFFFFF;
+  --secondary-background-color: #F5F6FB;
+  --main-font-size:12px;
+  --main-font-weight:400;
+  --secondary-font-size:14px;
+  --disable-text-color: #52555FB2;
+  --placeholders-text-color: #C7CCDC;
+
+}
 body {
   margin: 0;
+  font:normal var(--main-font-weight) var(--main-font-size) 'Roboto', sans-serif;
+  line-height: 1,17;
+ 
 }
 
 h1,
@@ -29,4 +49,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: transparent;
+}
+button{
+  cursor: pointer;
 }
