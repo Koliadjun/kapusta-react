@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+// import { useState } from "react";
 
 import Header from "components/Header/Header";
 import Container from "components/Container/Container";
@@ -8,7 +8,7 @@ import s from './AppBar.module.css'
 
 
 export default function AppBar() {
-const {isLogIn, setIsLogIn}= useState(true)
+// const {isLogIn, setIsLogIn}= useState(true)
     return (
         <Container>
             <div className={s.appBar}>
