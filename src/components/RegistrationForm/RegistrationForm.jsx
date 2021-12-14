@@ -9,6 +9,7 @@ import { Formik } from 'formik';
 // import { authOperations } from "../redux/auth";
 import s from './RegistrationForm.module.css';
 import axios from 'axios';
+import LogoutButton from 'components/LogoutButton';
 
 const loginValidate = values => {
   const errors = {};
@@ -53,7 +54,7 @@ const registrationValidate = values => {
 function RegistrationForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [registrationFormNeeded, setRegistrationFormNeeded] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(null);
+  const [userToken, setUserToken] = useState(null);
   //   const dispatch = useDispatch();
 
   const loginInitialValues = {
@@ -67,17 +68,11 @@ function RegistrationForm() {
     repeatPassword: '',
   };
 
-  const tooglePassword = () => {
+  const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = useCallback((values, { resetForm }) => {
-    //   dispatch(authOperations.registration(values));
-    console.log(values);
-    resetForm({ values: '' });
-  });
-
-  const onRegistrationClick = () => {
+  const onButtonClick = () => {
     setRegistrationFormNeeded(!registrationFormNeeded);
   };
 
@@ -88,19 +83,47 @@ function RegistrationForm() {
         password: values.password,
       });
       resetForm({ values: '' });
-      return alert('Registration was successfull! Please, check your email for account verification')
+      return alert('Registration was successful! Please, check your email for account verification')
     } catch (err) {
+      if(err.response.status !== 409) {
+        alert('We got some problems with servers. Please try again later')
+        return resetForm({ values: '' });
+      }
+      if(err.response.status === 409) {
         alert(err.response.data.message)
         return resetForm({ values: '' });
+      }
+        
     }
   });
 
+  const doLoginSubmit = async (values, {resetForm}) => {
+    try {
+      const {data: {token}} = await axios.post('http://localhost:5000/api/auth/login', {
+        email: values.email,
+        password: values.password,
+      });
+      resetForm({ values: '' });
+      return setUserToken(token)
+    } catch (err) {
+      if(err.response.status === 401) {
+        alert(err.response.data.message)
+        return resetForm({ values: '' });
+      }
+      if(err.response.status !== 401) {
+        alert('We got some problems with servers. Please try again later')
+        return resetForm({ values: '' });
+      } 
+    }
+  }
+
   return !registrationFormNeeded ? (
+    
     <div className={s.div}>
       <Formik
         initialValues={loginInitialValues}
         validate={loginValidate}
-        onSubmit={handleSubmit}
+        onSubmit={doLoginSubmit}
       >
         {({
           values,
@@ -137,7 +160,7 @@ function RegistrationForm() {
               helperText={touched.password && errors.password}
             />
 
-            <button type="button" onClick={tooglePassword}>
+            <button type="button" onClick={togglePassword}>
               {values.showPassword ? <VisibilityOff /> : <Visibility />}
             </button>
             <br />
@@ -165,13 +188,14 @@ function RegistrationForm() {
               variant="contained"
               type="button"
               name="registration"
-              onClick={onRegistrationClick}
+              onClick={onButtonClick}
             >
               Registration
             </Button>
           </form>
         )}
       </Formik>
+      <LogoutButton token={userToken}/>
     </div>
   ) : (
     <div className={s.div}>
@@ -228,11 +252,21 @@ function RegistrationForm() {
               helperText={touched.repeatPassword && errors.repeatPassword}
             />
 
-            <button type="button" onClick={tooglePassword}>
+            <button type="button" onClick={togglePassword}>
               {values.showPassword ? <VisibilityOff /> : <Visibility />}
             </button>
             <br />
             <br />
+
+            <Button
+              color="primary"
+              variant="contained"
+              type="button"
+              name="login"
+              onClick={onButtonClick}
+            >
+              Go back to login
+            </Button>
 
             <Button
               color="primary"
