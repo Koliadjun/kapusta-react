@@ -12,15 +12,15 @@ export default function CategoryImages() {
     return (
         <>
             
-             <CategoryCoastList />
-            {/* {isToggled ?
+            
+           {isToggled ?
                 (<><h1 onClick={toggleClick}>Расход</h1><>
                     <CategoryCoastList />
                 </></>
                 ) :
                 (<><h1 onClick={toggleClick}>Доход</h1><CategoryIncomeList /></>
                 
-                )} */}
+                )} 
         </>
     )
 }

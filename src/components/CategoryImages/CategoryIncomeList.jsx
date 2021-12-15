@@ -5,13 +5,13 @@ import Category from './Category'
 
 export default function CategoryList(){
     return (
-        <>
-            {categoriesIncome.map((categorieIncome) => (
-                <Category
-                key={categorieIncome.id}
-                costs={categorieIncome.costs}
-                image={categorieIncome.image}
-                category={categorieIncome.category}
+         <>
+            {categoriesIncome.map(category => (
+                 <Category
+                key={category.id}
+                costs={category.costs}
+                images={category.images}
+                category={category.category}
             />
             ))}
             </>

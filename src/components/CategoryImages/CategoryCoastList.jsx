@@ -6,12 +6,12 @@ import Category from './Category'
 export default function CategoryList(){
     return (
         <>
-            {categoriesCoasts.map((categorieCoast) => (
-                <Category
-                key={categorieCoast.id}
-                costs={categorieCoast.costs}
-                image={categorieCoast.image}
-                category={categorieCoast.category}
+            {categoriesCoasts.map(category => (
+                 <Category
+                key={category.id}
+                costs={category.costs}
+                images={category.images}
+                category={category.category}
             />
             ))}
             </>
