@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import RegistrationForm from './components/RegistrationForm'
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
-import AppBar from 'components/AppBar/AppBar';
+// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+// import Modal from 'components/Modal/Modal';
+// import ModalContent from 'components/ModalContent/ModalContent';
+// import AppBar from 'components/AppBar/AppBar';
 import Summary from 'components/Summary/Summary';
 import { ReduxTest } from 'components/reduxTest/ReduxTest';
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
+  // const [modalActive, setModalActive] = useState(false);
   return (
     <div>
       <RegistrationForm />
