@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.css';
-import RegistrationForm from './components/RegistrationForm'
+import RegistrationForm from './components/RegistrationForm';
 import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/ModalContent/ModalContent';
@@ -14,22 +14,11 @@ import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 
 function App() {
   const [modal, setModal] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
     setModal(false);
   };
 
-  return (
-    <div>
-      {/* <ButtonsBlock />
-      <Summary /> */}
-      <BalanceModal visible={modal} setVisible={setModal}>
-        <Wrapper>
-          <Input sendBalance={sendBalance} />
-
-          <Content />
-        </Wrapper>
-      </BalanceModal>
-  const [modalActive, setModalActive] = useState(false);
   return (
     <div>
       <RegistrationForm />
@@ -45,6 +34,13 @@ function App() {
 
       <button onClick={() => setModalActive(true)}>Проверка модалки</button>
       <Summary />
+      <BalanceModal visible={modal} setVisible={setModal}>
+        <Wrapper>
+          <Input sendBalance={sendBalance} />
+
+          <Content />
+        </Wrapper>
+      </BalanceModal>
     </div>
   );
 }
