@@ -1,18 +1,13 @@
 .text {
-  margin: 24px 30px;
+  padding: 24px 30px 0;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 1.43;
 
-  color: #ffffff;
+  color: #100880;
 }
-
-/* .wrapper {
-  width: 292px;
-  height: 152px;
-} */
 
 .rectangle {
   display: block;
@@ -22,5 +17,17 @@
   transform: rotateY(0deg) rotate(45deg);
   top: -8px;
   left: 40px;
-  background-color: #031634;
+  background-color: #ff751d;
+}
+
+.modalContent {
+  position: relative;
+  width: 292px;
+  height: 152px;
+  /* padding: 20px; */
+
+  background: #ff751d;
+  border-radius: 30px;
+
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }

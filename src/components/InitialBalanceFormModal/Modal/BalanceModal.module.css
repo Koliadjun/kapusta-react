@@ -14,14 +14,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.modalContent {
-  position: relative;
-  width: 292px;
-  height: 152px;
-
-  background: #031634;
-  border-radius: 30px;
-  /* padding: 41px 30px; */
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
-}
