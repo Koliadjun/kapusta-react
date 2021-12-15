@@ -1,6 +1,6 @@
 .reportHistory{
     width: 230px;
-    background-color: #f5f6fb;
+    background-color: var(--secondary-background-color);
     border-collapse: collapse;
     text-transform: uppercase;
 }
@@ -9,7 +9,7 @@
     font-weight: 700;
 font-size: 12 px;
 text-align: center;
-border-bottom: 2px solid #ffffff;
+border-bottom: 2px solid var(--main-background-color);
 }
 
 .month {
@@ -24,7 +24,7 @@ border-bottom: 2px solid #ffffff;
 .tr{
   height: 40px;
 font-weight: 400;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid var(--main-background-color);
 
 }
 
