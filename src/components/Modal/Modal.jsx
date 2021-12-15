@@ -1,5 +1,5 @@
 import React from 'react';
-import svgCloses from '../../images/sprite.svg';
+// import svgCloses from 'images/sprite.svg';
 
 import s from './Modal.module.css';
 
