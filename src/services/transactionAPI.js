@@ -13,9 +13,9 @@ export async function addTransaction(incomeData) {
     const { data } = await axios.post(`/transactions/income`, incomeData);
     return data;
 }
-// export async function deleteTransactionById(transactionId) {
-//     await axios.delete(`/transaction/${transactionId}`);
-// }
+export async function deleteTransactionById(transactionId) {
+    await axios.delete(`/transaction/${transactionId}`);
+}
 
 export async function registerUser(formData) {
     const { data } = await axios.post(`/auth/registration`, formData);
