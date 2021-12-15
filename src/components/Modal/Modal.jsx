@@ -1,4 +1,5 @@
 import React from 'react';
+import svgCloses from '../../images/sprite.svg';
 
 import s from './Modal.module.css';
 
@@ -22,3 +23,6 @@ export default function Modal({ active, setActive, children }) {
     </div>
   );
 }
+//  <svg>
+//    <use href={`${svgCloses}#icon-envelope`} />
+//  </svg>;
