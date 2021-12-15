@@ -1,0 +1,48 @@
+.logoutBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.textBtn {
+  font-size: var(--main-font-size);
+  color: var(--disable-text-color);
+  cursor: pointer;
+  border-bottom: 1px solid var(--main-text-color);
+  margin-left: 20px;
+}
+
+
+
+.userAvatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.userName{
+  display: flex;
+  align-items: center;
+   font-weight: var(--main-font-weight);
+  font-size: var(--main-font-size);
+  color: var(--disable-text-color);
+  
+}
+
+.userName::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 36px;
+  border: 1px solid #e0e5eb;
+  margin-left: 20px;
+}
+
+
+.userMenu{
+    display: flex;
+    align-items: center;
+}

@@ -1,28 +1,34 @@
+import React, { useState } from 'react';
 import './App.css';
 import Transactionslist from 'components/Transactionslist/Transactionslist';
 import Container from 'components/Container/Container';
+import RegistrationForm from './components/RegistrationForm';
+import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+import Modal from 'components/Modal/Modal';
+import ModalContent from 'components/ModalContent/ModalContent';
+import AppBar from 'components/AppBar/AppBar';
+import Summary from 'components/Summary/Summary';
 
 function App() {
+  const [modalActive, setModalActive] = useState(false);
   return (
     <div>
       <Container>
         <Transactionslist />
       </Container>
+      {/* <RegistrationForm />
+      <AppBar />
+      <ButtonsBlock />
+      <Modal active={modalActive} setActive={setModalActive}>
+        <ModalContent
+          message={'Вы уверены?'}
+          textLeftButton={'да'}
+          textRightButton={'нет'}
+        />
+      </Modal>
 
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
+      <Summary /> */}
     </div>
   );
 }
