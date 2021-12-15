@@ -1,0 +1,40 @@
+.reportHistory{
+    width: 230px;
+    background-color: var(--secondary-background-color);
+    border-collapse: collapse;
+    text-transform: uppercase;
+}
+
+.reportHeader{
+    font-weight: 700;
+font-size: 12 px;
+text-align: center;
+border-bottom: 2px solid var(--main-background-color);
+}
+
+.month {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.sum {
+  text-align: right;
+  padding-right: 20px;
+}
+.tr{
+  height: 40px;
+font-weight: 400;
+  border-bottom: 2px solid var(--main-background-color);
+
+}
+
+.wrap {
+  width: 230px;
+  height: 279px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.empty {
+  height: 300px;
+}
