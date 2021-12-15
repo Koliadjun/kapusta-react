@@ -78,47 +78,55 @@ function RegistrationForm() {
 
   const doRegistrationSubmit = useCallback(async (values, { resetForm }) => {
     try {
-      await axios.post('http://localhost:5000/api/auth/registration', {
-        email: values.email,
-        password: values.password,
-      });
+      await axios.post(
+        'https://kapusta-api-iteam.herokuapp.com/api/auth/registration',
+        {
+          email: values.email,
+          password: values.password,
+        },
+      );
       resetForm({ values: '' });
-      return alert('Registration was successful! Please, check your email for account verification')
+      return alert(
+        'Registration was successful! Please, check your email for account verification',
+      );
     } catch (err) {
-      if(err.response.status !== 409) {
-        alert('We got some problems with servers. Please try again later')
+      if (err.response.status !== 409) {
+        alert('We got some problems with servers. Please try again later');
         return resetForm({ values: '' });
       }
-      if(err.response.status === 409) {
-        alert(err.response.data.message)
+      if (err.response.status === 409) {
+        alert(err.response.data.message);
         return resetForm({ values: '' });
       }
-        
     }
   });
 
-  const doLoginSubmit = async (values, {resetForm}) => {
+  const doLoginSubmit = async (values, { resetForm }) => {
     try {
-      const {data: {token}} = await axios.post('http://localhost:5000/api/auth/login', {
-        email: values.email,
-        password: values.password,
-      });
+      const {
+        data: { token },
+      } = await axios.post(
+        'https://kapusta-api-iteam.herokuapp.com/api/auth/login',
+        {
+          email: values.email,
+          password: values.password,
+        },
+      );
       resetForm({ values: '' });
-      return setUserToken(token)
+      return setUserToken(token);
     } catch (err) {
-      if(err.response.status === 401) {
-        alert(err.response.data.message)
+      if (err.response.status === 401) {
+        alert(err.response.data.message);
         return resetForm({ values: '' });
       }
-      if(err.response.status !== 401) {
-        alert('We got some problems with servers. Please try again later')
+      if (err.response.status !== 401) {
+        alert('We got some problems with servers. Please try again later');
         return resetForm({ values: '' });
-      } 
+      }
     }
-  }
+  };
 
   return !registrationFormNeeded ? (
-    
     <div className={s.div}>
       <Formik
         initialValues={loginInitialValues}
@@ -195,7 +203,7 @@ function RegistrationForm() {
           </form>
         )}
       </Formik>
-      <LogoutButton token={userToken}/>
+      <LogoutButton token={userToken} />
     </div>
   ) : (
     <div className={s.div}>
