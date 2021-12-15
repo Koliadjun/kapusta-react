@@ -1,11 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import Transactionslist from 'components/Transactionslist/Transactionslist';
+import Container from 'components/Container/Container';
 
 function App() {
   return (
     <div>
-      <Transactionslist />
+      <Container>
+        <Transactionslist />
+      </Container>
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
