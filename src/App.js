@@ -6,23 +6,25 @@ import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/ModalContent/ModalContent';
 import AppBar from 'components/AppBar/AppBar';
 import Summary from 'components/Summary/Summary';
+import { ReduxTest } from 'components/reduxTest/ReduxTest';
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
   return (
     <div>
       <RegistrationForm />
-      <AppBar />
-      <ButtonsBlock />
-      <Modal active={modalActive} setActive={setModalActive}>
+      {/* <AppBar /> */}
+      <ReduxTest />
+      {/* <ButtonsBlock /> */}
+      {/* <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
           message={'Вы уверены?'}
           textLeftButton={'да'}
           textRightButton={'нет'}
         />
-      </Modal>
+      </Modal> */}
 
-      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
+      {/* <button onClick={() => setModalActive(true)}>Проверка модалки</button> */}
       <Summary />
     </div>
   );
