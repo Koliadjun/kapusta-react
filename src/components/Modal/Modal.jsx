@@ -1,5 +1,5 @@
 import React from 'react';
-// import svgCloses from 'images/sprite.svg';
+ import svgCloses from '../../images/svg/close.svg';
 
 import s from './Modal.module.css';
 
@@ -16,7 +16,7 @@ export default function Modal({ active, setActive, children }) {
         onClick={e => e.stopPropagation()}
       >
         <button className={s.modalButton} onClick={() => setActive(false)}>
-          X
+          <img src={svgCloses} alt="close" className={s.img}/>
         </button>
         {children}
       </div>
