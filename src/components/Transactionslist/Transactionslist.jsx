@@ -1,7 +1,7 @@
 import React from 'react';
 import data from '../Transactionslist/list.json';
 import s from './transactionslist.module.css';
-import svg from '../../images/sprite.svg';
+import svg from '../../images/svg/sprite.svg';
 
 console.log(data);
 

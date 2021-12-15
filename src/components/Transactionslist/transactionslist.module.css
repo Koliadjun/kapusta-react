@@ -34,6 +34,7 @@
     padding-bottom: 10px;
     color: #52555f;
     border-bottom: 1px solid #f5f6fb;
+    background-color: red;
   }
 
   .tabletItem:not(:last-child) {

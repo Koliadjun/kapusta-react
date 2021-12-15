@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+// import './App.css';
 import Transactionslist from 'components/Transactionslist/Transactionslist';
 import Container from 'components/Container/Container';
 import RegistrationForm from './components/RegistrationForm';
