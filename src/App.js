@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-
+import RegistrationForm from './components/RegistrationForm'
 import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/ModalContent/ModalContent';
@@ -11,6 +11,7 @@ function App() {
   const [modalActive, setModalActive] = useState(false);
   return (
     <div>
+      <RegistrationForm />
       <AppBar />
       <ButtonsBlock />
       <Modal active={modalActive} setActive={setModalActive}>
