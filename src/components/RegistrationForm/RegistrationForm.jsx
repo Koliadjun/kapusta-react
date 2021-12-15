@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Button from '@material-ui/core/Button';
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 // import { useDispatch } from "react-redux";
 import { Formik } from 'formik';
 // import { authOperations } from "../redux/auth";
@@ -76,7 +76,7 @@ function RegistrationForm() {
     setRegistrationFormNeeded(!registrationFormNeeded);
   };
 
-  const doRegistrationSubmit = useCallback(async (values, { resetForm }) => {
+  const doRegistrationSubmit = async (values, { resetForm }) => {
     try {
       await axios.post(
         'https://kapusta-api-iteam.herokuapp.com/api/auth/registration',
@@ -99,7 +99,7 @@ function RegistrationForm() {
         return resetForm({ values: '' });
       }
     }
-  });
+  };
 
   const doLoginSubmit = async (values, { resetForm }) => {
     try {
