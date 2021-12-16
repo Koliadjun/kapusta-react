@@ -8,6 +8,7 @@ import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/ModalContent/ModalContent';
 import AppBar from 'components/AppBar/AppBar';
 import Summary from 'components/Summary/Summary';
+import Input from 'components/Input/Input';
 
 function App() {
   const [modalActive, setModalActive] = useState(false);
@@ -15,6 +16,7 @@ function App() {
     <div>
       <Container>
         <Transactionslist />
+        <Input></Input>
       </Container>
       {/* <RegistrationForm />
       <AppBar />
