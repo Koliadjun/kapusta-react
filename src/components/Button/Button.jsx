@@ -27,10 +27,10 @@ export default function Button({
   );
 }
 
-Button.propTypes = {
-  text: propTypes.string.isRequired,
-  type: propTypes.string,
-  onClick: propTypes.func.isRequired,
-  rectangle: propTypes.bool,
-  border: propTypes.bool,
-};
+// Button.propTypes = {
+//   text: propTypes.string.isRequired,
+//   type: propTypes.string,
+//   onClick: propTypes.func.isRequired,
+//   rectangle: propTypes.bool,
+//   border: propTypes.bool,
+// };

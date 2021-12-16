@@ -3,7 +3,8 @@ import styles from './Input.module.css';
 
 export default function Input({ sendBalance }) {
   const [input, setInput] = useState('');
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     //callback, that sends balance to DataBase
     sendBalance(false);
     // console.log('onClick');
@@ -12,7 +13,7 @@ export default function Input({ sendBalance }) {
     // console.log('input', input);
 
     setInput(e.target.value);
-    if (input === '') return;
+    // if (input === '') return;
   };
 
   return (

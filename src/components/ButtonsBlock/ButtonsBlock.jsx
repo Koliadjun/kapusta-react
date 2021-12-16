@@ -26,10 +26,10 @@ export default function ButtonsBlock({
   );
 }
 
-ButtonsBlock.propTypes = {
-  textLeftButton: propTypes.string,
-  textRightButton: propTypes.string,
-  onClickLeftButton: propTypes.func.isRequired,
-  onClickRightButton: propTypes.func.isRequired,
-  rectangle: propTypes.bool,
-};
+// ButtonsBlock.propTypes = {
+//   textLeftButton: propTypes.string,
+//   textRightButton: propTypes.string,
+//   onClickLeftButton: propTypes.func.isRequired,
+//   onClickRightButton: propTypes.func.isRequired,
+//   rectangle: propTypes.bool,
+// };

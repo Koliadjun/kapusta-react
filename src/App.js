@@ -11,6 +11,7 @@ import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModa
 import Content from 'components/InitialBalanceFormModal/Content/Content';
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
+import BalanceForm from 'BalanceForm/BalanceForm';
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -18,6 +19,7 @@ function App() {
   const sendBalance = () => {
     setModal(false);
   };
+  const balance = 55000.55;
 
   return (
     <div>
@@ -41,6 +43,7 @@ function App() {
           <Content />
         </Wrapper>
       </BalanceModal>
+      <BalanceForm balance={balance} />
     </div>
   );
 }

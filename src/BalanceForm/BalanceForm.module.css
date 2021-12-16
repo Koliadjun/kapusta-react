@@ -1,18 +1,19 @@
 .form {
   display: flex;
   align-items: center;
-  margin-bottom: 18px;
+  margin: 40px auto 0;
   width: 369px;
   height: 44px;
 
-  background: transparent;
+  /* background: transparent; */
+  background: rgb(182, 182, 207);
 }
 
 .label {
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 21px;
+  align-items: center;
+  justify-content: center;
 
   width: 83px;
   font-family: Roboto;
@@ -20,6 +21,9 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.167;
+  display: flex;
+  align-items: center;
+  text-align: center;
   letter-spacing: 0.02em;
 
   color: rgba(82, 85, 95, 0.7);
@@ -34,7 +38,7 @@
   padding: 12px 20px;
 
   font-weight: 900;
-  color: #ffffff;
+  color: #000;
   border: 2px solid #ffffff;
   box-sizing: border-box;
   border-radius: 16px;
@@ -42,11 +46,11 @@
   background-color: transparent;
 }
 
-::placeholder {
-  color: #000;
-}
-
 .button__balance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 125px;
   height: 44px;
   border-radius: 16px;
@@ -55,18 +59,8 @@
   font-weight: 900;
   font-size: 12px;
   line-height: 1.14;
-  align-items: center;
-  text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   background-color: transparent;
   color: rgba(82, 85, 95, 0.7);
-}
-.button__balance:hover,
-.button__balance:focus {
-  cursor: pointer;
-  transform: scale(1.1);
-  background-color: #ff751d;
-  color: #fff;
-  transition: all 0.2s ease-out;
 }
