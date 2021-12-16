@@ -20,25 +20,33 @@ export default function CategoryImages() {
                 
                 {isToggled ?
                 (<>
-                    <svg className={s.vectorLeft}>
+                    
+                    <h1 className={s.title} onClick={toggleClick}>
+                        <svg className={s.vectorLeft}>
                         <use href={`${sprite}#icon-vector-left`} />
-                   </svg>
-                <h1 className={s.title} onClick={toggleClick}>Расход</h1>
-                    <svg className={s.vectorRight}>
-                        <use href={`${sprite}#icon-vector-right`} />
-                   </svg>
+                        </svg>
+                        Расход
+                        <svg className={s.vectorRight}>
+                            <use href={`${sprite}#icon-vector-right`} />
+                        </svg>
+                    </h1>
+                    
                     <div className={s.listWrap}>
                             <CategoryCoastList />
                     </div>
                 </>) :
                 (<>
-                    <svg className={s.vectorLeft}>
-                        <use href={`${sprite}#icon-vector-left`} />
-                   </svg>
-                    <h1 className={s.title} onClick={toggleClick}>Доход</h1>
-                    <svg className={s.vectorRight}>
-                        <use href={`${sprite}#icon-vector-right`} />
-                   </svg>
+                  
+                    <h1 className={s.title} onClick={toggleClick}>
+                          <svg className={s.vectorLeft}>
+                            <use href={`${sprite}#icon-vector-left`} />
+                        </svg>
+                        Доход
+                        <svg className={s.vectorRight}>
+                            <use href={`${sprite}#icon-vector-right`} />
+                        </svg>
+                    </h1>
+                    
                         <div className={s.listWrap}>
                         <CategoryIncomeList />
                     </div>
