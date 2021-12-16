@@ -12,14 +12,14 @@ import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceForm from 'BalanceForm/BalanceForm';
 import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 
-
 function App() {
   const [modal, setModal] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
     setModal(false);
   };
-  const balance = 55000.55;
+
+  const [balance, setBalance] = useState(0);
 
   return (
     <div>
@@ -38,7 +38,7 @@ function App() {
       <Summary />
       <BalanceModal visible={modal} setVisible={setModal}>
         <Wrapper>
-          <Input sendBalance={sendBalance} />
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
 
           <Content />
         </Wrapper>
