@@ -1,0 +1,94 @@
+.categories{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+
+.listWrap{
+    display: flex;
+    flex-wrap: wrap;
+    height: 268px;
+    justify-content: center;
+    margin: -10px;
+}
+
+.categoryList{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    width: 84px;
+    height: 122px;
+}
+
+.categoryThumb{
+    display: flex;
+    text-align: center;
+    width: calc((100% - 20px) / 6);
+}
+
+.title{
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color:var(--highlight-text-color);
+   cursor: pointer;
+}
+/* .title::before{
+
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    right: 50px;
+   
+    display: block;
+    width: 20px;
+    height: 30px;
+
+    background-image:
+    url(../../images/svg/vector-left.svg);
+      
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+  bottom: -5px;
+left: 50px;
+    display: block;
+    width: 20px;
+    height: 30px;
+    background-image: 
+    url(../../images/svg/vector-right.svg);
+    
+
+} */
+
+
+.vectorLeft{
+    display: block;
+    fill: var(--accent-color);
+    position: absolute;
+    bottom:247px ;
+    left:45%;
+
+ 
+width: 20px;
+height: 20px;
+
+}
+.vectorRight{
+    display: block;
+fill: var(--accent-color);
+position: absolute;
+bottom: 247px;
+left: 53%;
+
+width: 20px;
+height: 20px;
+
+}
