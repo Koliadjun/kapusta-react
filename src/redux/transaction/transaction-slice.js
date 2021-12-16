@@ -10,11 +10,11 @@ const transactionSlice = createSlice({
     name: 'transaction',
     initialState,
     extraReducers: {
-        [transactionOperations.getAll.fulfilled](state, action) {
+        [transactionOperations.getAllTransaction.fulfilled](state, action) {
             state.transaction = action.payload;
             state.error = null
         },
-        [transactionOperations.getAll.rejected](state, { payload }) {
+        [transactionOperations.getAllTransaction.rejected](state, { payload }) {
             state.error = payload;
         },
     }
