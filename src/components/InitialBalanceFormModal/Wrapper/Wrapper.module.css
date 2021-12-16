@@ -1,3 +1,4 @@
-/* .wrapper {
-  background-color: rgb(236, 155, 155);
-} */
+.wrapper {
+  position: fixed;
+  top: 40px;
+}
