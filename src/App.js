@@ -33,7 +33,6 @@ function App() {
           textRightButton={'нет'}
         />
       </Modal>
-
       <button onClick={() => setModalActive(true)}>Проверка модалки</button>
       <Summary />
       <BalanceModal visible={modal} setVisible={setModal}>
@@ -43,7 +42,7 @@ function App() {
           <Content />
         </Wrapper>
       </BalanceModal>
-      <BalanceForm balance={balance} />
+      {!modal === true && <BalanceForm balance={balance} />}
     </div>
   );
 }
