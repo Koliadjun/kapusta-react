@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-import './App.css';
 import RegistrationForm from './components/RegistrationForm';
 import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
@@ -12,6 +10,8 @@ import Content from 'components/InitialBalanceFormModal/Content/Content';
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceForm from 'BalanceForm/BalanceForm';
+import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -26,6 +26,7 @@ function App() {
       <RegistrationForm />
       <AppBar />
       <ButtonsBlock />
+      <IncomeSpendSection />
       <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
           message={'Вы уверены?'}
