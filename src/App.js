@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import RegistrationForm from './components/RegistrationForm';
-import RegistrationForm from './components/RegistrationForm'
 import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
 import ModalContent from 'components/ModalContent/ModalContent';
