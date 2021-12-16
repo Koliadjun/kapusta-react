@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import Button from 'components/Button/Button';
 import s from './ButtonsBlock.module.css';
 
