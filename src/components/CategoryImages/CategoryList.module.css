@@ -30,6 +30,10 @@
     width: calc((100% - 20px) / 6);
 }
 
+.categoryItems:not(:last-child){
+    margin-bottom: 5px;
+}
+
 .title{
     position: relative;
     padding-top: 10px;

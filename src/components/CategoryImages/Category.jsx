@@ -10,11 +10,11 @@ const Category = ({ costs,images, category}) => {
     return (
         <div className={s.categoryThumb}>
             <ul className={s.categoryList}>
-            <li>{costs}</li>
-                <li>
+            <li className={s.categoryItems}>{costs}</li>
+                <li className={s.categoryItems}>
                     <img src={images} alt="icon" />
                 </li>
-            <li>{category}</li>
+            <li className={s.categoryItems}>{category}</li>
             </ul>
         </div>
     )
