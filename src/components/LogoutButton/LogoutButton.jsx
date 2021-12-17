@@ -8,7 +8,7 @@ function LogoutButton({ token }) {
   const onLogoutButtonClick = async () => {
     try {
       const response = await axios.get(
-        'https://kapusta-api-iteam.herokuapp.com/api/auth/logout',
+        'http://localhost:5000/api/auth/logout',
       );
       console.log(response);
     } catch (err) {

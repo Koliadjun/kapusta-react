@@ -31,17 +31,17 @@ const loginValidate = values => {
 const registrationValidate = values => {
   const errors = {};
 
-  if (!values.password) {
-    errors.password = 'Required';
-  } else if (values.password.length > 20) {
-    errors.password = 'Must be between 3 and 20 symbols';
-  }
+  // if (!values.password) {
+  //   errors.password = 'Required';
+  // } else if (values.password.length > 20) {
+  //   errors.password = 'Must be between 3 and 20 symbols';
+  // }
 
-  if (!values.repeatPassword) {
-    errors.repeatPassword = 'Required';
-  } else if (values.password !== values.repeatPassword) {
-    errors.repeatPassword = 'Must be equal to password';
-  }
+  // if (!values.repeatPassword) {
+  //   errors.repeatPassword = 'Required';
+  // } else if (values.password !== values.repeatPassword) {
+  //   errors.repeatPassword = 'Must be equal to password';
+  // }
 
   if (!values.email) {
     errors.email = 'Required';
@@ -79,7 +79,7 @@ function RegistrationForm() {
   const doRegistrationSubmit = async (values, { resetForm }) => {
     try {
       await axios.post(
-        'https://kapusta-api-iteam.herokuapp.com/api/auth/registration',
+        'http://localhost:5000/api/auth/registration',
         {
           email: values.email,
           password: values.password,
@@ -106,7 +106,7 @@ function RegistrationForm() {
       const {
         data: { token },
       } = await axios.post(
-        'https://kapusta-api-iteam.herokuapp.com/api/auth/login',
+        'http://localhost:5000/api/auth/login',
         {
           email: values.email,
           password: values.password,
@@ -128,6 +128,9 @@ function RegistrationForm() {
 
   return !registrationFormNeeded ? (
     <div className={s.div}>
+      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
+      <a href="http://localhost:5000/api/auth/google" className={s.google}>Click me to authorize with Google!</a>
+      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
       <Formik
         initialValues={loginInitialValues}
         validate={loginValidate}
@@ -207,6 +210,9 @@ function RegistrationForm() {
     </div>
   ) : (
     <div className={s.div}>
+      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
+      <a href="http://localhost:5000/auth/google" className={s.google}>Click me to authorize with Google!</a>
+      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
       <Formik
         initialValues={registrationInitialValues}
         validate={registrationValidate}
@@ -273,7 +279,7 @@ function RegistrationForm() {
               name="login"
               onClick={onButtonClick}
             >
-              Go back to login
+              Back to login
             </Button>
 
             <Button
