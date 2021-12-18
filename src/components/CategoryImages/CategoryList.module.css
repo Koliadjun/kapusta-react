@@ -1,10 +1,10 @@
 .categories{
-   
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;   
+   
+    
 }
 
 .listWrap{
@@ -13,6 +13,8 @@
     height: 268px;
     justify-content: center;
     margin: -10px;
+    
+
 }
 
 .categoryList{
@@ -22,6 +24,8 @@
    justify-content: center;
     width: 84px;
     height: 122px;
+    color: var(--highlight-text-color);
+
 }
 
 .categoryThumb{
@@ -47,9 +51,6 @@
    cursor: pointer;
 }
 
-
-
-
 .vectorLeft{
     display: block;
     fill: var(--accent-color);
@@ -71,3 +72,13 @@
     height: 20px;
 
 }
+
+.categoryImage{
+  fill: red;
+  color: currentColor;
+}
+
+
+/* .categoryImages:hover{
+    fill: var(--accent-color);
+} */

@@ -12,7 +12,7 @@ const Category = ({ costs,images, category}) => {
             <ul className={s.categoryList}>
             <li className={s.categoryItems}>{costs}</li>
                 <li className={s.categoryItems}>
-                    <img src={images} alt="icon" />
+                    <img src={images} alt="icon" className={s.categoryImage}/>
                 </li>
             <li className={s.categoryItems}>{category}</li>
             </ul>
