@@ -7,7 +7,7 @@ export default function BalanceForm({ balance }) {
     <div className={styles.form}>
       <div className={styles.label}>Баланс:</div>
       <div className={styles.input} name="balanceInput">
-        {balance} UAH
+        {balance}
       </div>
       <div className={styles.button__balance}>ПОДТВЕРДИТЬ</div>
     </div>
