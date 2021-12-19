@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import RegistrationForm from './components/RegistrationForm';
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
-import AppBar from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
 
-import CategoryImages from './components/CategoryImages';
-
-import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-import Content from 'components/InitialBalanceFormModal/Content/Content';
-import Input from 'components/InitialBalanceFormModal/Input/Input';
-import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
-import BalanceForm from 'BalanceForm/BalanceForm';
-import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+// import React, { useState } from 'react';
+import HomePage from './view/HomePage';
+// import RegistrationForm from './components/RegistrationForm';
+// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+// import Modal from 'components/Modal/Modal';
+// import ModalContent from 'components/ModalContent/ModalContent';
+// import AppBar from 'components/AppBar/AppBar';
+// import Summary from 'components/Summary/Summary';
+// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
+// import Content from 'components/InitialBalanceFormModal/Content/Content';
+// import Input from 'components/InitialBalanceFormModal/Input/Input';
+// import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
+// import BalanceForm from 'BalanceForm/BalanceForm';
+// import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+import Loader from 'components/Loader/Loader';
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -21,13 +22,15 @@ function App() {
   const sendBalance = () => {
     setModal(false);
   };
-  const balance = 55000.55;
+
+  const [balance, setBalance] = useState(0);
 
   return (
     <div>
-      <RegistrationForm />
-      <AppBar />
-      <ButtonsBlock />
+      <HomePage></HomePage>
+      {/* <RegistrationForm /> */}
+      {/* <AppBar /> */}
+      {/* <ButtonsBlock />
       <IncomeSpendSection />
       <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
@@ -41,12 +44,13 @@ function App() {
       <CategoryImages />
       <BalanceModal visible={modal} setVisible={setModal}>
         <Wrapper>
-          <Input sendBalance={sendBalance} />
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
 
           <Content />
         </Wrapper>
       </BalanceModal>
-      {!modal === true && <BalanceForm balance={balance} />}
+      {!modal === true && <BalanceForm balance={balance} />} */}
+      <Loader />
     </div>
   );
 }
