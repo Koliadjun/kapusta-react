@@ -1,37 +1,37 @@
 import React, { useState } from 'react';
+import Select from 'react-select';
 import list from './list.json';
 import s from './styles.module.css';
 
-export default function CategoryList() {
-  const [category, setCategory] = useState('');
+export default function CategoryList({ categoryType = 'Категория товара' }) {
+  const [selectedOption, setSelectedOption] = useState({});
 
-  const handlerChange = event => {
-    event.preventDefault();
-    setCategory(event.target.value);
+  const handlerChange = (selectedOption) => {
+    setSelectedOption({
+      category:categoryType,
+      name:selectedOption.value
+    });
   };
+  const filtredArray = Array.from(
+    list.map(item => {
+      let result
+      if (item.type === categoryType) {
+        return result= Object.assign({
+          value: item.name,
+          label: item.name,
+        })}
+      return result
+    }),
+  );
+  const options=filtredArray.filter(item=>item!==undefined)
 
   return (
     <form>
-      <span className={s.inputWrapper}>
-        <input
-          type="text"
-          className={s.categoryInput}
-          list="category"
-          name="categotyItem"
-          placeholder="Категория товара"
-          onChange={handlerChange}
-          />
-        </span>
-      
-      <datalist id="category" className={s.datalist}>
-        {list.map(item => {
-          return (
-            <option key={item.id} value={item.name} className={s.datalistItem}>
-              {item.name}
-            </option>
-          );
-        })}
-      </datalist>
+      <Select
+       placeholder={categoryType}
+        onChange={handlerChange}
+        options={options}
+      />
     </form>
   );
 }
