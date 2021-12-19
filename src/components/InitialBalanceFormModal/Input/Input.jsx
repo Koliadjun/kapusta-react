@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
+import NumberFormat from 'react-number-format';
+
 import styles from './Input.module.css';
 
-export default function Input({ sendBalance }) {
+export default function Input({ sendBalance, setBalance }) {
   const [input, setInput] = useState('');
   const onSubmit = e => {
     e.preventDefault();
     //callback, that sends balance to DataBase
     sendBalance(false);
-    // console.log('onClick');
+    setBalance(input);
+    document.body.style.overflow = 'auto';
   };
   const onChange = e => {
-    // console.log('input', input);
-
     setInput(e.target.value);
-    // if (input === '') return;
   };
 
   return (
@@ -21,15 +21,29 @@ export default function Input({ sendBalance }) {
       <label className={styles.label} htmlFor="balanceInput">
         Баланс:
       </label>
-      <input
+      {/* <input
         className={styles.input}
         value={input}
         id="balanceInput"
         name="balanceInput"
-        type="text"
+        type="number"
         pattern="\d+(\.\d{2})?"
         placeholder="00.00 UAH"
         autoComplete="off"
+        onChange={onChange}
+        required
+        suffix=" UAH"
+      /> */}
+      <NumberFormat
+        className={styles.input}
+        value={input}
+        thousandSeparator={' '}
+        decimalSeparator="."
+        decimalScale={2}
+        fixedDecimalScale
+        suffix=" UAH"
+        displayType="input"
+        placeholder="00.00 UAH"
         onChange={onChange}
         required
       />

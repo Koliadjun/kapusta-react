@@ -11,7 +11,7 @@ import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceForm from 'BalanceForm/BalanceForm';
 import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
-
+import Loader from 'components/Loader/Loader' 
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -19,7 +19,8 @@ function App() {
   const sendBalance = () => {
     setModal(false);
   };
-  const balance = 55000.55;
+
+  const [balance, setBalance] = useState(0);
 
   return (
     <div>
@@ -38,12 +39,13 @@ function App() {
       <Summary />
       <BalanceModal visible={modal} setVisible={setModal}>
         <Wrapper>
-          <Input sendBalance={sendBalance} />
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
 
           <Content />
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
+      <Loader />
     </div>
   );
 }
