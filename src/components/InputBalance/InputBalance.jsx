@@ -1,10 +1,11 @@
 import React from 'react';
-import s from './input.module.css';
+import s from './inputBalance.module.css';
 
-export default function Input({
+export default function InputBalance({
   text = 'text',
   name = 'name',
-  placeholder = 'data',
+  placeholder = '00.00 UAN',
+  onChange,
 }) {
   return (
     <div>
@@ -13,6 +14,7 @@ export default function Input({
         name={name}
         type={text}
         placeholder={placeholder}
+        onChange={onChange}
       />
     </div>
   );

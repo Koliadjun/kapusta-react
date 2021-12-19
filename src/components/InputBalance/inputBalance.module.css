@@ -19,6 +19,8 @@ body {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   border: 2px solid #fff;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
   background-color: transparent;
   color: black;
 }
@@ -28,9 +30,9 @@ body {
   text-transform: none;
 }
 
-@media screen and (max-width: 768px) {
-  input {
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
+@media screen and (min-width: 768px) {
+  .input {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
   }
 }
