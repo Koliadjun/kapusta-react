@@ -1,3 +1,4 @@
+
 // import React, { useState } from 'react';
 import HomePage from './view/HomePage';
 // import RegistrationForm from './components/RegistrationForm';
@@ -12,6 +13,7 @@ import HomePage from './view/HomePage';
 // import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 // import BalanceForm from 'BalanceForm/BalanceForm';
 // import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+import Loader from 'components/Loader/Loader' 
 
 
 function App() {
@@ -46,6 +48,7 @@ function App() {
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />} */}
+      <Loader />
     </div>
   );
 }
