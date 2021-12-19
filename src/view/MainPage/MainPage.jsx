@@ -1,0 +1,54 @@
+import React, { useState } from 'react';
+
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import AppBar from '../../components/AppBar/AppBar';
+import ButtonsBlock from '../../components/ButtonsBlock/ButtonsBlock';
+import IncomeSpendSection from '../../components/IncomeSpendSection/IncomeSpendSection';
+import ModalContent from '../../components/ModalContent/ModalContent';
+import Summary from '../../components/Summary/Summary';
+import Wrapper from '../../components/InitialBalanceFormModal/Wrapper/Wrapper';
+import Input from '../../components/InitialBalanceFormModal/Input/Input';
+import Content from '../../components/InitialBalanceFormModal/Content/Content';
+import BalanceLine from '../../components/BalanceLine/BalanceLine';
+import Loader from '../../components/Loader/Loader';
+import Modal from '../../components/Modal/Modal';
+import BalanceModal from '../../components/InitialBalanceFormModal/Modal/BalanceModal';
+
+function MainPage() {
+  const [modal, setModal] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
+  const sendBalance = () => {
+    setModal(false);
+  };
+
+  const [balance, setBalance] = useState(0);
+
+  return (
+    <div>
+      <RegistrationForm />
+      <AppBar />
+      <ButtonsBlock />
+      <IncomeSpendSection />
+      <Modal active={modalActive} setActive={setModalActive}>
+        <ModalContent
+          message={'Вы уверены?'}
+          textLeftButton={'да'}
+          textRightButton={'нет'}
+        />
+      </Modal>
+      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
+      <Summary />
+      <BalanceModal visible={modal} setVisible={setModal}>
+        <Wrapper>
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
+
+          <Content />
+        </Wrapper>
+      </BalanceModal>
+      <BalanceLine balance={balance} />
+
+      <Loader />
+    </div>
+  );
+}
+export default MainPage;

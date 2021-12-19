@@ -1,0 +1,13 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  fill: #52555f;
+}
+
+.containerReportButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
