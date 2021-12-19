@@ -14,11 +14,12 @@
   --placeholders-text-color: #c7ccdc;
 }
 body {
-  margin: 0;
+  /* margin: 0; */
   font: normal var(--main-font-weight) var(--main-font-size) 'Roboto',
     sans-serif;
   line-height: 1.17;
   overflow: hidden;
+  background-color: #f5f6fb;
 }
 
 h1,
