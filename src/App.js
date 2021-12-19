@@ -11,6 +11,7 @@ import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceForm from 'BalanceForm/BalanceForm';
 import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+import Loader from 'components/Loader/Loader' 
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
+      <Loader />
     </div>
   );
 }
