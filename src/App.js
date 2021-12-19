@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   Routes,
@@ -22,14 +23,18 @@ import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection
 import CommentView from './views/CommentView'
 import HomeView from './views/HomeView'
 import ReportView from './views/ReportView'
+import HomePage from './view/HomePage';
+import Loader from 'components/Loader/Loader' 
 
 function App() {
+
   const [modal, setModal] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
     setModal(false);
   };
-  const balance = 55000.55;
+
+  const [balance, setBalance] = useState(0);
 
   return (
     <div>
@@ -44,6 +49,7 @@ function App() {
       <ButtonsBlock />
       <IncomeSpendSection /> */}
       {/* <Modal active={modalActive} setActive={setModalActive}>
+
         <ModalContent
           message={'Вы уверены?'}
           textLeftButton={'да'}
@@ -54,12 +60,15 @@ function App() {
       <Summary /> */}
       {/* <BalanceModal visible={modal} setVisible={setModal}>
         <Wrapper>
-          <Input sendBalance={sendBalance} />
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
 
           <Content />
         </Wrapper>
+
       </BalanceModal> */}
       {/* {!modal === true && <BalanceForm balance={balance} />} */}
+      <Loader />
+
     </div>
   );
 }
