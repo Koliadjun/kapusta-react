@@ -2,10 +2,10 @@ import React from 'react';
 import s from './inputDescriptionProduct.module.css';
 
 export default function InputDescriptionProduct({
-  type = 'text',
-  placeholder = 'your@email.com',
+  type,
+  placeholder,
   onChange,
-  name = 'name',
+  name,
 }) {
   return (
     <div>

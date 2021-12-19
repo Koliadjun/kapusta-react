@@ -39,10 +39,10 @@
   .tabletItem:not(:last-child) {
     margin-bottom: 10px;
   }
-
+  /* 
   .wrapperDescDataCategory {
     display: flex;
-  }
+  } */
 
   .description {
     font-weight: bold;
@@ -66,9 +66,9 @@
     line-height: 0.88;
     letter-spacing: 0.04em;
   }
-  .wrapperDescDataCategory {
+  /* .wrapperDescDataCategory {
     align-items: flex-end;
-  }
+  } */
 }
 
 @media screen and (min-width: 768px) {
@@ -84,6 +84,7 @@
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
 
@@ -100,16 +101,16 @@
     color: #52555f;
   }
 
-  .wrapperDatCategory {
+  /* .wrapperDatCategory {
     display: flex;
-  }
+  } */
 
-  .wrapperDescDataCategory {
+  /* .wrapperDescDataCategory {
     display: flex;
     justify-content: center;
     align-items: center;
     /* width: 100%; */
-  }
+  /* }  */
 
   .revers {
     display: flex;
@@ -140,17 +141,8 @@
   padding: none;
 }
 
-.wrapperSumBtn {
+/* .wrapperSumBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.scrollBar {
-  color: red;
-}
-
-.scrollBar::before {
-  background-color: red;
-  color: red;
-}
+} */
