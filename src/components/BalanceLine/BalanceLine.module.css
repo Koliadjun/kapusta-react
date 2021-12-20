@@ -1,4 +1,8 @@
 .line {
   display: flex;
-  width: 100%;
+  width: 1060px;
+  margin: 0 auto;
+  background-color: #f2f5fc;
+  padding-top: 40px;
+  padding-bottom: 9px;
 }

@@ -13,14 +13,14 @@ export default function AppBar() {
     setIsLogin(!isLogin);
   };
   return (
-    <Container>
-      <div className={s.appBar}>
-        <Header />
-        <button type="button" onClick={toggleClick}>
-          isLogin
-        </button>
-        {isLogin && <LogOutHeaderMenu />}
-      </div>
-    </Container>
+    // <Container>
+    <div className={s.appBar}>
+      <Header />
+      <button type="button" onClick={toggleClick}>
+        isLogin
+      </button>
+      {isLogin && <LogOutHeaderMenu />}
+    </div>
+    // </Container>
   );
 }

@@ -13,6 +13,7 @@ import BalanceLine from '../../components/BalanceLine/BalanceLine';
 import Loader from '../../components/Loader/Loader';
 import Modal from '../../components/Modal/Modal';
 import BalanceModal from '../../components/InitialBalanceFormModal/Modal/BalanceModal';
+import Container from 'components/Container/Container';
 
 function MainPage() {
   const [modal, setModal] = useState(true);
@@ -25,10 +26,16 @@ function MainPage() {
 
   return (
     <div>
-      <RegistrationForm />
-      <AppBar />
-      <ButtonsBlock />
-      <IncomeSpendSection />
+      <Container>
+        <AppBar />
+        <BalanceLine modal={modal} balance={balance} />
+        <RegistrationForm />
+        <ButtonsBlock />
+        <IncomeSpendSection />
+
+        <button onClick={() => setModalActive(true)}>Проверка модалки</button>
+        <Summary />
+      </Container>
       <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
           message={'Вы уверены?'}
@@ -36,8 +43,6 @@ function MainPage() {
           textRightButton={'нет'}
         />
       </Modal>
-      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
-      <Summary />
       <BalanceModal visible={modal} setVisible={setModal}>
         <Wrapper>
           <Input sendBalance={sendBalance} setBalance={setBalance} />
@@ -45,7 +50,6 @@ function MainPage() {
           <Content />
         </Wrapper>
       </BalanceModal>
-      <BalanceLine balance={balance} />
 
       <Loader />
     </div>
