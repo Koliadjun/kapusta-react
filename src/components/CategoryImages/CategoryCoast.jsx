@@ -2,7 +2,7 @@
 import React from "react"
 import s from './CategoryList.module.css'
 
-import sprite from '../../images/svg/icon.svg';
+// import sprite from '../../images/svg/icon.svg';
 import trans from '../../components/CategoryImages/categoriesCoasts.json'
 
 const CategoryCoast = () => {
@@ -27,7 +27,7 @@ const CategoryCoast = () => {
             <svg className={s.icon}>
               <use
                 className={s.useSvg}
-                xlinkHref={`${sprite}#${trans.category}`}
+                xlinkHref={trans.images}
               />
             </svg>
 

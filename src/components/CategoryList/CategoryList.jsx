@@ -6,7 +6,6 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 import CategoryCoast from '../CategoryImages/CategoryCoast'
 import CategoryIncome from '../CategoryImages/CategoryIncome'
-import CategoryIncomeList from '../CategoryImages/CategoryIncomeList'
 import s from './CategoryList.module.css'
 
 
