@@ -1,0 +1,24 @@
+.categoryForm {
+  width: 282px;
+  display: inline-block;
+}
+.categoryFormTablet {
+  width: 171px;
+  display: inline-block;
+}
+
+.categoryFormDesktop {
+  width: 188px;
+  display: inline-block;
+}
+.categoryFormSelect {
+  color: var(--placeholders-text-color);
+  border: none;
+  padding: 0;
+}
+
+:global .css-1efk6oh-Control {
+  justify-content: space-between;
+  align-items: center;
+}
+
