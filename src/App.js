@@ -12,6 +12,7 @@ import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceForm from 'BalanceForm/BalanceForm';
 import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 import Loader from 'components/Loader/Loader' 
+import CategoryList from 'components/CategoryList';
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -46,6 +47,7 @@ function App() {
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
       <Loader />
+      <CategoryList/>
     </div>
   );
 }
