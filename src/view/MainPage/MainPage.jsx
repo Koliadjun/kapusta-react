@@ -14,6 +14,7 @@ import Loader from '../../components/Loader/Loader';
 import Modal from '../../components/Modal/Modal';
 import BalanceModal from '../../components/InitialBalanceFormModal/Modal/BalanceModal';
 import Container from 'components/Container/Container';
+import Datepicker from 'components/DatePicker/Datepicker';
 
 function MainPage({ balance, setBalance, modal, setModal, name }) {
   // const [modal, setModal] = useState(true);
@@ -29,6 +30,10 @@ function MainPage({ balance, setBalance, modal, setModal, name }) {
       <Container>
         <AppBar />
         <BalanceLine modal={modal} balance={balance} name={name} />
+        <div style={{ margin: 20 }}>
+          <Datepicker />
+        </div>
+
         <RegistrationForm />
         <ButtonsBlock />
         <IncomeSpendSection />

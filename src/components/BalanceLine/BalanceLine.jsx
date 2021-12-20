@@ -4,6 +4,7 @@ import styles from './BalanceLine.module.css';
 import BalanceForm from './BalanceForm/BalanceForm';
 import ReportButton from './ReportButton/ReportButton';
 import BackHomeButton from './BackHomeButton/BackHomeButton';
+import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 
 export default function BalanceLine({ balance, modal, name }) {
   return (
@@ -13,6 +14,7 @@ export default function BalanceLine({ balance, modal, name }) {
           {name === 'report' && <BackHomeButton />}
           <BalanceForm balance={balance} />
           {name === 'main' && <ReportButton />}
+          {name === 'report' && <CurrentPeriod />}
         </div>
       )}
     </div>

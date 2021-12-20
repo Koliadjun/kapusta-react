@@ -19,7 +19,7 @@ function Datepicker({ onSelectedDate }) {
   const handleSelect = date => {
     setSelectedDate(date);
     // console.log(formatDate); //only for testing
-    // console.log(selectedDate); //only for testing
+    console.log(selectedDate); //only for testing
     onSelectedDate({ day, month, year });
   };
 
