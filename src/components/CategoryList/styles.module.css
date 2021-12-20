@@ -1,25 +1,33 @@
 .categoryForm {
+  width: 282px;
   display: inline-block;
-  padding: 14px 20px;
-  border: 2px solid var(--main-background-color);
-box-sizing: border-box;
-border-bottom-right-radius: 16px;
- }
+}
+.categoryFormTablet {
+  width: 171px;
+  display: inline-block;
+}
 
+.categoryFormDesktop {
+  width: 188px;
+  display: inline-block;
+}
 .categoryFormSelect {
- color: var(--placeholders-text-color);
+  color: var(--placeholders-text-color);
   border: none;
   padding: 0;
-
-}
-:global .css-tlfecz-indicatorContainer{
-  padding:0;
 }
 
-:global .css-1efk6oh-Control{
-justify-content: space-between;
-align-items: center;
+:global .css-1efk6oh-Control {
+  justify-content: space-between;
+  align-items: center;
 }
-.optionItem{
-  padding: 12px 20px;
-}
+
+/* :global .css-tlfecz-indicatorContainer>.css-ngvvkf-MenuList:active {  
+    transform:rotate(180deg);
+  
+} */
+/* 
+:global .css-tlfecz-indicatorContainer:active{
+  transform:rotate(180deg)
+  
+} */
