@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MediaQuery from 'react-responsive';
 import Select from 'react-select';
+import PropTypes from 'prop-types';
 import list from './list.json';
 import s from './styles.module.css';
 
@@ -248,3 +249,7 @@ export default function CategoryList({ categoryType = 'Категория тов
     </>
   );
 }
+
+CategoryList.propTypes={
+  categoryType:PropTypes.string
+};
