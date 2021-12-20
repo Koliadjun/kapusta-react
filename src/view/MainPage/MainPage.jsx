@@ -15,14 +15,14 @@ import Modal from '../../components/Modal/Modal';
 import BalanceModal from '../../components/InitialBalanceFormModal/Modal/BalanceModal';
 import Container from 'components/Container/Container';
 
-function MainPage() {
-  const [modal, setModal] = useState(true);
+function MainPage({ balance, setBalance, modal, setModal }) {
+  // const [modal, setModal] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
     setModal(false);
   };
 
-  const [balance, setBalance] = useState(0);
+  // const [balance, setBalance] = useState(0);
 
   return (
     <div>
