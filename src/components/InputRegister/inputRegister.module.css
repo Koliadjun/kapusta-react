@@ -1,0 +1,31 @@
+.input {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+  outline: none;
+  border: none;
+  width: 253px;
+  height: 52px;
+  padding: 17px 20px;
+  background: #f6f7fb;
+  border-radius: 30px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 0.875;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+
+.input::placeholder {
+  /* font-size: 14px;
+  line-height: 0.875;
+  letter-spacing: 0.04em; */
+  color: #a6abb9;
+}
+
+@media screen and (min-width: 768) {
+  .input {
+    width: 265px;
+  }
+}
