@@ -11,30 +11,62 @@ import Summary from 'components/Summary/Summary';
 import InputBalance from 'components/InputBalance/InputBalance';
 import InputRegister from 'components/InputRegister/InputRegister';
 import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
+// import HomePage from './view/HomePage';
+// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
+// import Content from 'components/InitialBalanceFormModal/Content/Content';
+// import Input from 'components/InitialBalanceFormModal/Input/Input';
+// import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
+// import BalanceForm from 'BalanceForm/BalanceForm';
+import Tabs from 'components/Tabs/Tabs';
+// import Loader from 'components/Loader/Loader';
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
+  // const [modal, setModal] = useState(true);
+  // const [modalActive, setModalActive] = useState(false);
+  // const sendBalance = () => {
+  //   setModal(false);
+  // };
+
+  // const [balance, setBalance] = useState(0);
+
   return (
     <div>
+
       <Container>
         <Transactionslist />
         <InputBalance></InputBalance>
         <InputRegister></InputRegister>
         <InputDescriptionProduct></InputDescriptionProduct>
       </Container>
+
+      <Tabs />
+      {/* <HomePage></HomePage> */}
+
       {/* <RegistrationForm />
       <AppBar />
-      <ButtonsBlock />
-      <Modal active={modalActive} setActive={setModalActive}>
+      <ButtonsBlock /> */}
+      {/* <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
           message={'Вы уверены?'}
           textLeftButton={'да'}
           textRightButton={'нет'}
         />
-      </Modal>
+      </Modal> */}
+      {/* <button onClick={() => setModalActive(true)}>Проверка модалки</button> */}
+      {/* <BalanceModal visible={modal} setVisible={setModal}>
+        <Wrapper>
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
+
 
       <button onClick={() => setModalActive(true)}>Проверка модалки</button>
       <Summary /> */}
+
+          <Content />
+        </Wrapper>
+      </BalanceModal> */}
+      {/* {!modal === true && <BalanceForm balance={balance} />} */}
+      {/* <Loader /> */}
+
     </div>
   );
 }
