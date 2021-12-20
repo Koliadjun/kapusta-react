@@ -1,25 +1,19 @@
 import React from 'react';
-import axios from 'axios';
+import {authOperations} from '../../redux/auth';
+import {useDispatch, useSelector} from 'react-redux';
+import {authSelectors} from '../../redux/auth'
 
-function LogoutButton({ token }) {
-  if (token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  }
+function LogoutButton() {
+  const dispatch = useDispatch();
   const onLogoutButtonClick = async () => {
-    try {
-      const response = await axios.get(
-        'http://localhost:5000/api/auth/logout',
-      );
-      console.log(response);
-    } catch (err) {
-      alert(err.response.data.message);
-    }
+    
+    dispatch(authOperations.logOut())
   };
-  return token ? (
+  return (
     <div>
       <button onClick={onLogoutButtonClick}>Logout</button>
     </div>
-  ) : null;
+  ) 
 }
 
 export default LogoutButton;

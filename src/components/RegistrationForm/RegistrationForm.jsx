@@ -10,6 +10,10 @@ import { Formik } from 'formik';
 import s from './RegistrationForm.module.css';
 import axios from 'axios';
 import LogoutButton from 'components/LogoutButton';
+import {authOperations} from '../../redux/auth';
+import {useDispatch, useSelector} from 'react-redux';
+import {authSelectors} from '../../redux/auth';
+import { useNavigate } from "react-router-dom";
 
 const loginValidate = values => {
   const errors = {};
@@ -52,10 +56,11 @@ const registrationValidate = values => {
 };
 
 function RegistrationForm() {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   const [showPassword, setShowPassword] = useState(false);
   const [registrationFormNeeded, setRegistrationFormNeeded] = useState(false);
-  const [userToken, setUserToken] = useState(null);
-  //   const dispatch = useDispatch();
 
   const loginInitialValues = {
     email: '',
@@ -76,54 +81,17 @@ function RegistrationForm() {
     setRegistrationFormNeeded(!registrationFormNeeded);
   };
 
-  const doRegistrationSubmit = async (values, { resetForm }) => {
-    try {
-      await axios.post(
-        'http://localhost:5000/api/auth/registration',
-        {
-          email: values.email,
-          password: values.password,
-        },
-      );
-      resetForm({ values: '' });
-      return alert(
-        'Registration was successful! Please, check your email for account verification',
-      );
-    } catch (err) {
-      if (err.response.status !== 409) {
-        alert('We got some problems with servers. Please try again later');
-        return resetForm({ values: '' });
-      }
-      if (err.response.status === 409) {
-        alert(err.response.data.message);
-        return resetForm({ values: '' });
-      }
-    }
+  const doRegistrationSubmit = (values, { resetForm }) => {
+    dispatch(authOperations.registration(values))
+    resetForm({ values: "" });
+    setRegistrationFormNeeded(true)
   };
 
   const doLoginSubmit = async (values, { resetForm }) => {
-    try {
-      const {
-        data: { token },
-      } = await axios.post(
-        'http://localhost:5000/api/auth/login',
-        {
-          email: values.email,
-          password: values.password,
-        },
-      );
+    dispatch(authOperations.logIn(values))
       resetForm({ values: '' });
-      return setUserToken(token);
-    } catch (err) {
-      if (err.response.status === 401) {
-        alert(err.response.data.message);
-        return resetForm({ values: '' });
-      }
-      if (err.response.status !== 401) {
-        alert('We got some problems with servers. Please try again later');
-        return resetForm({ values: '' });
-      }
-    }
+
+      
   };
 
   return !registrationFormNeeded ? (
@@ -206,7 +174,8 @@ function RegistrationForm() {
           </form>
         )}
       </Formik>
-      <LogoutButton token={userToken} />
+      {isLoggedIn ? <LogoutButton /> : null}
+      
     </div>
   ) : (
     <div className={s.div}>
