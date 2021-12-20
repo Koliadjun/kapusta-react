@@ -20,13 +20,13 @@
     {
         "id": "4",
         "costs": "900",
-        "images": "images/svg/kite.svg",
+        "images": "images/svg/health.svg",
         "category": "здоровье"
     },
     {
         "id": "5",
         "costs": "2000",
-        "images": "images/svg/health.svg",
+        "images": "images/svg/car.svg",
         "category": "транспорт"
     },
     {
@@ -38,7 +38,7 @@
     {
         "id": "7",
         "costs": "800",
-        "images": "images/svg/tools.svg",
+        "images": "/images/svg/tools.svg",
         "category": "техника"
     },
     {

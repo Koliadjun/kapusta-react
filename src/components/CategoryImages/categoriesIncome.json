@@ -38,7 +38,7 @@
     {
         "id": "7",
         "costs": "900",
-        "images": "../../../images/svg/tools.svg",
+        "images": "/images/svg/tools.svg",
         "category": "техника"
     },
     {
