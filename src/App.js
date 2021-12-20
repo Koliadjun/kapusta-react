@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 // import './App.css';
 import Transactionslist from 'components/Transactionslist/Transactionslist';
 import Container from 'components/Container/Container';
-import RegistrationForm from './components/RegistrationForm';
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
-import AppBar from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
+// import RegistrationForm from './components/RegistrationForm';
+// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+// import Modal from 'components/Modal/Modal';
+// import ModalContent from 'components/ModalContent/ModalContent';
+// import AppBar from 'components/AppBar/AppBar';
+// import Summary from 'components/Summary/Summary';
 import InputBalance from 'components/InputBalance/InputBalance';
 import InputRegister from 'components/InputRegister/InputRegister';
 import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
@@ -61,9 +61,9 @@ function App() {
       <button onClick={() => setModalActive(true)}>Проверка модалки</button>
       <Summary /> */}
 
-          <Content />
+      {/* <Content />
         </Wrapper>
-      </BalanceModal> */}
+      </BalanceModal> } */}
       {/* {!modal === true && <BalanceForm balance={balance} />} */}
       {/* <Loader /> */}
 
