@@ -14,7 +14,14 @@ function App() {
         <Routes>
           <Route
             path="/report"
-            element={<ReportPage balance={balance} setBalance={setBalance} />}
+            element={
+              <ReportPage
+                modal={modal}
+                balance={balance}
+                setBalance={setBalance}
+                name={'report'}
+              />
+            }
           />
           <Route
             path="/"
@@ -24,6 +31,7 @@ function App() {
                 setModal={setModal}
                 balance={balance}
                 setBalance={setBalance}
+                name={'main'}
               />
             }
           />

@@ -15,7 +15,7 @@ import Modal from '../../components/Modal/Modal';
 import BalanceModal from '../../components/InitialBalanceFormModal/Modal/BalanceModal';
 import Container from 'components/Container/Container';
 
-function MainPage({ balance, setBalance, modal, setModal }) {
+function MainPage({ balance, setBalance, modal, setModal, name }) {
   // const [modal, setModal] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
@@ -28,7 +28,7 @@ function MainPage({ balance, setBalance, modal, setModal }) {
     <div>
       <Container>
         <AppBar />
-        <BalanceLine modal={modal} balance={balance} />
+        <BalanceLine modal={modal} balance={balance} name={name} />
         <RegistrationForm />
         <ButtonsBlock />
         <IncomeSpendSection />
