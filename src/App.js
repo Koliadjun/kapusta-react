@@ -18,9 +18,9 @@ function App() {
     <div>
       <Container>
         <Transactionslist />
-        <InputBalance></InputBalance>
+        {/* <InputBalance></InputBalance>
         <InputRegister></InputRegister>
-        <InputDescriptionProduct></InputDescriptionProduct>
+        <InputDescriptionProduct></InputDescriptionProduct> */}
       </Container>
       {/* <RegistrationForm />
       <AppBar />
