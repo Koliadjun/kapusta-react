@@ -12,25 +12,23 @@
   margin-left: 20px;
 }
 
-
-
 .userAvatar{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  margin-right: 15px;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.userName{
+.userName {
   display: flex;
   align-items: center;
-   font-weight: var(--main-font-weight);
+  font-weight: var(--main-font-weight);
   font-size: var(--main-font-size);
   color: var(--disable-text-color);
-  
 }
+
 
 .userName::after {
   content: '';
@@ -45,4 +43,39 @@
 .userMenu{
     display: flex;
     align-items: center;
+}
+
+.iconButton{
+  background-color: transparent;
+cursor: pointer;
+border-color: transparent;
+}
+
+.logOutIcon{
+  width: 16px;
+height: 16px;
+fill: #CBCCD0;
+}
+
+.hederModalOut {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+}
+
+
+@media screen and (min-width: 320px) and ( max-width: 768px){
+ 
+.userAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+}
+
+
+
 }
