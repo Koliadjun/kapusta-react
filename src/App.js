@@ -7,7 +7,7 @@ import {
   Navigate,
   useNavigate,
 } from 'react-router-dom';
-import RegistrationForm from './components/RegistrationForm';
+// import RegistrationForm from './components/RegistrationForm';
 import CategoryList from 'components/CategoryList';
 import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
@@ -24,7 +24,7 @@ import Loader from 'components/Loader';
 
 import CommentView from './views/CommentView';
 import HomeView from './views/HomeView';
-import ReportView from './views/ReportView';
+
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,6 +42,7 @@ import Container from 'components/Container/Container';
 // import Content from 'components/InitialBalanceFormModal/Content/Content';
 import CategoryImagesList from 'components/CategoryImages/CategoryImagesList/CategoryImagesList';
 // import Tabs from 'components/Tabs/Tabs';
+import ReportView from './views/ReportView/ReportView';
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -69,8 +70,9 @@ function App() {
     <Loader />
   ) : (
     <div>
-      <ButtonsBlock />
+      {/* <ButtonsBlock /> */}
       <Modal active={modalActive} setActive={setModalActive} />
+      <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
         <Route
@@ -91,7 +93,7 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <AppBar />
+      {/* 
       <ButtonsBlock />
       <IncomeSpendSection />
       <Modal active={modalActive} setActive={setModalActive}>
@@ -127,7 +129,7 @@ function App() {
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
-      <Loader />
+      <Loader /> */}
     </div>
   );
 }

@@ -1,11 +1,12 @@
 .listWrapper{
-    width: 100%;
+max-width: 1060px;
+
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 15px;
-
+border-radius: 30px;
 background-color: var(--main-background-color);
 }
 
@@ -59,17 +60,8 @@ border-radius: 30px;
 }
 
 
-@media screen and(min-width: 768px){
+@media screen and (max-width: 767px){
    .listWrapper {
-       height: 100%;
-
-
+    background-color: var(--main-background-color);
    }
-}
-@media screen and(min-width: 1280px) {
-  .listWrapper {
-  height: 100%;
-
-
-  }
 }
