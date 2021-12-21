@@ -1,0 +1,38 @@
+.input {
+  box-sizing: border-box;
+  height: 40px;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  line-height: 0.857;
+  padding: 17px 20px;
+  border-top-left-radius: 16px;
+  letter-spacing: 0.02em;
+  background-color: #f5f6fb;
+}
+
+.input::placeholder {
+  color: #c7ccdc;
+}
+
+@media screen and (max-width: 767px) {
+  .input {
+    border-top-right-radius: 16px;
+    border: 2px solid #ffffff;
+    width: 282px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    border: 2px solid #f5f6fb;
+    background-color: #fff;
+    width: 192px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .input {
+    width: 290px;
+  }
+}
