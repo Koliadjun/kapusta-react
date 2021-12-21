@@ -10,6 +10,10 @@ import { Formik } from 'formik';
 import s from './RegistrationForm.module.css';
 import axios from 'axios';
 import LogoutButton from 'components/LogoutButton';
+import {authOperations} from '../../redux/auth';
+import {useDispatch, useSelector} from 'react-redux';
+import {authSelectors} from '../../redux/auth';
+import { useNavigate } from "react-router-dom";
 
 const loginValidate = values => {
   const errors = {};
@@ -31,17 +35,17 @@ const loginValidate = values => {
 const registrationValidate = values => {
   const errors = {};
 
-  if (!values.password) {
-    errors.password = 'Required';
-  } else if (values.password.length > 20) {
-    errors.password = 'Must be between 3 and 20 symbols';
-  }
+  // if (!values.password) {
+  //   errors.password = 'Required';
+  // } else if (values.password.length > 20) {
+  //   errors.password = 'Must be between 3 and 20 symbols';
+  // }
 
-  if (!values.repeatPassword) {
-    errors.repeatPassword = 'Required';
-  } else if (values.password !== values.repeatPassword) {
-    errors.repeatPassword = 'Must be equal to password';
-  }
+  // if (!values.repeatPassword) {
+  //   errors.repeatPassword = 'Required';
+  // } else if (values.password !== values.repeatPassword) {
+  //   errors.repeatPassword = 'Must be equal to password';
+  // }
 
   if (!values.email) {
     errors.email = 'Required';
@@ -52,10 +56,11 @@ const registrationValidate = values => {
 };
 
 function RegistrationForm() {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   const [showPassword, setShowPassword] = useState(false);
   const [registrationFormNeeded, setRegistrationFormNeeded] = useState(false);
-  const [userToken, setUserToken] = useState(null);
-  //   const dispatch = useDispatch();
 
   const loginInitialValues = {
     email: '',
@@ -76,58 +81,24 @@ function RegistrationForm() {
     setRegistrationFormNeeded(!registrationFormNeeded);
   };
 
-  const doRegistrationSubmit = async (values, { resetForm }) => {
-    try {
-      await axios.post(
-        'https://kapusta-api-iteam.herokuapp.com/api/auth/registration',
-        {
-          email: values.email,
-          password: values.password,
-        },
-      );
-      resetForm({ values: '' });
-      return alert(
-        'Registration was successful! Please, check your email for account verification',
-      );
-    } catch (err) {
-      if (err.response.status !== 409) {
-        alert('We got some problems with servers. Please try again later');
-        return resetForm({ values: '' });
-      }
-      if (err.response.status === 409) {
-        alert(err.response.data.message);
-        return resetForm({ values: '' });
-      }
-    }
+  const doRegistrationSubmit = (values, { resetForm }) => {
+    dispatch(authOperations.registration(values))
+    resetForm({ values: "" });
+    setRegistrationFormNeeded(true)
   };
 
   const doLoginSubmit = async (values, { resetForm }) => {
-    try {
-      const {
-        data: { token },
-      } = await axios.post(
-        'https://kapusta-api-iteam.herokuapp.com/api/auth/login',
-        {
-          email: values.email,
-          password: values.password,
-        },
-      );
+    dispatch(authOperations.logIn(values))
       resetForm({ values: '' });
-      return setUserToken(token);
-    } catch (err) {
-      if (err.response.status === 401) {
-        alert(err.response.data.message);
-        return resetForm({ values: '' });
-      }
-      if (err.response.status !== 401) {
-        alert('We got some problems with servers. Please try again later');
-        return resetForm({ values: '' });
-      }
-    }
+
+      
   };
 
   return !registrationFormNeeded ? (
     <div className={s.div}>
+      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
+      <a href="http://localhost:5000/api/auth/google" className={s.google}>Click me to authorize with Google!</a>
+      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
       <Formik
         initialValues={loginInitialValues}
         validate={loginValidate}
@@ -203,10 +174,14 @@ function RegistrationForm() {
           </form>
         )}
       </Formik>
-      <LogoutButton token={userToken} />
+      {isLoggedIn ? <LogoutButton /> : null}
+      
     </div>
   ) : (
     <div className={s.div}>
+      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
+      <a href="http://localhost:5000/auth/google" className={s.google}>Click me to authorize with Google!</a>
+      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
       <Formik
         initialValues={registrationInitialValues}
         validate={registrationValidate}
@@ -273,7 +248,7 @@ function RegistrationForm() {
               name="login"
               onClick={onButtonClick}
             >
-              Go back to login
+              Back to login
             </Button>
 
             <Button
