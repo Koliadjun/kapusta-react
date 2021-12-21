@@ -2,9 +2,15 @@
   display: flex;
   justify-content: center;
 }
-:global .react-tabs {
-  -webkit-tap-highlight-color: transparent;
+:global .react-tabs__tab-list {
+  margin: 0 0 0px;
+  padding: 0;
 }
+/* :global .react-tabs {
+  display: grid;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+} */
 :global .react-tabs__tab {
   display: table-cell;
   width: 138px;
@@ -15,26 +21,83 @@
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
-  border-radius: 20px 20px 0 0;
   list-style: none;
   background: #fafbfd;
   text-align: center;
   vertical-align: middle;
 }
 :global .react-tabs__tab--selected {
-  background: #fefefe;
+  background: #ffffff;
   color: rgb(255, 0, 0);
-  border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
 }
 :global .react-tabs__tab-panel {
   display: none;
 }
 :global .react-tabs__tab-panel--selected {
   display: block;
-  width: 665px;
   height: 626px;
   padding-top: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
   background: #ffffff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
+}
+
+@media screen and (max-width: 767px) {
+  :global .react-tabs {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    bottom: 0;
+  }
+
+  :global .react-tabs__tab-panel--selected {
+    height: 567px;
+    border-radius: 0px 0px 0px 0px;
+  }
+  :global .react-tabs__tab {
+    display: table-cell;
+    width: 159px;
+    height: 53px;
+    border-right: solid 3px white;
+    background: #f5f6fb;
+  }
+  :global .react-tabs__tab--selected {
+    background: #ff4d4d;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :global .react-tabs__tab-panel--selected {
+    width: 665px;
+  }
+  :global .react-tabs__tab--selected {
+    background: #ffffff;
+    color: rgb(255, 0, 0);
+    border-radius: 20px 20px 0 0;
+  }
+  :global .react-tabs__tab {
+    display: table-cell;
+    width: 138px;
+    height: 40px;
+    bottom: -1px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-radius: 20px 20px 0 0;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :global .react-tabs__tab-panel--selected {
+    width: 1060px;
+  }
 }
