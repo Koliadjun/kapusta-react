@@ -1,6 +1,17 @@
 .div {
     padding: 50px 85px;
-    width: 500px;
+    max-width: 436px;
     background-color: rgb(184, 184, 184);
     border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.googleText {
+    font-size: 12px;
+}
+
+.google {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
 }
