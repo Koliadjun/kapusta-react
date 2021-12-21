@@ -60,7 +60,7 @@ function App() {
     <div>
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
-        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
+        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomeView />} />
         <Route exact path="home/:data" element={<HomeView />} />
         <Route path="comment" element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />} />
         <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
