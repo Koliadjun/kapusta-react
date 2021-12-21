@@ -97,7 +97,11 @@ function RegistrationForm() {
       <p className={s.googleText}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href="http://localhost:5000/api/auth/google" className={s.google}>
+      {/* <a href="http://localhost:5000/api/auth/google" className={s.google}> */}
+      <a
+        href="https://kapusta-api-iteam.herokuapp.com/api/auth/google"
+        className={s.google}
+      >
         Click me to authorize with Google!
       </a>
       <p>
@@ -185,7 +189,11 @@ function RegistrationForm() {
       <p className={s.googleText}>
         Вы можете авторизоваться с помощью Google Account:
       </p>
-      <a href="http://localhost:5000/auth/google" className={s.google}>
+        {/* <a href="http://localhost:5000/auth/google" className={s.google}> */}
+           <a
+        href="https://kapusta-api-iteam.herokuapp.com/api/auth/google"
+        className={s.google}
+      >
         Click me to authorize with Google!
       </a>
       <p>
