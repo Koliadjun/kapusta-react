@@ -1,0 +1,20 @@
+.rechartSection{
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+:global .recharts-surface{
+    transform: rotate(90deg);
+    
+}
+
+:global .recharts-layer.recharts-bar-rectangle{
+    fill:var(--secondary-accent-color);
+ 
+}
+:global .recharts-rectangle{
+    fill: inherit;
+}
+:global .recharts-layer.recharts-bar-rectangle:nth-child(3n+1){
+    fill:var(--accent-color)
+}
