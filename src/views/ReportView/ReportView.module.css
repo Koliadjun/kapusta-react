@@ -1,8 +1,43 @@
-.section{
-    padding-top: 15px;
+@media screen and (max-width: 767px){
+    .section {
+  padding-top: 15px;
   padding-bottom: 50px;
   text-align: center;
-  background-image: url('../../images/ReportPage/bg-main.svg');
-  background-repeat: no-repeat;
-  background-position: left top -280px;
+  background-image: url('../../images/ReportPage/bg-report_part.svg');
+ 
+  background-color: #fff;
+  background-repeat: no-repeat, no-repeat;
+  background-position:left top 0 0;
+  background-size:  100%;
 }
+
+}
+
+
+
+@media screen and (min-width: 768px){
+    .section {
+  padding-top: 15px;
+  padding-bottom: 50px;
+  text-align: center;
+  background-image: url('../../images/ReportPage/bg-report_part.svg');
+
+background-color: #fff;
+background-repeat: no-repeat, no-repeat;
+background-position: left top 0 0;
+background-size: 100%;
+
+  
+}
+
+}
+@media screen and (min-width: 1280px) {
+  .section {
+    background-image: url('../../images/ReportPage/bg-report_part.svg'),
+      url('../../images/ReportPage/bg-report-desktop.svg');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat, no-repeat;
+background-position: center top -40px, center bottom -4px;
+
+  }
+} 
