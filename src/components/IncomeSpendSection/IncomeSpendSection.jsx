@@ -6,7 +6,8 @@ export default function IncomeSpendSection() {
     <div className={s.container}>
       <div className={s.spendContainer}>
         <p className={s.titleSpend}>
-          Расходы:<span className={s.valueSpend}>- 18 000.00 грн.</span>
+          Расходы:
+          <span className={s.valueSpend}>- 18 000.00 грн.</span>
         </p>
       </div>
       <div className={s.incomeContainer}>
