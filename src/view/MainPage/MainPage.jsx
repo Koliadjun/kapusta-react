@@ -16,7 +16,17 @@ import BalanceModal from '../../components/InitialBalanceFormModal/Modal/Balance
 import Container from 'components/Container/Container';
 import Datepicker from 'components/DatePicker/Datepicker';
 
-function MainPage({ balance, setBalance, modal, setModal, name }) {
+function MainPage({
+  balance,
+  setBalance,
+  modal,
+  setModal,
+  name,
+  date,
+  month,
+  year,
+  onSelectedDate,
+}) {
   // const [modal, setModal] = useState(true);
   const [modalActive, setModalActive] = useState(false);
   const sendBalance = () => {
@@ -31,7 +41,12 @@ function MainPage({ balance, setBalance, modal, setModal, name }) {
         <AppBar />
         <BalanceLine modal={modal} balance={balance} name={name} />
         <div style={{ margin: 20 }}>
-          <Datepicker />
+          <Datepicker
+            date={date}
+            month={month}
+            year={year}
+            onSelectedDate={onSelectedDate}
+          />
         </div>
 
         <RegistrationForm />

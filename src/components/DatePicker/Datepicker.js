@@ -11,17 +11,18 @@ registerLocale('ru', ru);
 function Datepicker({ onSelectedDate }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const day = selectedDate.getDate();
-  const month = selectedDate.getMonth() + 1;
-  const year = selectedDate.getFullYear();
-  const formatDate = `${day}.${month}.${year}`;
+  const selectedDay = selectedDate.getDate();
+  const selectedMonth = selectedDate.getMonth() + 1;
+  const selectedYear = selectedDate.getFullYear();
 
-  const handleSelect = date => {
+  // console.log('selectedDay', selectedDay);
+  // console.log('selectedMonth', selectedMonth);
+  // console.log('selectedYear', selectedYear);
+
+  function handleSelect(date) {
     setSelectedDate(date);
-    // console.log(formatDate); //only for testing
-    console.log(selectedDate); //only for testing
-    onSelectedDate({ day, month, year });
-  };
+    onSelectedDate({ selectedDay, selectedMonth, selectedYear });
+  }
 
   return (
     <div className={styles.containerDatepicker}>
@@ -31,8 +32,6 @@ function Datepicker({ onSelectedDate }) {
           dateFormat="dd.MM.yyyy"
           selected={selectedDate}
           onChange={handleSelect}
-          // onChange={date => setSelectedDate(date)} //only for testing
-          value={formatDate}
           className={styles.date}
           maxDate={new Date()}
           locale="ru"
