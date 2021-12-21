@@ -19,7 +19,7 @@ function HomeView({ ...props }) {
   useEffect(() => {
     if (firstLoaded && token) {
       setFirstLoaded(false);
-      dispatch(authOperations.isGooglingUser(token));
+      dispatch(authOperations.isGooglingUser(token.slice(0, -1)));
       setFirstLoaded(false);
     }
   }, [dispatch, firstLoaded, token]);
