@@ -7,39 +7,35 @@ import {
   Navigate,
   useNavigate,
 } from 'react-router-dom';
-import RegistrationForm from './components/RegistrationForm';
-import CategoryList from 'components/CategoryList';
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
+// import RegistrationForm from './components/RegistrationForm';
+// import CategoryList from 'components/CategoryList';
+// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
 import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
+// import ModalContent from 'components/ModalContent/ModalContent';
 import AppBar from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
-import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-import Content from 'components/InitialBalanceFormModal/Content/Content';
-import Input from 'components/InitialBalanceFormModal/Input/Input';
-import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
-import BalanceForm from 'BalanceForm/BalanceForm';
-import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+// import Summary from 'components/Summary/Summary';
+// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
+// import Content from 'components/InitialBalanceFormModal/Content/Content';
+// import Input from 'components/InitialBalanceFormModal/Input/Input';
+// import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
+// import BalanceForm from 'BalanceForm/BalanceForm';
+// import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 import Loader from 'components/Loader';
 
 import CommentView from './views/CommentView';
-import HomeView from './views/HomeView';
+import HomeView from './views/HomePage/HomePage';
 import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import HomePage from './views/HomePage';
 
 // import './App.css';
 // import Transactionslist from 'components/Transactionslist/Transactionslist';
-import Container from 'components/Container/Container';
+// import Container from 'components/Container/Container';
 
 // import InputBalance from 'components/InputBalance/InputBalance';
 // import InputRegister from 'components/InputRegister/InputRegister';
 // import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
-// import HomePage from './view/HomePage';
-// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-// import Content from 'components/InitialBalanceFormModal/Content/Content';
 import CategoryImagesList from 'components/CategoryImages/CategoryImagesList/CategoryImagesList';
 // import Tabs from 'components/Tabs/Tabs';
 
@@ -69,7 +65,8 @@ function App() {
     <Loader />
   ) : (
     <div>
-      <ButtonsBlock />
+      {/* <ButtonsBlock /> */}
+      <AppBar />
       <Modal active={modalActive} setActive={setModalActive} />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
@@ -85,18 +82,18 @@ function App() {
           path="comment"
           element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
         />
-        <Route
+        {/* <Route
           path="report"
           element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
-        />
+        />  */}
 
-        <Route
+        {/* <Route
           path="report"
           element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />  */}
       </Routes>
-      <AppBar />
+      {/* <AppBar />
       <ButtonsBlock />
       <IncomeSpendSection />
       <Modal active={modalActive} setActive={setModalActive}>
@@ -132,7 +129,7 @@ function App() {
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
-      <Loader />
+      <Loader /> */}
     </div>
   );
 }
