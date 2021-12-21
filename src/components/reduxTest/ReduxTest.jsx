@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from 'redux/authorization';
-import { transactionOperations } from 'redux/transaction';
-import * as transactionAPI from 'services/transactionAPI';
+import { transactionOperations, transactionSelectors } from 'redux/transaction';
+// import * as transactionAPI from 'services/transactionAPI';
 
 export const ReduxTest = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const transactions = useSelector(transactionSelectors.getAllTransaction);
+  console.log(transactions);
   return (
     <div>
       <form
@@ -47,6 +49,11 @@ export const ReduxTest = () => {
           Click me
         </button>
       ) : null}
+      <ul>
+        {transactions.map(element => {
+          return <li key={element._id}>{element.sum}</li>;
+        })}
+      </ul>
     </div>
   );
 };
