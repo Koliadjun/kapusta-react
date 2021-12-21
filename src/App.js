@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   Routes,
@@ -24,9 +25,9 @@ import Loader from 'components/Loader';
 import CommentView from './views/CommentView';
 import HomeView from './views/HomeView';
 import ReportView from './views/ReportView';
-import {authOperations, authSelectors} from 'redux/auth';
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import { authOperations, authSelectors } from 'redux/auth';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage'
 
 
@@ -36,39 +37,8 @@ function App() {
   const sendBalance = () => {
     setModal(false);
   };
-import Loader from 'components/Loader/Loader' 
-import CategoryList from 'components/CategoryList';
 
-// import './App.css';
-import Transactionslist from 'components/Transactionslist/Transactionslist';
-import Container from 'components/Container/Container';
-// import RegistrationForm from './components/RegistrationForm';
-// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-// import Modal from 'components/Modal/Modal';
-// import ModalContent from 'components/ModalContent/ModalContent';
-// import AppBar from 'components/AppBar/AppBar';
-// import Summary from 'components/Summary/Summary';
-import InputBalance from 'components/InputBalance/InputBalance';
-import InputRegister from 'components/InputRegister/InputRegister';
-import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
-// import HomePage from './view/HomePage';
-// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-// import Content from 'components/InitialBalanceFormModal/Content/Content';
-// import Input from 'components/InitialBalanceFormModal/Input/Input';
-// import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
-// import BalanceForm from 'BalanceForm/BalanceForm';
-import Tabs from 'components/Tabs/Tabs';
-// import Loader from 'components/Loader/Loader';
-
-
-function App() {
-  // const [modal, setModal] = useState(true);
-  // const [modalActive, setModalActive] = useState(false);
-  // const sendBalance = () => {
-  //   setModal(false);
-  // };
-
-  // const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(0);
 
   const dispatch = useDispatch();
   const navigate = useNavigate()
@@ -78,8 +48,8 @@ function App() {
 
 
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());  
-    if(isGoogled) {
+    dispatch(authOperations.fetchCurrentUser());
+    if (isGoogled) {
       navigate('/report')
     }
   }, [dispatch, isGoogled]);
@@ -88,37 +58,20 @@ function App() {
     <Loader />
   ) : (
     <div>
-
       <Routes>
-          <Route exact path="/" element={<Navigate to="home" />} />
-          <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
-          <Route exact path="home/:data" element={<HomeView />} />
-          <Route path="comment" element={isLoggedin ? <CommentView />: <Navigate replace to="/" />} />
-          <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
-          <Route
-            path="*"
-            element={<Navigate to="/" />}
+        <Route exact path="/" element={<Navigate to="home" />} />
+        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
+        <Route exact path="home/:data" element={<HomeView />} />
+        <Route path="comment" element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />} />
+        <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
+        <Route
+          path="*"
+          element={<Navigate to="/" />}
         />
-        </Routes>
+      </Routes>
       {/* <AppBar />
       <ButtonsBlock />
       <IncomeSpendSection /> */}
-      {/* <Modal active={modalActive} setActive={setModalActive}>
-
-
-      <Container>
-        <Transactionslist />
-        <InputBalance></InputBalance>
-        <InputRegister></InputRegister>
-        <InputDescriptionProduct></InputDescriptionProduct>
-      </Container>
-
-      <Tabs />
-      {/* <HomePage></HomePage> */}
-
-      {/* <RegistrationForm />
-      <AppBar />
-      <ButtonsBlock /> */}
       {/* <Modal active={modalActive} setActive={setModalActive}>
 
         <ModalContent
@@ -127,24 +80,16 @@ function App() {
           textRightButton={'нет'}
         />
       </Modal> */}
-
-
-      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
+      {/* <button onClick={() => setModalActive(true)}>Проверка модалки</button>
       <Summary /> */}
+      {/* <BalanceModal visible={modal} setVisible={setModal}>
+        <Wrapper>
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
 
-      {/* <Content />
+          <Content />
         </Wrapper>
 
-
       </BalanceModal> */}
-
-      </BalanceModal>
-      {!modal === true && <BalanceForm balance={balance} />}
-      <Loader />
-      <CategoryList/>
-
-      </BalanceModal> } */}
-
       {/* {!modal === true && <BalanceForm balance={balance} />} */}
       {/* <Loader /> */}
 
