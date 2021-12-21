@@ -13,6 +13,8 @@
 }
 
 .userAvatar{
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,6 +43,7 @@
 
 
 .userMenu{
+  
     display: flex;
     align-items: center;
 }
@@ -59,8 +62,8 @@ fill: #CBCCD0;
 
 .hederModalOut {
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 40%;
+  right: 38%;
 }
 
 
@@ -74,6 +77,11 @@ fill: #CBCCD0;
   border-radius: 50%;
   cursor: pointer;
   
+}
+.hederModalOut {
+  position: absolute;
+  top: 40%;
+  right: 30%;
 }
 
 

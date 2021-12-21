@@ -17,7 +17,7 @@ function LogInHeaderMenu() {
 
   const toggleBtn = () => {
     console.log(modal);
-  setModal(!modal)
+  setModal(prevModal=>!prevModal)
 }
 
   return (
