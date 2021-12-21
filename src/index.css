@@ -18,7 +18,6 @@ body {
   font: normal var(--main-font-weight) var(--main-font-size) 'Roboto',
     sans-serif;
   line-height: 1.17;
-  overflow: hidden;
   background-color: #fdfdfd;
 }
 
