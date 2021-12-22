@@ -27,7 +27,8 @@
   .input {
     border: 2px solid #f5f6fb;
     background-color: #fff;
-    width: 192px;
+    width: 188px;
+    margin-left: -30px;
   }
 }
 

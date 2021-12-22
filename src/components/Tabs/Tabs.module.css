@@ -13,15 +13,15 @@
 }
 .trans_Summ_Cont {
   display: flex;
+  justify-content: space-around;
   padding-top: 59px;
   position: relative;
-  justify-content: space-around;
+  overflow: auto;
 }
 .transactionsCont {
-  width: 760px;
-  height: 384px;
-  background: #f5f6fb;
+  background: #fbfcff;
 }
+
 :global .react-tabs__tab-list {
   margin: 0 0 0px;
   padding: 0;
@@ -56,7 +56,6 @@
 }
 :global .react-tabs__tab-panel--selected {
   display: block;
-  width: 1060px;
   height: 579px;
   background: #ffffff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
@@ -64,6 +63,32 @@
 }
 
 @media screen and (max-width: 767px) {
+  .Dpiker {
+  }
+  .transactionsCont {
+    background: #fff;
+    width: 300px;
+  }
+  .sumPK {
+    display: none;
+  }
+  .sumTablet {
+    display: none;
+  }
+  .dPicker_category_Cont {
+    display: none;
+  }
+  .trans_Summ_Cont {
+    padding-top: 0;
+    height: 122px;
+    position: absolute;
+    position: sticky;
+    top: 100%;
+    width: 100%;
+    /* margin-bottom: 50px; */
+    /* bottom: 20px; */
+    /* margin-bottom: 50px; */
+  }
   :global .react-tabs {
     display: flex;
     flex-direction: column-reverse;
@@ -72,7 +97,8 @@
   }
 
   :global .react-tabs__tab-panel--selected {
-    height: 567px;
+    align-content: end;
+    /* height: 567px; */
     border-radius: 0px 0px 0px 0px;
   }
   :global .react-tabs__tab {
@@ -89,6 +115,25 @@
 }
 
 @media screen and (min-width: 768px) {
+  .Dpiker {
+    display: flex;
+  }
+  .sumPK {
+    display: none;
+  }
+  .sumTablet {
+    margin-top: 40px;
+  }
+  .trans_Summ_Cont {
+    flex-wrap: wrap;
+    padding-top: 48px;
+  }
+  .transactionsCont {
+    width: 605px;
+  }
+  .dPicker_category_Cont {
+    flex-wrap: wrap;
+  }
   :global .react-tabs__tab-panel--selected {
     width: 665px;
   }
@@ -119,5 +164,15 @@
     width: 1050px;
     padding-left: 5px;
     padding-right: 5px;
+  }
+  .transactionsCont {
+    width: 760px;
+    height: 384px;
+  }
+  .sumPK {
+    display: flex;
+  }
+  .sumTablet {
+    display: none;
   }
 }

@@ -28,5 +28,6 @@
 
 @media screen and (min-width: 768px) {
   .input {
+    width: 104px;
   }
 }

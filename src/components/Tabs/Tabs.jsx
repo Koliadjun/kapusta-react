@@ -21,21 +21,30 @@ export default function TabsContainer() {
 
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
-            <DatePicker />
+            <div className={s.Dpiker}>
+              <DatePicker />
+            </div>
             <div className={s.input_Cont}>
               <InputDescriptionProduct />
               <CategoryList />
               <InputBalance />
             </div>
-            <ButtonsBlock />
+            <div className={s.Buttons_cont}>
+              <ButtonsBlock />
+            </div>
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
               <Transactionslist />
             </div>
-            <Summary />
+            <div className={s.sumPK}>
+              <Summary />
+            </div>
           </div>
         </TabPanel>
+        <div className={s.sumTablet}>
+          <Summary />
+        </div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
@@ -50,7 +59,9 @@ export default function TabsContainer() {
             <div className={s.transactionsCont}>
               <Transactionslist />
             </div>
-            <Summary />
+            <div className={s.sumPK}>
+              <Summary />
+            </div>
           </div>
         </TabPanel>
       </Tabs>
