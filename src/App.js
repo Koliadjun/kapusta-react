@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
-import AppBar from './components/AppBar';
+
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -39,18 +39,31 @@ function App() {
     <Loader />
   ) : (
     <>
-      <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
-        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
+        <Route
+          index
+          path="home"
+          element={
+            isLoggedin ? <Navigate replace to="/report" /> : <HomePage />
+          }
+        />
         <Route exact path="home/:data" element={<HomePage />} />
-        <Route path="comment" element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />} />
-        <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
+        <Route
+          path="comment"
+          element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
+        />
+        <Route
+          path="report"
+          element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
+        />
         <Route
           path="*"
-          element={<NotFoundView >
-            <Loader />
-          </NotFoundView>}
+          element={
+            <NotFoundView>
+              <Loader />
+            </NotFoundView>
+          }
         />
       </Routes>
     </>

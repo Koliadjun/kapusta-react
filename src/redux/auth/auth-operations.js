@@ -1,35 +1,31 @@
-import axios from "axios";
-import {
-  createAsyncThunk
-} from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/";
+axios.defaults.baseURL = axios.defaults.baseURL = 'http://localhost:5000';
+
+// "https://kapusta-api-iteam.herokuapp.com/";
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = "";
+    axios.defaults.headers.common.Authorization = '';
   },
 };
 
 const registration = createAsyncThunk(
-  "auth/registration",
-  async ({
-    email,
-    password
-  }, thunkAPI) => {
+  'auth/registration',
+  async ({ email, password }, thunkAPI) => {
     try {
-      const {
-        data
-      } = await axios.post("/api/auth/registration", {
+      const { data } = await axios.post('/api/auth/registration', {
         email,
         password,
       });
       if (data.newUser.token) token.set(data.newUser.token);
 
-      alert('Registration successful! Please check your email for verification')
+      alert(
+        'Registration successful! Please check your email for verification',
+      );
       return data.newUser;
     } catch (err) {
       if (err.response.status !== 409) {
@@ -40,25 +36,23 @@ const registration = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue(err.response);
     }
-  }
+  },
 );
 
 const logIn = createAsyncThunk(
-  "auth/logIn",
-  async ({
-    email,
-    password
-  }, thunkAPI) => {
+  'auth/logIn',
+  async ({ email, password }, thunkAPI) => {
     try {
-      const {
-        data
-      } = await axios.post("/api/auth/login", {
+      const { data } = await axios.post('/api/auth/login', {
         email,
-        password
+        password,
       });
-      console.log(`logIn`, data.user.token)
+      console.log(`logIn`, data.user.token);
       token.set(data.user.token);
-      console.log(`axios.defaults.headers.common.Authorization`, axios.defaults.headers.common.Authorization)
+      console.log(
+        `axios.defaults.headers.common.Authorization`,
+        axios.defaults.headers.common.Authorization,
+      );
       return data.user;
     } catch (err) {
       if (err.response.status === 401) {
@@ -70,37 +64,37 @@ const logIn = createAsyncThunk(
       return thunkAPI.rejectWithValue({
         data: err.response.data.message,
         status: err.response.status,
-        statusText: err.response.statusText
+        statusText: err.response.statusText,
       });
     }
-  }
+  },
 );
 
-const logOut = createAsyncThunk("auth/logOut", async (_, thunkAPI) => {
+const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.get("/api/auth/logout");
+    await axios.get('/api/auth/logout');
     token.unset();
   } catch (err) {
     return thunkAPI.rejectWithValue({
       data: err.response.data.message,
       status: err.response.status,
-      statusText: err.response.statusText
+      statusText: err.response.statusText,
     });
   }
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  "auth/fetchCurrentUser",
+  'auth/fetchCurrentUser',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const savedToken = state.auth.token;
 
     if (savedToken === null) {
-      return thunkAPI.rejectWithValue("we got no token here");
+      return thunkAPI.rejectWithValue('we got no token here');
     }
     token.set(savedToken);
     try {
-      const { data } = await axios.get("api/auth/current");
+      const { data } = await axios.get('api/auth/current');
       return data;
     } catch (err) {
       if (err.response.status === 401) {
@@ -108,50 +102,50 @@ const fetchCurrentUser = createAsyncThunk(
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
-          statusText: err.response.statusText
+          statusText: err.response.statusText,
         });
       }
       if (err.response.status !== 401) {
-        alert("Oops, we got an error :( Please try again later.")
+        alert('Oops, we got an error :( Please try again later.');
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
-          statusText: err.response.statusText
+          statusText: err.response.statusText,
         });
       }
     }
-  }
+  },
 );
 
 const isGooglingUser = createAsyncThunk(
-  "auth/isGooglingUser",
+  'auth/isGooglingUser',
   async (token, thunkAPI) => {
     if (token === null) {
-      return thunkAPI.rejectWithValue("we got no token here");
+      return thunkAPI.rejectWithValue('we got no token here');
     }
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
-      const { data } = await axios.get("api/auth/current");
+      const { data } = await axios.get('api/auth/current');
       return data;
     } catch (err) {
       if (err.response.status === 401) {
-        alert("Your session expired or user doesn't exist")
+        alert("Your session expired or user doesn't exist");
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
-          statusText: err.response.statusText
+          statusText: err.response.statusText,
         });
       }
       if (err.response.status !== 401) {
-        alert("Oops, we got an error :( Please try again later.")
+        alert('Oops, we got an error :( Please try again later.');
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
-          statusText: err.response.statusText
+          statusText: err.response.statusText,
         });
       }
     }
-  }
+  },
 );
 
 const authOperations = {
@@ -159,7 +153,7 @@ const authOperations = {
   logIn,
   logOut,
   fetchCurrentUser,
-  isGooglingUser
+  isGooglingUser,
 };
 
 export default authOperations;

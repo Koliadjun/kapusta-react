@@ -27,8 +27,6 @@ export default function Transactionslist({ onDeleteClick }) {
                 clamped="true"
                 min="1"
                 max="10"
-
-                // basedOn="letters"2
               ></LinesEllipsis>
               {/* <span className={s.description}>{description}</span> */}
               <span className={s.data}>{date}</span>

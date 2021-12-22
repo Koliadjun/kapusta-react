@@ -17,7 +17,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  width: 100%;
+  width: 150%;
 }
 
 .button {
@@ -26,6 +26,13 @@
   border: none;
   background-color: transparent;
   padding: none;
+}
+
+.description {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 768px) {
@@ -88,8 +95,6 @@
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     display: grid;
-
-    /* grid-template-columns: 20% 30% 20% 30%; */
   }
 
   .tabletItem {
@@ -136,8 +141,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* display: grid; */
-    /* grid-column-start: 3; */
   }
 
   .button {
