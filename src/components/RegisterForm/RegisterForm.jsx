@@ -79,7 +79,7 @@ const RegisterForm = ({ onBackToLogin }) => {
   const doRegistrationSubmit = (e) => {
     e.preventDefault();
     if(repeatPassword !== password) {
-      alert('Введенные пароли не совпадают2')
+      alert('Введенные пароли не совпадают')
       setPassword('')
       setRepeatPassword('')
       return
