@@ -4,12 +4,14 @@ import styles from './CurrentPeriod.module.css';
 import { ReactComponent as ArrowLeftIcon } from '../../../images/svg/vector-left.svg';
 import { ReactComponent as ArrowRightIcon } from '../../../images/svg/vector-right.svg';
 import { useSelector, useDispatch } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 export default function CurrentPeriod() {
+  const dispatch = useDispatch();
   const date = useSelector(state => state.transaction.date);
   console.log(`report`, date);
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-
+  const day = date.getDate();
   const months = {
     1: 'январь',
     2: 'февраль',
@@ -26,10 +28,29 @@ export default function CurrentPeriod() {
   };
   console.log('report', month);
 
-  function onClickLeft() {
-    // dispatch(transactionOperations.setDate(UpdateDate));
+  function onClickLeft(month, setMonth, year, setYear) {
+    if (month <= 1) {
+      setMonth(12);
+      setYear(prev => (prev -= 1));
+    } else {
+      setMonth(prev => (prev -= 1));
+    }
+    dispatch(transactionOperations.setDate(new date(year, month, day)));
   }
-  function onClickRight() {}
+  function onClickRight(month, setMonth, year, setYear) {
+    if (month < 12) {
+      setMonth(month => (month += 1));
+    } else {
+      setMonth(1);
+      setYear(year => (year += 1));
+    }
+    dispatch(transactionOperations.setDate(new date(year, month, day)));
+  }
+
+  // function onClickLeft() {
+
+  // }
+  // function onClickRight() {}
 
   return (
     <div>
