@@ -8,12 +8,12 @@ import { useState } from 'react';
 import { Formik } from 'formik';
 // import { authOperations } from "../redux/auth";
 import s from './RegistrationForm.module.css';
-import axios from 'axios';
+// import axios from 'axios';
 import LogoutButton from 'components/LogoutButton';
-import {authOperations} from '../../redux/auth';
-import {useDispatch, useSelector} from 'react-redux';
-import {authSelectors} from '../../redux/auth';
-import { useNavigate } from "react-router-dom";
+import { authOperations } from '../../redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSelectors } from '../../redux/auth';
+// import { useNavigate } from 'react-router-dom';
 
 const loginValidate = values => {
   const errors = {};
@@ -57,8 +57,8 @@ const registrationValidate = values => {
 
 function RegistrationForm() {
   const dispatch = useDispatch();
-  let navigate = useNavigate();
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
+  // let navigate = useNavigate();
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const [showPassword, setShowPassword] = useState(false);
   const [registrationFormNeeded, setRegistrationFormNeeded] = useState(false);
 
@@ -82,23 +82,31 @@ function RegistrationForm() {
   };
 
   const doRegistrationSubmit = (values, { resetForm }) => {
-    dispatch(authOperations.registration(values))
-    resetForm({ values: "" });
-    setRegistrationFormNeeded(true)
+    dispatch(authOperations.registration(values));
+    resetForm({ values: '' });
+    setRegistrationFormNeeded(true);
   };
 
   const doLoginSubmit = async (values, { resetForm }) => {
-    dispatch(authOperations.logIn(values))
-      resetForm({ values: '' });
-
-      
+    dispatch(authOperations.logIn(values));
+    resetForm({ values: '' });
   };
 
   return !registrationFormNeeded ? (
     <div className={s.div}>
-      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
-      <a href="http://localhost:5000/api/auth/google" className={s.google}>Click me to authorize with Google!</a>
-      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
+      <p className={s.googleText}>
+        Вы можете авторизоваться с помощью Google Account:
+      </p>
+      {/* <a href="http://localhost:5000/api/auth/google" className={s.google}> */}
+      <a
+        href="https://kapusta-api-iteam.herokuapp.com/api/auth/google"
+        className={s.google}
+      >
+        Click me to authorize with Google!
+      </a>
+      <p>
+        Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
+      </p>
       <Formik
         initialValues={loginInitialValues}
         validate={loginValidate}
@@ -175,13 +183,22 @@ function RegistrationForm() {
         )}
       </Formik>
       {isLoggedIn ? <LogoutButton /> : null}
-      
     </div>
   ) : (
     <div className={s.div}>
-      <p className={s.googleText}>Вы можете авторизоваться с помощью Google Account:</p>
-      <a href="http://localhost:5000/auth/google" className={s.google}>Click me to authorize with Google!</a>
-      <p>Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:</p>
+      <p className={s.googleText}>
+        Вы можете авторизоваться с помощью Google Account:
+      </p>
+        {/* <a href="http://localhost:5000/auth/google" className={s.google}> */}
+           <a
+        href="https://kapusta-api-iteam.herokuapp.com/api/auth/google"
+        className={s.google}
+      >
+        Click me to authorize with Google!
+      </a>
+      <p>
+        Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
+      </p>
       <Formik
         initialValues={registrationInitialValues}
         validate={registrationValidate}
