@@ -1,41 +1,57 @@
-import React, { useState } from 'react';
-// import './App.css';
-import Transactionslist from 'components/Transactionslist/Transactionslist';
-import Container from 'components/Container/Container';
-import RegistrationForm from './components/RegistrationForm';
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
-import AppBar from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
-import InputBalance from 'components/InputBalance/InputBalance';
-import InputRegister from 'components/InputRegister/InputRegister';
-import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
+import React from 'react';
+import {
+  Routes,
+  Route,
+  // Link,
+  // Outlet,
+  Navigate,
+  useNavigate
+} from "react-router-dom";
+
+import Loader from 'components/Loader';
+
+import CommentView from './views/CommentView';
+import ReportView from './views/ReportView';
+import { authOperations, authSelectors } from 'redux/auth';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import HomePage from './views/HomePage'
+import NotFoundView from './views/NotFoundView/NotFoundView.jsx'
+
 
 function App() {
-  const [modalActive, setModalActive] = useState(false);
-  return (
-    <div>
-      <Container>
-        <Transactionslist />
-        {/* <InputBalance></InputBalance>
-        <InputRegister></InputRegister>
-        <InputDescriptionProduct></InputDescriptionProduct> */}
-      </Container>
-      {/* <RegistrationForm />
-      <AppBar />
-      <ButtonsBlock />
-      <Modal active={modalActive} setActive={setModalActive}>
-        <ModalContent
-          message={'Вы уверены?'}
-          textLeftButton={'да'}
-          textRightButton={'нет'}
-        />
-      </Modal>
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
+  // const isLoggedin = true
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isGoogled = useSelector(authSelectors.getIsGoogled);
 
-      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
-      <Summary /> */}
-    </div>
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+    if (isGoogled) {
+      navigate('/report');
+    }
+  }, [dispatch, isGoogled, navigate]);
+
+  return isFetchingUser ? (
+    <Loader />
+  ) : (
+    <>
+      <Routes>
+        <Route exact path="/" element={<Navigate to="home" />} />
+        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
+        <Route exact path="home/:data" element={<HomePage />} />
+        <Route path="comment" element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />} />
+        <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
+        <Route
+          path="*"
+          element={<NotFoundView >
+            <Loader />
+          </NotFoundView>}
+        />
+      </Routes>
+    </>
   );
 }
 

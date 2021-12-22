@@ -1,0 +1,178 @@
+.container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+.dPicker_category_Cont {
+  display: flex;
+  padding-top: 33px;
+  justify-content: space-around;
+}
+.input_Cont {
+  display: flex;
+}
+.trans_Summ_Cont {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 59px;
+  position: relative;
+  overflow: auto;
+}
+.transactionsCont {
+  background: #fbfcff;
+}
+
+:global .react-tabs__tab-list {
+  margin: 0 0 0px;
+  padding: 0;
+}
+/* :global .react-tabs {
+  display: grid;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+} */
+:global .react-tabs__tab {
+  display: table-cell;
+  width: 138px;
+  height: 40px;
+  bottom: -1px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  list-style: none;
+  background: #fafbfd;
+  text-align: center;
+  vertical-align: middle;
+}
+:global .react-tabs__tab--selected {
+  background: #ffffff;
+  color: rgb(255, 0, 0);
+  /* border-radius: 20px 20px 0 0; */
+}
+:global .react-tabs__tab-panel {
+  display: none;
+}
+:global .react-tabs__tab-panel--selected {
+  display: block;
+  height: 579px;
+  background: #ffffff;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .Dpiker {
+  }
+  .transactionsCont {
+    background: #fff;
+    width: 300px;
+  }
+  .sumPK {
+    display: none;
+  }
+  .sumTablet {
+    display: none;
+  }
+  .dPicker_category_Cont {
+    display: none;
+  }
+  .trans_Summ_Cont {
+    padding-top: 0;
+    height: 122px;
+    position: absolute;
+    position: sticky;
+    top: 100%;
+    width: 100%;
+    /* margin-bottom: 50px; */
+    /* bottom: 20px; */
+    /* margin-bottom: 50px; */
+  }
+  :global .react-tabs {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    bottom: 0;
+  }
+
+  :global .react-tabs__tab-panel--selected {
+    align-content: end;
+    /* height: 567px; */
+    border-radius: 0px 0px 0px 0px;
+  }
+  :global .react-tabs__tab {
+    display: table-cell;
+    width: 159px;
+    height: 53px;
+    border-right: solid 3px white;
+    background: #f5f6fb;
+  }
+  :global .react-tabs__tab--selected {
+    background: #ff4d4d;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Dpiker {
+    display: flex;
+  }
+  .sumPK {
+    display: none;
+  }
+  .sumTablet {
+    margin-top: 40px;
+  }
+  .trans_Summ_Cont {
+    flex-wrap: wrap;
+    padding-top: 48px;
+  }
+  .transactionsCont {
+    width: 605px;
+  }
+  .dPicker_category_Cont {
+    flex-wrap: wrap;
+  }
+  :global .react-tabs__tab-panel--selected {
+    width: 665px;
+  }
+  :global .react-tabs__tab--selected {
+    background: #ffffff;
+    color: rgb(255, 0, 0);
+    border-radius: 20px 20px 0 0;
+  }
+  :global .react-tabs__tab {
+    display: table-cell;
+    width: 138px;
+    height: 40px;
+    bottom: -1px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-radius: 20px 20px 0 0;
+    list-style: none;
+    text-align: center;
+    vertical-align: middle;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :global .react-tabs__tab-panel--selected {
+    width: 1050px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .transactionsCont {
+    width: 760px;
+    height: 384px;
+  }
+  .sumPK {
+    display: flex;
+  }
+  .sumTablet {
+    display: none;
+  }
+}
