@@ -6,21 +6,14 @@ export default function Button({
   text,
   type = 'button',
   onClick,
-  rectangle,
-  border = false,
 }) {
   return (
-    <div className={rectangle && s.rectangleContainer}>
+    <div className={s.rectangleContainer}>
       <button
-        className={rectangle ? s.rectangle : s.button}
+        className={s.button}
         type={type}
         onClick={onClick}
-        style={
-          border
-            ? { borderTopLeftRadius: ' 0', borderBottomLeftRadius: ' 0' }
-            : {}
-        }
-      >
+        >
         {text}
       </button>
     </div>

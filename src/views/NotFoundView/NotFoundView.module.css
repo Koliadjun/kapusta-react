@@ -8,14 +8,17 @@ a {
 .firstSection {
   position: relative;
   background-color: #f5f6fb;
-  overflow: hidden;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
   height: 286px;
   border-radius: 0 0 0 45px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .secondSection {
-  height: 514px;
+    min-height: 70px;
+    padding: 15px 0 0 0;
   position: relative;
 }
 .text {
@@ -30,15 +33,45 @@ a {
   margin-left: 49px;
 }
 .fontText {
-  margin: 5px 0 0 60px;
+  margin: 5px auto;
+  padding: 0 15px;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 13px;
-  line-height: 15px;
-  letter-spacing: 0.15em;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #52555f;
+}
+
+.innerDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+.button {
+  width: 125px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid #f2f5fc;
+  background-color: #fff;
+  transform: scale(1);
+
+  transition: background-color cubic-bezier(0.4, 0, 0.2, 1) 250ms,
+    transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+}
+.buttonText {
+  font-size: 11px;
+  line-height: 12px;
+  color: black;
+  font-weight: bold;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
 }
 
 /* Adaptive */
@@ -46,7 +79,7 @@ a {
 @media screen and (max-width: 768px) {
   .bcgImage {
     position: absolute;
-    z-index: 2;
+    z-index: 0;
     background-image: url('../../images/svg/Vector.svg');
     width: 83px;
     height: 89px;
@@ -71,10 +104,9 @@ a {
   .imgText {
     width: 307px;
     height: 78px;
-    margin-left: 171px;
   }
   .firstSection {
-    height: 526px;
+    height: 336px;
     position: relative;
   }
   .bcgImage {
@@ -86,18 +118,24 @@ a {
     left: 10px;
     background-image: url('../../images/svg/bcgImage.svg');
   }
+  .buttonText {
+    font-size: 12px;
+    line-height: 14px;
+  }
   .text {
     z-index: 3;
   }
   .fontText {
-    margin: 5px 0 0 225px;
+    margin: 25px auto;
+    font-size: 12px;
+    line-height: 14px;
   }
   .secondSection {
-    height: 442px;
+    min-height: 150px;
+    padding: 15px 0 0 0;
   }
   .bcgImageBottom {
     position: absolute;
-    z-index:1;
     width: 183px;
     height: 142px;
     top: 56%;
@@ -106,16 +144,16 @@ a {
   }
 }
 @media screen and (min-width: 1280px) {
-  
   .firstSection {
+    height: 366px;
     position: relative;
   }
   .bcgImage {
     position: absolute;
     z-index: 2;
-    width: 1334px;
+    width: 100%;
     height: 232px;
-    top: 28px;
+    top: 98px;
     left: 10px;
     background-image: url('../../images/svg/bcgImage.svg');
   }
@@ -125,17 +163,19 @@ a {
     margin-left: 230px;
     padding: 20px 1px 2px 3px;
   }
-  .text {
-    padding-top: 308px;
-  }
   .fontText {
     margin: 5px 0 0 302px;
     font-size: 16px;
     line-height: 19px;
   }
   .secondSection {
-    height: 268px;
+    min-height: 150px;
+    padding: 15px 0 0 0;
   }
+  .buttonText {
+    font-size: 14px;
+    line-height: 18px;
+}
   .bcgImageBottom {
     width: 183px;
     height: 142px;
