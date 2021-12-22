@@ -11,7 +11,7 @@ import {
 import Loader from 'components/Loader';
 
 import CommentView from './views/CommentView';
-import ReportView from './views/ReportView';
+import ReportView from './views/ReportView/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
