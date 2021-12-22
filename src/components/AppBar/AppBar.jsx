@@ -1,24 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
-
+// import { useState } from 'react';
+import { authSelectors } from 'redux/auth';
+import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import Container from 'components/Container/Container';
 import LogOutHeaderMenu from 'components/LogOutHeaderMenu/LogOutHeaderMenu';
 import s from './AppBar.module.css';
 
 export default function AppBar() {
-  const [isLogin, setIsLogin] = useState(false);
-  const toggleClick = () => {
-    setIsLogin(!isLogin);
-  };
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   return (
     <Container>
       <div className={s.appBar}>
         <Header />
-        <button type="button" onClick={toggleClick}>
-          isLogin
-        </button>
-        {isLogin && <LogOutHeaderMenu />}
+
+        {isLoggedin && <LogOutHeaderMenu />}
       </div>
     </Container>
   );

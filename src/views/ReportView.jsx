@@ -1,18 +1,23 @@
+// import InputCalculator from 'components/InputCalculator/InputCalculator';
+// import Transactionslist from 'components/Transactionslist/Transactionslist';
 import React from 'react';
-
+// import {Outlet} from 'react-router-dom'
 import Container from '../components/Container/Container';
-import AppBar from '../components/AppBar/AppBar';
+// import AppBar from '../components/AppBar/AppBar';
 import BalanceLine from '../components/BalanceLine/BalanceLine';
 import IncomeSpendSection from '../components/IncomeSpendSection/IncomeSpendSection';
-
-export default function ReportPage({ balance, modal, name }) {
+function ReportView({ children }) {
   return (
-    <div>
+    <>
+      {children}
+      <h1>ReportView</h1>
       <Container>
-        <AppBar />
-        <BalanceLine modal={modal} balance={balance} name={name} />
+        {/* <AppBar /> */}
+        <BalanceLine />
         <IncomeSpendSection />
       </Container>
-    </div>
+    </>
   );
 }
+
+export default ReportView;

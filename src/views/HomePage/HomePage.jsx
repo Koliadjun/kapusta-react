@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import s from './HomePage.module.css';
+import queryString from 'query-string';
+import { authOperations } from '../../redux/auth';
+import { useDispatch } from 'react-redux';
 
 import imgText from 'images/svg/Union.svg';
 import RegisterForm from 'components/RegisterForm';
@@ -7,14 +10,27 @@ import LoginForm from 'components/LogInForm';
 import Container from '../../components/Container';
 
 const HomePage = () => {
-  const [login, setLogin] = useState(true);
+  const dispatch = useDispatch();
+  const [loginFormNeeded, setLoginFormNeeded] = useState(true);
 
-  const onRegisterClick = () => {
-    setLogin(false);
+  const [firstLoaded, setFirstLoaded] = useState(true);
+  const token = Object.values(queryString.parse(window.location.href))[0];
+
+  useEffect(() => {
+    if (firstLoaded && token) {
+      setFirstLoaded(false);
+      dispatch(authOperations.isGooglingUser(token.slice(0, -1)));
+      setFirstLoaded(false);
+    }
+    // eslint-disable-next-line
+  }, []);
+
+  const onRegistrationClick = () => {
+    setLoginFormNeeded(false);
   };
 
-  const onComeBackClick = () => {
-    setLogin(true);
+  const onBackToLogin = () => {
+    setLoginFormNeeded(true);
   };
 
   return (
@@ -27,10 +43,10 @@ const HomePage = () => {
         </div>
       </div>
       <div className={s.secondSection}>
-        {login ? (
-          <LoginForm onClickRegister={onRegisterClick} />
+        {loginFormNeeded ? (
+          <LoginForm onRegistrationClick={onRegistrationClick} />
         ) : (
-          <RegisterForm onClickComeBack={onComeBackClick} />
+          <RegisterForm onBackToLogin={onBackToLogin} />
         )}
         <div className={s.bcgImageBottom}></div>
       </div>

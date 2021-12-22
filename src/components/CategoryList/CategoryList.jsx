@@ -6,8 +6,8 @@ import list from './list.json';
 import s from './styles.module.css';
 
 export default function CategoryList({ categoryType = 'Категория товара' }) {
-  const [selectedOption, setSelectedOption] = useState({});
-
+  const [_, setSelectedOption] = useState({});
+  console.log(_);
   const handlerChange = selectedOption => {
     setSelectedOption({
       category: categoryType,
@@ -86,9 +86,9 @@ export default function CategoryList({ categoryType = 'Категория тов
         paddingLeft: '20px',
       };
     },
-    valueContainer:()=>({
-      padding:'0'
-    })
+    valueContainer: () => ({
+      padding: '0',
+    }),
   };
   const customStylesTablet = {
     option: (provided, state) => ({
@@ -126,7 +126,7 @@ export default function CategoryList({ categoryType = 'Категория тов
     }),
     valueContainer: () => ({
       marginRight: '0',
-      padding:'0'
+      padding: '0',
     }),
     input: () => ({
       display: 'none',
@@ -170,7 +170,7 @@ export default function CategoryList({ categoryType = 'Категория тов
       border: '2px solid var(--secondary-background-color)',
       display: 'flex',
       alignItems: 'center',
-      justifyContent:'space-between'
+      justifyContent: 'space-between',
     }),
     indicatorSeparator: () => ({
       width: '0',
@@ -204,9 +204,9 @@ export default function CategoryList({ categoryType = 'Категория тов
         paddingLeft: '20px',
       };
     },
-    valueContainer:()=>({
-      padding:'0'
-    })
+    valueContainer: () => ({
+      padding: '0',
+    }),
   };
 
   return (
@@ -250,6 +250,6 @@ export default function CategoryList({ categoryType = 'Категория тов
   );
 }
 
-CategoryList.propTypes={
-  categoryType:PropTypes.string
+CategoryList.propTypes = {
+  categoryType: PropTypes.string,
 };

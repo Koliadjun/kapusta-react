@@ -3,8 +3,8 @@
   margin: 0;
   outline: none;
   border: none;
-  width: 125px;
-  height: 44px;
+  width: 126px;
+  height: 40px;
   font-style: normal;
   font-weight: 900;
   font-size: 12px;
@@ -13,11 +13,11 @@
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  border: 2px solid #fff;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
+  border: 2px solid #f5f6fb;
+
+  border-radius: 0px 16px 16px 0px;
   background-color: transparent;
-  background: #f5f6fb;
+  /* background: #f5f6fb; */
   color: black;
 }
 
@@ -28,7 +28,6 @@
 
 @media screen and (min-width: 768px) {
   .input {
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    width: 104px;
   }
 }

@@ -10,6 +10,7 @@
 
 .wrapper {
   margin-bottom: 20px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,6 +36,7 @@
   background-color: transparent;
 }
 .sectionWrapper {
+  height: 100px;
   background-color: var(--main-background-color);
 }
 
