@@ -1,5 +1,7 @@
 .listWrapper{
 max-width: 1060px;
+margin-right: auto;
+margin-left: auto;
 
 display: flex;
 flex-direction: column;
@@ -8,6 +10,7 @@ align-items: center;
 padding: 15px;
 border-radius: 30px;
 background-color: var(--main-background-color);
+
 }
 
 .wrapper{
