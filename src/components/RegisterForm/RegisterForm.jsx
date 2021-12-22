@@ -1,13 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import s from './RegisterForm.module.css';
 import Button from '../Button/Button';
 import GoogleAuth from 'components/GoogleAuth';
 
-import {authOperations} from '../../redux/auth';
-import {authSelectors} from '../../redux/auth';
-import { useNavigate } from "react-router-dom";
-
+import { authOperations } from '../../redux/auth';
+// import {authSelectors} from '../../redux/auth';
+// import { useNavigate } from "react-router-dom";
 
 const RegisterForm = ({ onBackToLogin }) => {
   const dispatch = useDispatch();
@@ -18,10 +17,12 @@ const RegisterForm = ({ onBackToLogin }) => {
   const [emailBlurred, setEmailBlurred] = useState(false);
   const [passwordBlurred, setPasswordBlurred] = useState(false);
   const [invalidEmail, setInvalidEmail] = useState('Это обязательное поле');
-  const [invalidPassword, setInvalidPassword] = useState('Это обязательное поле');
+  const [invalidPassword, setInvalidPassword] = useState(
+    'Это обязательное поле',
+  );
   const [errorSymbol, setErrorSymbol] = useState('*');
 
-  const onBlur = ({target: {name}}) => {
+  const onBlur = ({ target: { name } }) => {
     switch (name) {
       case 'email':
         setEmailBlurred(true);
@@ -34,12 +35,9 @@ const RegisterForm = ({ onBackToLogin }) => {
     }
   };
 
-
-  const inputEmailHandler = ({target: {value}}) => {
+  const inputEmailHandler = ({ target: { value } }) => {
     setEmail(value);
-    if (value.includes("`") ||
-        value.includes("*") || 
-        value.includes(",")) {
+    if (value.includes('`') || value.includes('*') || value.includes(',')) {
       setInvalidEmail('Неправильно введен email');
       setErrorSymbol('*');
 
@@ -47,13 +45,12 @@ const RegisterForm = ({ onBackToLogin }) => {
         setInvalidEmail('это обязательное поле');
         setErrorSymbol('*');
       }
-
     } else {
       setInvalidEmail('');
     }
   };
 
-  const inputPasswordHandler = ({target: {value}}) => {
+  const inputPasswordHandler = ({ target: { value } }) => {
     setPassword(value);
     if (value.length < 3) {
       setInvalidPassword('Пароль должен быть не меньше 3 символов');
@@ -65,9 +62,8 @@ const RegisterForm = ({ onBackToLogin }) => {
     }
   };
 
-  const inputRepeatPasswordHandler = ({target: {value}}) => {
+  const inputRepeatPasswordHandler = ({ target: { value } }) => {
     setRepeatPassword(value);
-    
   };
 
   const resetForm = () => {
@@ -76,15 +72,17 @@ const RegisterForm = ({ onBackToLogin }) => {
     setPassword('');
   };
 
-  const doRegistrationSubmit = (e) => {
+  const doRegistrationSubmit = e => {
     e.preventDefault();
-    if(repeatPassword !== password) {
-      alert('Введенные пароли не совпадают')
-      setPassword('')
-      setRepeatPassword('')
-      return
+    if (repeatPassword !== password) {
+      alert('Введенные пароли не совпадают');
+      setPassword('');
+      setRepeatPassword('');
+      return;
     }
-    dispatch(authOperations.registration({email, password}))
+    dispatch(
+      authOperations.registration({ email: email.toLowerCase(), password }),
+    );
     resetForm();
   };
 
@@ -96,10 +94,13 @@ const RegisterForm = ({ onBackToLogin }) => {
       <div className={s.googleAuth}>
         <GoogleAuth />
       </div>
-      <p className={s.promtText}>
-        Либо с помощью заполнения данных полей:
-      </p>
-      <form onSubmit={doRegistrationSubmit} className={s.form} action="" autoComplete="off">
+      <p className={s.promtText}>Либо с помощью заполнения данных полей:</p>
+      <form
+        onSubmit={doRegistrationSubmit}
+        className={s.form}
+        action=""
+        autoComplete="off"
+      >
         <div className={s.formDiv}>
           <label className={s.formLabel} htmlFor="">
             <p className={s.labelText}>
@@ -118,14 +119,12 @@ const RegisterForm = ({ onBackToLogin }) => {
               value={email}
               placeholder="your@email.com"
               className={s.formInput}
-              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" 
+              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
               title="Неправильный формат email. Разрешенные символы: '._%+-"
               required
             />
             {emailBlurred && invalidEmail && (
-              <div className={s.invalidEmail}>
-                {invalidEmail}{' '}
-              </div>
+              <div className={s.invalidEmail}>{invalidEmail} </div>
             )}
           </label>
         </div>
@@ -151,17 +150,13 @@ const RegisterForm = ({ onBackToLogin }) => {
               required
             />
             {passwordBlurred && invalidPassword && (
-              <div className={s.invalidPassword}>
-                {invalidPassword}{' '}
-              </div>
+              <div className={s.invalidPassword}>{invalidPassword} </div>
             )}
           </label>
         </div>
         <div className={s.formDiv}>
           <label className={s.formLabel} htmlFor="">
-            <p className={s.labelText}>
-              Повторите пароль:
-            </p>
+            <p className={s.labelText}>Повторите пароль:</p>
             <input
               onBlur={onBlur}
               onChange={inputRepeatPasswordHandler}

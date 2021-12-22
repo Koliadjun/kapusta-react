@@ -17,7 +17,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
-import AppBar from './components/AppBar';
+
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,13 +31,14 @@ function App() {
     if (isGoogled) {
       navigate('/report');
     }
-  }, [dispatch, isGoogled, navigate]);
+    console.log("----------")
+    // eslint-disable-next-line
+  }, [isGoogled]);
 
   return isFetchingUser ? (
     <Loader />
   ) : (
     <>
-      <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
         <Route
