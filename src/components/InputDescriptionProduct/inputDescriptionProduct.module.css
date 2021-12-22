@@ -1,6 +1,6 @@
 .input {
   box-sizing: border-box;
-  height: 40px;
+  height: 44px;
   outline: none;
   border: none;
   font-size: 12px;
@@ -27,7 +27,8 @@
   .input {
     border: 2px solid #f5f6fb;
     background-color: #fff;
-    width: 192px;
+    width: 188px;
+    margin-left: -30px;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import LinesEllipsis from 'react-lines-ellipsis';
+// import LinesEllipsis from 'react-lines-ellipsis';
 import data from '../Transactionslist/list.json';
 import s from './transactionslist.module.css';
 import svg from '../../images/svg/sprite.svg';
@@ -18,7 +18,7 @@ export default function Transactionslist({ onDeleteClick }) {
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
           {data.map(({ id, income, description, date, category, negative }) => (
-            <li>
+            <li className={s.descriptionLi}>
               <span className={s.description}>{description}</span>
               <span className={s.data}>{date}</span>
               <span className={s.category}>{category}</span>
