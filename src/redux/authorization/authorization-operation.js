@@ -6,7 +6,7 @@ const loginUser = createAsyncThunk(
     async (credentials, thunkAPI) => {
         try {
             const response = await transactionAPI.logInUser(credentials)
-            transactionAPI.token.set(response.token);
+            transactionAPI.token.set(response.user.token);
             return response
         } catch (error) {
             return thunkAPI.rejectWithValue(error)

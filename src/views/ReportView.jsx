@@ -1,3 +1,5 @@
+import Datepicker from 'components/DatePicker/Datepicker';
+import { ReduxTest } from 'components/reduxTest/ReduxTest';
 import React from 'react';
 
 import Container from '../components/Container/Container';
@@ -33,3 +35,4 @@ export default function ReportPage({
     </div>
   );
 }
+
