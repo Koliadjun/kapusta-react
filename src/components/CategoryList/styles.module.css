@@ -1,5 +1,6 @@
 .categoryForm {
   width: 282px;
+  height: 60px;
   display: inline-block;
 }
 .categoryFormTablet {
@@ -17,8 +18,19 @@
   padding: 0;
 }
 
+:global .css-1afymel-Menu {
+  position: absolute;
+  z-index: 1;
+  background: rgb(255, 255, 255);
+  width: 98%;
+  border: 3px solid #f5f6fb;
+}
+
 :global .css-1efk6oh-Control {
   justify-content: space-between;
   align-items: center;
 }
 
+:global .css-v5p4bu-Control {
+  height: 40px;
+}
