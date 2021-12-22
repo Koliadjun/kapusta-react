@@ -1,7 +1,7 @@
 import React from 'react';
 // import {Outlet} from 'react-router-dom'
 import Container from '../components/Container/Container';
-import AppBar from '../components/AppBar/AppBar';
+// import AppBar from '../components/AppBar/AppBar';
 // import BalanceLine from '../components/BalanceLine/BalanceLine';
 import IncomeSpendSection from '../components/IncomeSpendSection/IncomeSpendSection';
 function ReportView({ children }) {
@@ -10,7 +10,7 @@ function ReportView({ children }) {
       {children}
       <h1>ReportView</h1>
       <Container>
-        <AppBar />
+        {/* <AppBar /> */}
         {/* <BalanceLine /> */}
         <IncomeSpendSection />
       </Container>
