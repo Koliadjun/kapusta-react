@@ -1,18 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import s from './RegisterForm.module.css';
 import Button from '../Button/Button';
+import s from './LoginForm.module.css';
 import GoogleAuth from 'components/GoogleAuth';
 
 import {authOperations} from '../../redux/auth';
-import {authSelectors} from '../../redux/auth';
-import { useNavigate } from "react-router-dom";
 
-
-const RegisterForm = ({ onBackToLogin }) => {
+const LoginForm = ({ onRegistrationClick }) => {
   const dispatch = useDispatch();
 
-  const [repeatPassword, setRepeatPassword] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailBlurred, setEmailBlurred] = useState(false);
@@ -33,8 +29,6 @@ const RegisterForm = ({ onBackToLogin }) => {
         return;
     }
   };
-
-
   const inputEmailHandler = ({target: {value}}) => {
     setEmail(value);
     if (value.includes("`") ||
@@ -65,43 +59,31 @@ const RegisterForm = ({ onBackToLogin }) => {
     }
   };
 
-  const inputRepeatPasswordHandler = ({target: {value}}) => {
-    setRepeatPassword(value);
-    
-  };
-
   const resetForm = () => {
-    setRepeatPassword('');
     setEmail('');
     setPassword('');
   };
 
-  const doRegistrationSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    if(repeatPassword !== password) {
-      alert('Введенные пароли не совпадают')
-      setPassword('')
-      setRepeatPassword('')
-      return
-    }
-    dispatch(authOperations.registration({email, password}))
+    dispatch(authOperations.logIn({email, password}))
     resetForm();
   };
 
   return (
     <div className={s.div}>
       <p className={s.textForGoogle}>
-        Вы можете зарегистрироваться с помощью Google Account:
+        Вы можете авторизоваться с помощью Google Account:
       </p>
       <div className={s.googleAuth}>
         <GoogleAuth />
       </div>
-      <p className={s.promtText}>
-        Либо с помощью заполнения данных полей:
+      <p className={s.textForGoogle}>
+        Или зайти с помощью e-mail и пароля, предварительно зарегистрировавшись:
       </p>
-      <form onSubmit={doRegistrationSubmit} className={s.form} action="" autoComplete="off">
-        <div className={s.formDiv}>
-          <label className={s.formLabel} htmlFor="">
+      <form onSubmit={handleSubmit} className={s.form} action="" autoComplete="off">
+        <div>
+          <label className={s.formLabel}>
             <p className={s.labelText}>
               {emailBlurred && invalidEmail && (
                 <span style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
@@ -117,7 +99,7 @@ const RegisterForm = ({ onBackToLogin }) => {
               name="email"
               value={email}
               placeholder="your@email.com"
-              className={s.formInput}
+              className={s.inputEmail}
               pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" 
               title="Неправильный формат email. Разрешенные символы: '._%+-"
               required
@@ -129,16 +111,16 @@ const RegisterForm = ({ onBackToLogin }) => {
             )}
           </label>
         </div>
-        <div className={s.formDiv}>
-          <label className={s.formLabel} htmlFor="">
-            <p className={s.labelText}>
+        <div>
+          <label className={s.formLabel}>
+            <span className={s.labelText}>
               {passwordBlurred && invalidPassword && (
                 <span style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
                   {errorSymbol}{' '}
                 </span>
               )}
               Пароль:
-            </p>
+            </span>
             <input
               onBlur={onBlur}
               onChange={inputPasswordHandler}
@@ -146,7 +128,7 @@ const RegisterForm = ({ onBackToLogin }) => {
               name="password"
               value={password}
               placeholder="Пароль"
-              className={s.formInput}
+              className={s.inputPassword}
               title="Пароль может, сoстоять не меньше чем из трех символов"
               required
             />
@@ -157,30 +139,16 @@ const RegisterForm = ({ onBackToLogin }) => {
             )}
           </label>
         </div>
-        <div className={s.formDiv}>
-          <label className={s.formLabel} htmlFor="">
-            <p className={s.labelText}>
-              Повторите пароль:
-            </p>
-            <input
-              onBlur={onBlur}
-              onChange={inputRepeatPasswordHandler}
-              type="password"
-              name="repeatPassword"
-              value={repeatPassword}
-              placeholder="Повторите пароль"
-              className={s.formInput}
-              required
-            />
-          </label>
-        </div>
         <div className={s.containerButton}>
-          <Button type="button" text="НАЗАД" onClick={onBackToLogin}></Button>
-          <Button type="submit" text="РЕГИСТРАЦИЯ"></Button>
+          <Button type="submit" text="ВОЙТИ"></Button>
+          <Button
+            type="button"
+            text="РЕГИСТРАЦИЯ"
+            onClick={onRegistrationClick}
+          ></Button>
         </div>
       </form>
     </div>
   );
 };
-
-export default RegisterForm;
+export default LoginForm;
