@@ -16,14 +16,6 @@ import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import HomePage from './views/HomePage';
-import Transactionslist from 'components/Transactionslist/Transactionslist';
-import Container from 'components/Container/Container';
-
-import CategoryImagesList from 'components/CategoryImages/CategoryImagesList/CategoryImagesList';
-import Tabs from 'components/Tabs/Tabs';
-
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
