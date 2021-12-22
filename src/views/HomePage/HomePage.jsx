@@ -13,16 +13,16 @@ const HomePage = () => {
   const dispatch = useDispatch();
   const [loginFormNeeded, setLoginFormNeeded] = useState(true);
 
-  const [firstLoaded, setFirstLoaded] = useState(true)
+  const [firstLoaded, setFirstLoaded] = useState(true);
   const token = Object.values(queryString.parse(window.location.href))[0];
 
-  useEffect(()=> {
+  useEffect(() => {
     if (firstLoaded && token) {
-        setFirstLoaded(false)
-        dispatch(authOperations.isGooglingUser(token.slice(0, -1)))
-        setFirstLoaded(false)
-      }
-  }, [])
+      setFirstLoaded(false);
+      dispatch(authOperations.isGooglingUser(token.slice(0, -1)));
+      setFirstLoaded(false);
+    }
+  }, [dispatch, firstLoaded, token]);
 
   const onRegistrationClick = () => {
     setLoginFormNeeded(false);

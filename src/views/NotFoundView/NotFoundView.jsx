@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React from 'react';
+// import { Outlet } from 'react-router-dom';
 import s from './NotFoundView.module.css';
 import imgText from 'images/svg/Union.svg';
 
 function NotFoundView({ children }) {
-  const [buttonNeeded, setButtonNeeded] = useState(false);
+  // const [buttonNeeded, setButtonNeeded] = useState(false);
 
   return (
     <div className={s.container}>
