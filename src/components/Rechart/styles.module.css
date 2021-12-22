@@ -1,20 +1,26 @@
-.rechartSection{
-    padding-top: 34px;
-    padding-bottom: 34px;
+.rechartSection {
+  padding-top: 34px;
+  padding-bottom: 34px;
 }
 
-:global .recharts-surface{
+
+@media screen and (max-width: 767px) {
+  :global .recharts-surface {
+    position: absolute;
+    left: -60px;
     transform: rotate(90deg);
-    
+    height: 282px;
+    width: 400px;
+  }
+  
 }
 
-:global .recharts-layer.recharts-bar-rectangle{
-    fill:var(--secondary-accent-color);
- 
+:global .recharts-layer.recharts-bar-rectangle {
+  fill: var(--secondary-accent-color);
 }
-:global .recharts-rectangle{
-    fill: inherit;
+:global .recharts-rectangle {
+  fill: inherit;
 }
-:global .recharts-layer.recharts-bar-rectangle:nth-child(3n+1){
-    fill:var(--accent-color)
+:global .recharts-layer.recharts-bar-rectangle:nth-child(3n + 1) {
+  fill: var(--accent-color);
 }
