@@ -31,7 +31,8 @@ function App() {
     if (isGoogled) {
       navigate('/report');
     }
-  }, [dispatch, isGoogled, navigate]);
+    console.log("----------")
+  }, []);
 
   return isFetchingUser ? (
     <Loader />
