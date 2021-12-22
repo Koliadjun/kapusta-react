@@ -3,7 +3,7 @@ import * as transactionAPI from 'services/transactionAPI'
 
 const getAllTransaction = createAsyncThunk(
     'transaction/getAll',
-    async (_, thunkAPI) => {
+    async (payload, thunkAPI) => {
         try {
             const response = await transactionAPI.fetchAllTransaction()
             const resultFunc = (response) => {
@@ -21,8 +21,9 @@ const getAllTransaction = createAsyncThunk(
                         spend: []
                     }
                 }
-                const income = response.filter(element => !element.negative)
-                const spend = response.filter(element => element.negative)
+                const responseFilteredByCurrentYear = response.filter(element => element.year = payload)
+                const income = responseFilteredByCurrentYear.filter(element => !element.negative)
+                const spend = responseFilteredByCurrentYear.filter(element => element.negative)
                 const spendCategory = []
                 const incomeCategory = []
                 for (let i = 0; i < 12; i++) {

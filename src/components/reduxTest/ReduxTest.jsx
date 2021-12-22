@@ -9,8 +9,8 @@ export const ReduxTest = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const a = useSelector(transactionSelectors.getSpendReportDataPerMonth(5));
-  console.log(`a`, a);
+  const currentYear = useSelector(transactionSelectors.getCurrentYear);
+
   return (
     <div>
       <form
@@ -43,7 +43,7 @@ export const ReduxTest = () => {
 
       <button
         onClick={() => {
-          dispatch(transactionOperations.getAllTransaction());
+          dispatch(transactionOperations.getAllTransaction(currentYear));
         }}
       >
         Click me
