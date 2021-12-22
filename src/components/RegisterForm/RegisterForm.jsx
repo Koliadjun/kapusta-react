@@ -80,7 +80,9 @@ const RegisterForm = ({ onBackToLogin }) => {
       setRepeatPassword('');
       return;
     }
-    dispatch(authOperations.registration({ email, password }));
+    dispatch(
+      authOperations.registration({ email: email.toLowerCase(), password }),
+    );
     resetForm();
   };
 
