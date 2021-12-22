@@ -17,15 +17,16 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
+import AppBar from 'components/AppBar';
 
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  // const isLoggedin = true
-  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedin = true
+  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
-
+  console.log(`Hi !!!`, isLoggedin)
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
     if (isGoogled) {
@@ -39,6 +40,7 @@ function App() {
     <Loader />
   ) : (
     <>
+      <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
         <Route
