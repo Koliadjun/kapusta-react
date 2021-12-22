@@ -1,0 +1,68 @@
+[
+    {
+        "id": "1",
+        "costs": "5000",
+        "images": "images/svg/products.svg",
+        "category": "продукты"
+    },
+    {
+        "id": "2",
+        "costs": "200",
+        "images": "images/svg/cocktail.svg",
+        "category": "алкоголь"
+    },
+    {
+        "id": "3",
+        "costs": "800",
+        "images": "images/svg/kite.svg",
+        "category": "развлечения"
+    },
+    {
+        "id": "4",
+        "costs": "900",
+        "images": "images/svg/health.svg",
+        "category": "здоровье"
+    },
+    {
+        "id": "5",
+        "costs": "2000",
+        "images": "images/svg/car.svg",
+        "category": "транспорт"
+    },
+    {
+        "id": "6",
+        "costs": "1500",
+        "images": "images/svg/couch.svg",
+        "category": "все для дома"
+    },
+    {
+        "id": "7",
+        "costs": "800",
+        "images": "/images/svg/tools.svg",
+        "category": "техника"
+    },
+    {
+        "id": "8",
+        "costs": "2200",
+        "images": "images/svg/invoice.svg",
+        "category": "коммуналка, связь"
+    },
+    {
+        "id": "9",
+        "costs": "1800",
+        "images": "images/svg/sport-hobby.svg",
+        "category": "спорт, хобби"
+    },
+    {
+        "id": "10",
+        "costs": "2400",
+        "images": "images/svg/book.svg",
+        "category": "образование"
+    },
+    {
+        "id": "11",
+        "costs": "3000",
+        "images": "images/svg/ufo.svg",
+        "category": "прочее"
+    }
+]
