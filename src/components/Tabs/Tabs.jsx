@@ -37,14 +37,10 @@ export default function TabsContainer() {
             <div className={s.transactionsCont}>
               <Transactionslist />
             </div>
-            <div className={s.sumPK}>
-              <Summary />
-            </div>
+            <div className={s.sumPK}>{/* <Summary /> */}</div>
           </div>
         </TabPanel>
-        <div className={s.sumTablet}>
-          <Summary />
-        </div>
+        <div className={s.sumTablet}>{/* <Summary /> */}</div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
@@ -59,9 +55,7 @@ export default function TabsContainer() {
             <div className={s.transactionsCont}>
               <Transactionslist />
             </div>
-            <div className={s.sumPK}>
-              <Summary />
-            </div>
+            <div className={s.sumPK}>{/* <Summary /> */}</div>
           </div>
         </TabPanel>
       </Tabs>

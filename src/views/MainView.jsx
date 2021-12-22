@@ -19,13 +19,13 @@ function MainPage({
   // const data = useSelector(transactionSelectors.getAllIncomeSummary);
   return (
     <>
-      <Tabs />
       <Container>
         <AppBar />
         <BalanceLine modal={modal} balance={balance} name={name} />
         <div style={{ margin: 20 }}>
           <Datepicker date={date} />
         </div>
+        <Tabs />
       </Container>
     </>
   );
