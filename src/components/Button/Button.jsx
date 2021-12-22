@@ -10,7 +10,7 @@ export default function Button({
   border = false,
 }) {
   return (
-    <div className={rectangle && s.rectangleContainer}>
+    <div className={rectangle ? s.rectangleContainer : undefined}>
       <button
         className={rectangle ? s.rectangle : s.button}
         type={type}
