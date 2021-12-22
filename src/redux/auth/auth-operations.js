@@ -98,7 +98,7 @@ const fetchCurrentUser = createAsyncThunk(
       return data;
     } catch (err) {
       if (err.response.status === 401) {
-        alert("Your session expired or user doesn't exist");
+        // alert("Your session expired or user doesn't exist")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
@@ -158,59 +158,57 @@ const authOperations = {
 
 export default authOperations;
 
-{
-  /* <form onSubmit={handleSubmit} action="" autoComplete="off">
-        <div>
-          <label className={s.formLabel}>
-            <p className={s.labelText}>
-              Электронная почта:
-            </p>
-            <input
-              onBlur={blurHandler}
-              type="email"
-              name="email"
-              value={values.email}
-              onChange={handleChange}
-              placeholder="your@email.com"
-              className={s.inputEmail}
-              pattern="[A-Za-z0-9._%-+-]+@[A-Za-z0-9._%-+-]+\.[A-Za-z]{2,4}$"
-              title="Email может, сoстоять из букв цифр и обязательного символа '@'"
-              required
-            />
-          </label>
-        </div>
-        <div>
-          <label className={s.formLabel}>
-            <span className={s.labelText}>
-              {passwordDirty && passwordError && (
-                <span style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
-                  {errorSymbol}{' '}
-                </span>
-              )}
-              Пароль:
-            </span>
-            <input
-              onBlur={blurHandler}
-              type="password"
-              name="password"
-              value={values.password}
-              onChange={handleChange}
+// {/* <form onSubmit={handleSubmit} action="" autoComplete="off">
+//         <div>
+//           <label className={s.formLabel}>
+//             <p className={s.labelText}>
+//               Электронная почта:
+//             </p>
+//             <input
+//               onBlur={blurHandler}
+//               type="email"
+//               name="email"
+//               value={values.email}
+//               onChange={handleChange}
+//               placeholder="your@email.com"
+//               className={s.inputEmail}
+//               pattern="[A-Za-z0-9._%-+-]+@[A-Za-z0-9._%-+-]+\.[A-Za-z]{2,4}$"
+//               title="Email может, сoстоять из букв цифр и обязательного символа '@'"
+//               required
+//             />
+//           </label>
+//         </div>
+//         <div>
+//           <label className={s.formLabel}>
+//             <span className={s.labelText}>
+//               {passwordDirty && passwordError && (
+//                 <span style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
+//                   {errorSymbol}{' '}
+//                 </span>
+//               )}
+//               Пароль:
+//             </span>
+//             <input
+//               onBlur={blurHandler}
+//               type="password"
+//               name="password"
+//               value={values.password}
+//               onChange={handleChange}
 
-              placeholder="Пароль"
-              className={s.inputPassword}
-              pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&.*]{3,}"
-              title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
-              required
-            />
-            {passwordDirty && passwordError && (
-              <div style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
-                {passwordError}{' '}
-              </div>
-            )}
-          </label>
-        </div>
-        <div className={s.containerButton}>
-          <Button type="submit" text="ВОЙТИ">login</Button>
-        </div>
-      </form> */
-}
+//               placeholder="Пароль"
+//               className={s.inputPassword}
+//               pattern="[0-9A-Za-zА-Яа-яЁёЄєЇї!@#$%^&.*]{3,}"
+//               title="Пароль может, сoстоять не меньше чем из шести букв цифр и символов '!@#$%^&*'"
+//               required
+//             />
+//             {passwordDirty && passwordError && (
+//               <div style={{ color: 'red', fontSize: 10, paddingTop: 4 }}>
+//                 {passwordError}{' '}
+//               </div>
+//             )}
+//           </label>
+//         </div>
+//         <div className={s.containerButton}>
+//           <Button type="submit" text="ВОЙТИ">login</Button>
+//         </div>
+//       </form> */}

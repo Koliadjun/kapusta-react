@@ -31,7 +31,9 @@ function App() {
     if (isGoogled) {
       navigate('/report');
     }
-  }, [dispatch, isGoogled, navigate]);
+    console.log("----------")
+    // eslint-disable-next-line
+  }, [isGoogled]);
 
   return isFetchingUser ? (
     <Loader />

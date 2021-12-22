@@ -21,9 +21,9 @@ const authSlice = createSlice({
     [authOperations.registration.fulfilled]: (state, { payload }) => {
       console.log(payload)
       state.user = payload;
-      state.token = payload.token;
+      // state.token = payload.token;
       state.isFetchingUser = false;
-      state.isLoggedIn = true;
+      // state.isLoggedIn = true;
     },
     [authOperations.registration.rejected]: (state, { payload }) => {
       state.error = payload;
@@ -48,21 +48,27 @@ const authSlice = createSlice({
     [authOperations.fetchCurrentUser.pending]: (state, action) => {
       state.isFetchingUser = true;
     },
-    [authOperations.fetchCurrentUser.fulfilled]: (state, {payload}) => {
-      if(!payload) return
+    [authOperations.fetchCurrentUser.fulfilled]: (state, { payload }) => {
+      console.log(payload)
+      if (!payload) {
+        state.isFetchingUser = false;
+        state.isLoggedIn = false;
+        return
+      }
       state.user = payload.userData;
       state.isLoggedIn = true;
       state.isFetchingUser = false;
     },
     [authOperations.fetchCurrentUser.rejected]: (state, action) => {
       state.isFetchingUser = false;
+      state.isLoggedIn = false;
     },
-    [authOperations.isGooglingUser.pending]: (state, {payload}) => {
+    [authOperations.isGooglingUser.pending]: (state, { payload }) => {
       console.log(`authOperations.isGooglingUser.pending`, payload)
       state.isGooglingUser = true;
       state.isFetchingUser = false;
     },
-    [authOperations.isGooglingUser.fulfilled]: (state, {payload}) => {
+    [authOperations.isGooglingUser.fulfilled]: (state, { payload }) => {
       console.log(`authOperations.isGooglingUser.fulfilled`, payload)
 
       state.user = payload.userData;
@@ -72,9 +78,9 @@ const authSlice = createSlice({
       state.isGooglingUser = false;
       state.isFetchingUser = false;
     },
-    [authOperations.isGooglingUser.rejected]: (state, {payload}) => {
-            console.log(`authOperations.isGooglingUser.rejected`, payload)
-        state.error = payload;
+    [authOperations.isGooglingUser.rejected]: (state, { payload }) => {
+      console.log(`authOperations.isGooglingUser.rejected`, payload)
+      state.error = payload;
       state.isGooglingUser = false;
       state.isFetchingUser = false;
     },
