@@ -43,19 +43,19 @@ function App() {
   const isLoggedin = true;
   const isGoogled = useSelector(authSelectors.getIsGoogled);
 
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  //   if (isGoogled) {
-  //     navigate('/report');
-  //   }
-  // }, [dispatch, isGoogled, navigate]);
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+    if (isGoogled) {
+      navigate('/report');
+    }
+  }, [dispatch, isGoogled, navigate]);
 
   return isFetchingUser ? (
     <Loader />
   ) : (
     <div>
       <Routes>
-        {/* <Route exact path="/" element={<Navigate to="home" />} />
+        <Route exact path="/" element={<Navigate to="home" />} />
         <Route
           index
           path="home"
@@ -63,7 +63,7 @@ function App() {
             isLoggedin ? <Navigate replace to="/report" /> : <HomeView />
           }
         />
-        <Route exact path="home/:data" element={<HomeView />} /> */}
+        <Route exact path="home/:data" element={<HomeView />} />
 
         <Route
           path="/main"
