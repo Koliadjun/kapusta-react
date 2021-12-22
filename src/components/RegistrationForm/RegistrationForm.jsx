@@ -4,9 +4,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
-// import { useDispatch } from "react-redux";
 import { Formik } from 'formik';
-// import { authOperations } from "../redux/auth";
 import s from './RegistrationForm.module.css';
 import axios from 'axios';
 import LogoutButton from 'components/LogoutButton';
@@ -82,6 +80,7 @@ function RegistrationForm() {
   };
 
   const doRegistrationSubmit = (values, { resetForm }) => {
+
     dispatch(authOperations.registration(values))
     resetForm({ values: "" });
     setRegistrationFormNeeded(true)

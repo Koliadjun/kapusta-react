@@ -97,7 +97,7 @@ a {
   }
   .bcgImageBottom {
     position: absolute;
-    z-index: 99;
+    z-index:1;
     width: 183px;
     height: 142px;
     top: 56%;
