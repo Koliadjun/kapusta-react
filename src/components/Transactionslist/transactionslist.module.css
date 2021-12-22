@@ -17,7 +17,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  width: 150%;
+  width: 100%;
 }
 
 .button {
@@ -77,6 +77,13 @@
 }
 
 @media screen and (min-width: 768px) {
+  .scrollBar {
+    height: 310px;
+    overflow-y: scroll;
+    border: 2px solid #f5f6fb;
+    border-radius: 0 0 20px 20px;
+  }
+
   .tableHeader {
     height: 40px;
     display: grid;
@@ -159,6 +166,11 @@
   /* .sumWrapper {
     justify-content: center;
   } */
+  .scrollBar {
+    height: 480px;
+    overflow-y: scroll;
+    border: 2px solid #f5f6fb;
+  }
 }
 
 .sum {
