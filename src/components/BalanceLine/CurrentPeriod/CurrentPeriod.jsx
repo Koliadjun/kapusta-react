@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './CurrentPeriod.module.css';
 import { ReactComponent as ArrowLeftIcon } from '../../../images/svg/vector-left.svg';
 import { ReactComponent as ArrowRightIcon } from '../../../images/svg/vector-right.svg';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 export default function CurrentPeriod() {
   const date = useSelector(state => state.transaction.date);
   console.log(`report`, date);
@@ -26,7 +26,9 @@ export default function CurrentPeriod() {
   };
   console.log('report', month);
 
-  function onClickLeft() {}
+  function onClickLeft() {
+    // dispatch(transactionOperations.setDate(UpdateDate));
+  }
   function onClickRight() {}
 
   return (
