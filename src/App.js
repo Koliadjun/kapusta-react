@@ -31,7 +31,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 
 // import './App.css';
-// import Transactionslist from 'components/Transactionslist/Transactionslist';
+import Transactionslist from 'components/Transactionslist/Transactionslist';
 import Container from 'components/Container/Container';
 
 // import InputBalance from 'components/InputBalance/InputBalance';
@@ -41,7 +41,7 @@ import Container from 'components/Container/Container';
 // import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
 // import Content from 'components/InitialBalanceFormModal/Content/Content';
 import CategoryImagesList from 'components/CategoryImages/CategoryImagesList/CategoryImagesList';
-// import Tabs from 'components/Tabs/Tabs';
+import Tabs from 'components/Tabs/Tabs';
 
 function App() {
   const [modal, setModal] = useState(true);
@@ -69,7 +69,8 @@ function App() {
     <Loader />
   ) : (
     <div>
-      <ButtonsBlock />
+      <Tabs />
+      {/* <ButtonsBlock />
       <Modal active={modalActive} setActive={setModalActive} />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
@@ -127,7 +128,7 @@ function App() {
         </Wrapper>
       </BalanceModal>
       {!modal === true && <BalanceForm balance={balance} />}
-      <Loader />
+      <Loader /> */}
     </div>
   );
 }
