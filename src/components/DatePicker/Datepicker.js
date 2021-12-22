@@ -5,24 +5,24 @@ import ru from 'date-fns/locale/ru';
 
 import { ReactComponent as CalendarIcon } from './calendar.svg';
 import styles from './Datepicker.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 
 registerLocale('ru', ru);
 
-function Datepicker({ onSelectedDate }) {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+function Datepicker() {
+  const storeDate = useSelector(state => state.transaction.date);
+  const [selectedDate, setSelectedDate] = useState(storeDate);
+  // const selectedDay = selectedDate.getDate();
+  // const selectedMonth = selectedDate.getMonth() + 1;
+  // const selectedYear = selectedDate.getFullYear();
+  const dispatch = useDispatch();
+  // console.log(storeDate)
+  function handleSelect(date) {
+    // setSelectedDate(date);
 
-  const day = selectedDate.getDate();
-  const month = selectedDate.getMonth() + 1;
-  const year = selectedDate.getFullYear();
-  const formatDate = `${day}.${month}.${year}`;
-
-  const handleSelect = date => {
-    setSelectedDate(date);
-    // console.log(formatDate); //only for testing
-    // console.log(selectedDate); //only for testing
-    onSelectedDate({ day, month, year });
-  };
-
+    dispatch(transactionOperations.setDate(date));
+  }
   return (
     <div className={styles.containerDatepicker}>
       <CalendarIcon className={styles.icon} width="20px" height="20px" />
@@ -30,9 +30,8 @@ function Datepicker({ onSelectedDate }) {
         <DatePicker
           dateFormat="dd.MM.yyyy"
           selected={selectedDate}
+          onSelect={setSelectedDate}
           onChange={handleSelect}
-          // onChange={date => setSelectedDate(date)} //only for testing
-          value={formatDate}
           className={styles.date}
           maxDate={new Date()}
           locale="ru"

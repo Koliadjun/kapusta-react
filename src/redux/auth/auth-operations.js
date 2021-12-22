@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/";
+// axios.defaults.baseURL = 'http://localhost:5000';
 
-// "https://kapusta-api-iteam.herokuapp.com/";
+
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -212,3 +213,4 @@ export default authOperations;
 //           <Button type="submit" text="ВОЙТИ">login</Button>
 //         </div>
 //       </form> */}
+
