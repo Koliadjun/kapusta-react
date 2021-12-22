@@ -41,12 +41,7 @@ function MainPage({
         <AppBar />
         <BalanceLine modal={modal} balance={balance} name={name} />
         <div style={{ margin: 20 }}>
-          <Datepicker
-            date={date}
-            month={month}
-            year={year}
-            onSelectedDate={onSelectedDate}
-          />
+          <Datepicker date={date} />
         </div>
 
         <RegistrationForm />

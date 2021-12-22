@@ -17,11 +17,7 @@ const initialState = {
             spend: []
         }
     },
-    date: {
-        day: new Date().getUTCDate(),
-        month: new Date().getUTCMonth() + 1,
-        year: new Date().getUTCFullYear(),
-    },
+    date: new Date(),
     error: null
 }
 const transactionSlice = createSlice({

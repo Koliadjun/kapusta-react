@@ -6,15 +6,7 @@ import ReportButton from './ReportButton/ReportButton';
 import BackHomeButton from './BackHomeButton/BackHomeButton';
 import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 
-export default function BalanceLine({
-  balance,
-  modal,
-  name,
-  month,
-  setMonth,
-  year,
-  setYear,
-}) {
+export default function BalanceLine({ balance, modal, name }) {
   return (
     <div className={styles.balanceLine}>
       {modal === false && (
@@ -22,14 +14,7 @@ export default function BalanceLine({
           {name === 'report' && <BackHomeButton />}
           <BalanceForm balance={balance} />
           {name === 'main' && <ReportButton />}
-          {name === 'report' && (
-            <CurrentPeriod
-              month={month}
-              setMonth={setMonth}
-              year={year}
-              setYear={setYear}
-            />
-          )}
+          {name === 'report' && <CurrentPeriod />}
         </div>
       )}
     </div>

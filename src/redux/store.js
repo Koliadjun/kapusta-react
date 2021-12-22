@@ -17,9 +17,10 @@ import { authReducer } from './auth';
 // import transactionReducer from 'redux/transaction/transaction-slice'
 const middleware = [
     ...getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-        },
+        serializableCheck: false
+        //     {
+        //         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        //     },
     }),
 ];
 const authPersistConfig = {

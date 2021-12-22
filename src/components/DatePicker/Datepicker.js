@@ -11,15 +11,17 @@ import { transactionOperations } from 'redux/transaction';
 registerLocale('ru', ru);
 
 function Datepicker() {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const selectedDay = selectedDate.getDate();
-  const selectedMonth = selectedDate.getMonth() + 1;
-  const selectedYear = selectedDate.getFullYear();
-
+  const storeDate = useSelector(state => state.transaction.date)
+  const [selectedDate, setSelectedDate] = useState(storeDate);
+  // const selectedDay = selectedDate.getDate();
+  // const selectedMonth = selectedDate.getMonth() + 1;
+  // const selectedYear = selectedDate.getFullYear();
+  const dispatch = useDispatch()
+  console.log(storeDate)
   function handleSelect(date) {
-    setSelectedDate(date);
+    // setSelectedDate(date);
 
-    onSelectedDate({ selectedDay, selectedMonth, selectedYear });
+    dispatch(transactionOperations.setDate(date));
   }
   return (
     <div className={styles.containerDatepicker}>
@@ -28,6 +30,7 @@ function Datepicker() {
         <DatePicker
           dateFormat="dd.MM.yyyy"
           selected={selectedDate}
+          onSelect={setSelectedDate}
           onChange={handleSelect}
           className={styles.date}
           maxDate={new Date()}

@@ -43,12 +43,12 @@ function App() {
   const isLoggedin = true;
   const isGoogled = useSelector(authSelectors.getIsGoogled);
 
-  useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());
-    if (isGoogled) {
-      navigate('/report');
-    }
-  }, [dispatch, isGoogled, navigate]);
+  // useEffect(() => {
+  //   dispatch(authOperations.fetchCurrentUser());
+  //   if (isGoogled) {
+  //     navigate('/report');
+  //   }
+  // }, [dispatch, isGoogled, navigate]);
 
   return isFetchingUser ? (
     <Loader />
@@ -77,7 +77,7 @@ function App() {
                 setMonth={setMonth}
                 year={year}
                 setYear={setYear}
-                onSelectedDate={onSelectedDate}
+                // onSelectedDate={onSelectedDate}
                 modal={modal}
                 setModal={setModal}
               />

@@ -3,8 +3,13 @@ import React from 'react';
 import styles from './CurrentPeriod.module.css';
 import { ReactComponent as ArrowLeftIcon } from '../../../images/svg/vector-left.svg';
 import { ReactComponent as ArrowRightIcon } from '../../../images/svg/vector-right.svg';
+import { useSelector } from 'react-redux';
+export default function CurrentPeriod() {
+  const date = useSelector(state => state.transaction.date);
+  console.log(`report`, date);
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
 
-export default function CurrentPeriod({ month, setMonth, year, setYear }) {
   const months = {
     1: 'январь',
     2: 'февраль',
