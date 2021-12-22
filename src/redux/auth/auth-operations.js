@@ -104,7 +104,7 @@ const fetchCurrentUser = createAsyncThunk(
       return data;
     } catch (err) {
       if (err.response.status === 401) {
-        alert("Your session expired or user doesn't exist")
+        // alert("Your session expired or user doesn't exist")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
           status: err.response.status,
