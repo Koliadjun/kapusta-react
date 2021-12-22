@@ -14,7 +14,7 @@ export default function AppBar() {
       <div className={s.appBar}>
         <Header />
         
-        {!isLoggedin && <LogOutHeaderMenu />}
+        {isLoggedin && <LogOutHeaderMenu />}
       </div>
     </Container>
   );
