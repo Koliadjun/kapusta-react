@@ -7,14 +7,17 @@ import {
   Navigate,
   useNavigate,
 } from 'react-router-dom';
+
 import Loader from 'components/Loader';
 
 import CommentView from './views/CommentView';
-import HomeView from './views/HomeView';
-import ReportView from './views/ReportView/ReportView';
+import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import HomePage from './views/HomePage';
+import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
+
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,10 +43,10 @@ function App() {
           index
           path="home"
           element={
-            isLoggedin ? <Navigate replace to="/report" /> : <HomeView />
+            isLoggedin ? <Navigate replace to="/report" /> : <HomePage />
           }
         />
-        <Route exact path="home/:data" element={<HomeView />} />
+        <Route exact path="home/:data" element={<HomePage />} />
         <Route
           path="comment"
           element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
@@ -52,7 +55,14 @@ function App() {
           path="report"
           element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
         />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route
+          path="*"
+          element={
+            <NotFoundView>
+              <Loader />
+            </NotFoundView>
+          }
+        />
       </Routes>
     </>
   );
