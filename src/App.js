@@ -26,14 +26,14 @@ function App() {
   // const [balance, setBalance] = useState(0);
 
   //DatePicker -------------- BEGINNING -----------
-  const [date, setDate] = useState(new Date().getDate());
-  const [month, setMonth] = useState(new Date().getMonth() + 1);
-  const [year, setYear] = useState(new Date().getFullYear());
-  function onSelectedDate({ selectedDay, selectedMonth, selectedYear }) {
-    setDate(selectedDay);
-    setMonth(selectedMonth);
-    setYear(selectedYear);
-  }
+  // const [date, setDate] = useState(new Date().getDate());
+  // const [month, setMonth] = useState(new Date().getMonth() + 1);
+  // const [year, setYear] = useState(new Date().getFullYear());
+  // function onSelectedDate({ selectedDay, selectedMonth, selectedYear }) {
+  //   setDate(selectedDay);
+  //   setMonth(selectedMonth);
+  //   setYear(selectedYear);
+  // }
   //DatePicker -------------- END-----------
 
   const dispatch = useDispatch();
@@ -71,12 +71,12 @@ function App() {
             isLoggedin ? (
               <MainView
                 name={'main'}
-                date={date}
-                setDate={setDate}
-                month={month}
-                setMonth={setMonth}
-                year={year}
-                setYear={setYear}
+                // date={date}
+                // setDate={setDate}
+                // month={month}
+                // setMonth={setMonth}
+                // year={year}
+                // setYear={setYear}
                 // onSelectedDate={onSelectedDate}
                 modal={modal}
                 setModal={setModal}
@@ -92,12 +92,12 @@ function App() {
             isLoggedin ? (
               <ReportView
                 name={'report'}
-                date={date}
-                setDate={setDate}
-                month={month}
-                setMonth={setMonth}
-                year={year}
-                setYear={setYear}
+                // date={date}
+                // setDate={setDate}
+                // month={month}
+                // setMonth={setMonth}
+                // year={year}
+                // setYear={setYear}
                 modal={modal}
                 setModal={setModal}
               />
@@ -109,7 +109,6 @@ function App() {
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
-
   );
 }
 

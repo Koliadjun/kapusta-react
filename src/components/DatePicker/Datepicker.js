@@ -11,13 +11,13 @@ import { transactionOperations } from 'redux/transaction';
 registerLocale('ru', ru);
 
 function Datepicker() {
-  const storeDate = useSelector(state => state.transaction.date)
+  const storeDate = useSelector(state => state.transaction.date);
   const [selectedDate, setSelectedDate] = useState(storeDate);
   // const selectedDay = selectedDate.getDate();
   // const selectedMonth = selectedDate.getMonth() + 1;
   // const selectedYear = selectedDate.getFullYear();
-  const dispatch = useDispatch()
-  console.log(storeDate)
+  const dispatch = useDispatch();
+  // console.log(storeDate)
   function handleSelect(date) {
     // setSelectedDate(date);
 

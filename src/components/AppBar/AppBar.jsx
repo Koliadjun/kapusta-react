@@ -8,7 +8,6 @@ import s from './AppBar.module.css';
 
 export default function AppBar() {
   const [isLogin, setIsLogin] = useState(false);
-  // console.log(isLogin);
   const toggleClick = () => {
     setIsLogin(!isLogin);
   };

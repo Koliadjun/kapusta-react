@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './CurrentPeriod.module.css';
 import { ReactComponent as ArrowLeftIcon } from '../../../images/svg/vector-left.svg';
@@ -8,10 +8,15 @@ import { transactionOperations } from 'redux/transaction';
 export default function CurrentPeriod() {
   const dispatch = useDispatch();
   const date = useSelector(state => state.transaction.date);
-  console.log(`report`, date);
+  // console.log(`report`, date);
+  const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  const day = date.getDate();
+  // console.log('month', month);
+  // console.log('year', year);
+  const [selectedMonth, setSelectedMonth] = useState(month);
+  const [selectedYear, setSelectedYear] = useState(year);
+
   const months = {
     1: 'январь',
     2: 'февраль',
@@ -26,31 +31,33 @@ export default function CurrentPeriod() {
     11: 'ноябрь',
     12: 'декабрь',
   };
-  console.log('report', month);
 
-  function onClickLeft(month, setMonth, year, setYear) {
-    if (month <= 1) {
-      setMonth(12);
-      setYear(prev => (prev -= 1));
+  const onClickRight = () => {
+    // console.log('onClickRight', selectedMonth, selectedYear);
+    if (selectedMonth < 12) {
+      setSelectedMonth(prev => (prev += 1));
     } else {
-      setMonth(prev => (prev -= 1));
+      setSelectedMonth(1);
+      setSelectedYear(prev => (prev += 1));
     }
-    dispatch(transactionOperations.setDate(new date(year, month, day)));
-  }
-  function onClickRight(month, setMonth, year, setYear) {
-    if (month < 12) {
-      setMonth(month => (month += 1));
+    dispatch(
+      transactionOperations.setDate(new Date(selectedYear, selectedMonth, day)),
+    );
+  };
+
+  const onClickLeft = () => {
+    // console.log('click left');
+    // console.log('onClickLeft', selectedMonth, selectedYear);
+    if (selectedMonth <= 1) {
+      setSelectedMonth(12);
+      setSelectedYear(prev => (prev -= 1));
     } else {
-      setMonth(1);
-      setYear(year => (year += 1));
+      setSelectedMonth(prev => (prev -= 1));
     }
-    dispatch(transactionOperations.setDate(new date(year, month, day)));
-  }
-
-  // function onClickLeft() {
-
-  // }
-  // function onClickRight() {}
+    dispatch(
+      transactionOperations.setDate(new Date(selectedYear, selectedMonth, day)),
+    );
+  };
 
   return (
     <div>
