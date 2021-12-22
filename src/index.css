@@ -18,6 +18,8 @@ body {
   font: normal var(--main-font-weight) var(--main-font-size) 'Roboto',
     sans-serif;
   line-height: 1.17;
+
+  background-color: #ffffff;
 }
 
 h1,
@@ -37,7 +39,8 @@ ol {
 li {
   list-style: none;
 }
-img {
+img,
+svg {
   display: block;
   max-width: 100%;
   height: auto;

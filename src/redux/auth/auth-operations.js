@@ -3,8 +3,8 @@ import {
   createAsyncThunk
 } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "http://localhost:5000";
-
+// axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/";
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -103,7 +103,7 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get("api/auth/current");
       return data;
     } catch (err) {
-      if(err.response.status === 401) {
+      if (err.response.status === 401) {
         alert("Your session expired or user doesn't exist")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
@@ -111,7 +111,7 @@ const fetchCurrentUser = createAsyncThunk(
           statusText: err.response.statusText
         });
       }
-      if(err.response.status !== 401) {
+      if (err.response.status !== 401) {
         alert("Oops, we got an error :( Please try again later.")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
@@ -134,7 +134,7 @@ const isGooglingUser = createAsyncThunk(
       const { data } = await axios.get("api/auth/current");
       return data;
     } catch (err) {
-      if(err.response.status === 401) {
+      if (err.response.status === 401) {
         alert("Your session expired or user doesn't exist")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,
@@ -142,7 +142,7 @@ const isGooglingUser = createAsyncThunk(
           statusText: err.response.statusText
         });
       }
-      if(err.response.status !== 401) {
+      if (err.response.status !== 401) {
         alert("Oops, we got an error :( Please try again later.")
         thunkAPI.rejectWithValue({
           data: err.response.data.message,

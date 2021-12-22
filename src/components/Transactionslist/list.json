@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "income": "-30.000 grn.",
+    "description": "Хавчік",
+    "date": "05.09.2019",
+    "category": "producty",
+    "negative": true
+  },
+  {
+    "id": 2,
+    "income": "-30.000 grn.",
+    "description": "Бананы",
+    "date": "05.09.2019",
+    "category": "producty",
+    "negative": true
+  },
+  {
+    "id": 3,
+    "income": "20.000.00 grn.",
+    "description": "Моя зп",
+    "date": "05.09.2019",
+    "category": "zp",
+    "negative": false
+  },
+  {
+    "id": 4,
+    "income": "-30.000 grn.",
+    "description": "Метро",
+    "date": "05.09.2019",
+    "category": "transport",
+    "negative": true
+  },
+  {
+    "id": 5,
+    "income": "-30.000 grn.",
+    "description": "Бананы",
+    "date": "05.09.2019",
+    "category": "producty",
+    "negative": true
+  },
+  {
+    "id": 6,
+    "income": "20.000.00 grn.",
+    "description": "Моя зп",
+    "date": "05.09.2019",
+    "category": "zp",
+    "negative": false
+  },
+  {
+    "id": 7,
+    "income": "-30.000 grn.",
+    "description": "Метро",
+    "date": "05.09.2019",
+    "category": "transport",
+    "negative": true
+  },
+  {
+    "id": 8,
+    "income": "-30.000 grn.",
+    "description": "Бананы",
+    "date": "05.09.2019",
+    "category": "producty",
+    "negative": true
+  },
+  {
+    "id": 9,
+    "income": "20.000.00 grn.",
+    "description": "Моя зп",
+    "date": "05.09.2019",
+    "category": "zp",
+    "negative": false
+  }
+]

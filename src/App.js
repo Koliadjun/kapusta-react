@@ -1,10 +1,9 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Routes,
   Route,
-  Link,
-  Outlet,
+  // Link,
+  // Outlet,
   Navigate,
   useNavigate
 } from "react-router-dom";
@@ -24,23 +23,23 @@ function App() {
 
 
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
+  // const isLoggedin = true
   const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
 
-
   useEffect(() => {
-    dispatch(authOperations.fetchCurrentUser());  
-    if(isGoogled) {
-      navigate('/report')
+    dispatch(authOperations.fetchCurrentUser());
+    if (isGoogled) {
+      navigate('/report');
     }
-  }, [dispatch, isGoogled]);
+  }, [dispatch, isGoogled, navigate]);
 
   return isFetchingUser ? (
     <Loader />
   ) : (
-    <div>
+    <>
       <Routes>
           <Route exact path="/" element={<Navigate to="home" />} />
           <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage/>} />
@@ -54,7 +53,7 @@ function App() {
             </NotFoundView>}
         />
         </Routes>
-    </div>
+    </>
   );
 }
 
