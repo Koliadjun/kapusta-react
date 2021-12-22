@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './inputCalculator.module.css';
 import svg from '../../images/svg/sprite.svg';
-import InputBalance from 'components/InputBalance/InputBalance';
+// import InputBalance from 'components/InputBalance/InputBalance';
 
 export default function InputCalculator({
   type,
