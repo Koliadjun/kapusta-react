@@ -33,7 +33,7 @@ function App() {
     }
     console.log("----------")
     // eslint-disable-next-line
-  }, []);
+  }, [isGoogled]);
 
   return isFetchingUser ? (
     <Loader />
