@@ -16,6 +16,7 @@ import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 function App() {
   const [modal, setModal] = useState(false);
   // const [modalActive, setModalActive] = useState(false);
@@ -45,6 +46,8 @@ function App() {
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
+
+    dispatch(transactionOperations.getAllTransaction(2021));
     if (isGoogled) {
       navigate('/report');
     }
