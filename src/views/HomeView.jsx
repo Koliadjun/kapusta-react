@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import RegistrationForm from '../components/RegistrationForm';
 import queryString from 'query-string';
-import { authOperations, authSelectors } from '../redux/auth';
+import { authOperations } from '../redux/auth';
 import {
   useDispatch,
-  useSelector,
   // useSelector
 } from 'react-redux';
 
@@ -14,9 +13,7 @@ import {
 function HomeView({ ...props }) {
   const dispatch = useDispatch();
   const [firstLoaded, setFirstLoaded] = useState(true);
-
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-
+  // const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   const token = Object.values(queryString.parse(window.location.href))[0];
   console.log(props);
   useEffect(() => {

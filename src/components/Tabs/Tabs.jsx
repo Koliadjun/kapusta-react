@@ -2,7 +2,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import s from './Tabs.module.css';
 import Summary from 'components/Summary/Summary';
-import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
+// import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';

@@ -6,7 +6,7 @@ import list from './list.json';
 import s from './styles.module.css';
 
 export default function CategoryList({ categoryType = 'Категория товара' }) {
-  const [selectedOption, setSelectedOption] = useState({});
+  const [_, setSelectedOption] = useState({});
 
   const handlerChange = selectedOption => {
     setSelectedOption({

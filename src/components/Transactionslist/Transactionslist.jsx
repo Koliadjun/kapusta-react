@@ -1,5 +1,5 @@
 import React from 'react';
-import LinesEllipsis from 'react-lines-ellipsis';
+// import LinesEllipsis from 'react-lines-ellipsis';
 import data from '../Transactionslist/list.json';
 import s from './transactionslist.module.css';
 import svg from '../../images/svg/sprite.svg';
