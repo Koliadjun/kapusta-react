@@ -52,13 +52,16 @@ const authSlice = createSlice({
       console.log(payload)
       if (!payload) {
         state.isFetchingUser = false;
+        state.isLoggedIn = false;
         return
-      } state.user = payload.userData;
+      }
+      state.user = payload.userData;
       state.isLoggedIn = true;
       state.isFetchingUser = false;
     },
     [authOperations.fetchCurrentUser.rejected]: (state, action) => {
       state.isFetchingUser = false;
+      state.isLoggedIn = false;
     },
     [authOperations.isGooglingUser.pending]: (state, { payload }) => {
       console.log(`authOperations.isGooglingUser.pending`, payload)

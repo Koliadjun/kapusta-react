@@ -22,7 +22,8 @@ const HomePage = () => {
       dispatch(authOperations.isGooglingUser(token.slice(0, -1)));
       setFirstLoaded(false);
     }
-  }, [dispatch, firstLoaded, token]);
+    // eslint-disable-next-line
+  }, []);
 
   const onRegistrationClick = () => {
     setLoginFormNeeded(false);
