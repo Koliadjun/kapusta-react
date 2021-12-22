@@ -1,10 +1,10 @@
 import React from 'react';
-// import LinesEllipsis from 'react-lines-ellipsis';
 import data from '../Transactionslist/list.json';
-import s from './transactionslist.module.css';
 import svg from '../../images/svg/sprite.svg';
 import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
+// import 'simplebar/dist/simplebar.min.css';
+import LinesEllipsis from 'react-lines-ellipsis';
+import s from './transactionslist.module.css';
 
 export default function Transactionslist({ onDeleteClick }) {
   return (
@@ -18,27 +18,40 @@ export default function Transactionslist({ onDeleteClick }) {
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
           {data.map(({ id, income, description, date, category, negative }) => (
-            <li className={s.descriptionLi}>
-              <span className={s.description}>{description}</span>
+            <li key={id} className={s.tabletItem}>
+              <LinesEllipsis
+                className={s.description}
+                text={description}
+                maxLine="0"
+                ellipsis="..."
+                clamped="true"
+                min="1"
+                max="10"
+
+                // basedOn="letters"2
+              ></LinesEllipsis>
+              {/* <span className={s.description}>{description}</span> */}
               <span className={s.data}>{date}</span>
               <span className={s.category}>{category}</span>
-              <span
-                className={s.sum}
-                style={negative ? { color: 'red' } : { color: 'green' }}
-              >
-                {income}
-              </span>
-              <button
-                className={s.button}
-                type="button"
-                onClick={() => {
-                  onDeleteClick(id);
-                }}
-              >
-                <svg className={s.svg} width="18" height="18">
-                  <use href={`${svg}#icon-delete`} />
-                </svg>
-              </button>
+              <div className={s.sumWrapper}>
+                <span
+                  className={s.sum}
+                  style={negative ? { color: 'red' } : { color: 'green' }}
+                >
+                  {income}
+                </span>
+                <button
+                  className={s.button}
+                  type="button"
+                  onClick={() => {
+                    onDeleteClick(id);
+                  }}
+                >
+                  <svg className={s.svg} width="18" height="18">
+                    <use href={`${svg}#icon-delete`} />
+                  </svg>
+                </button>
+              </div>
             </li>
             // <li className={s.tabletItem} key={id}>
             //   <div className={s.wrapperDescDataCategory}>
