@@ -1,4 +1,5 @@
 import InputCalculator from 'components/InputCalculator/InputCalculator';
+import Transactionslist from 'components/Transactionslist/Transactionslist';
 import React from 'react';
 // import {Outlet} from 'react-router-dom'
 import Container from '../components/Container/Container';
@@ -14,6 +15,7 @@ function ReportView({ children }) {
         {/* <AppBar /> */}
         {/* <BalanceLine /> */}
         <InputCalculator></InputCalculator>
+        <Transactionslist />
         <IncomeSpendSection />
       </Container>
     </>
