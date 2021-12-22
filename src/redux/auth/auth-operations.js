@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/";
+axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/api";
 // axios.defaults.baseURL = 'http://localhost:5000';
 
 
@@ -18,7 +18,7 @@ const registration = createAsyncThunk(
   'auth/registration',
   async ({ email, password }, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/auth/registration', {
+      const { data } = await axios.post('/auth/registration', {
         email,
         password,
       });
@@ -44,7 +44,7 @@ const logIn = createAsyncThunk(
   'auth/logIn',
   async ({ email, password }, thunkAPI) => {
     try {
-      const { data } = await axios.post('/api/auth/login', {
+      const { data } = await axios.post('/auth/login', {
         email,
         password,
       });
@@ -73,7 +73,7 @@ const logIn = createAsyncThunk(
 
 const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
-    await axios.get('/api/auth/logout');
+    await axios.get('/auth/logout');
     token.unset();
   } catch (err) {
     return thunkAPI.rejectWithValue({
@@ -95,7 +95,7 @@ const fetchCurrentUser = createAsyncThunk(
     }
     token.set(savedToken);
     try {
-      const { data } = await axios.get('api/auth/current');
+      const { data } = await axios.get('/auth/current');
       return data;
     } catch (err) {
       if (err.response.status === 401) {
@@ -126,7 +126,7 @@ const isGooglingUser = createAsyncThunk(
     }
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     try {
-      const { data } = await axios.get('api/auth/current');
+      const { data } = await axios.get('/auth/current');
       return data;
     } catch (err) {
       if (err.response.status === 401) {
