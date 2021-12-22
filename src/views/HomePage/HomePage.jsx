@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import s from './HomePage.module.css';
 import queryString from 'query-string';
 import { authOperations } from '../../redux/auth';
-import { useDispatch, useSelector } from 'react-redux';
-
-import { authSelectors } from '../../redux/auth';
+import { useDispatch } from 'react-redux';
 
 import imgText from 'images/svg/Union.svg';
 import RegisterForm from 'components/RegisterForm';
@@ -16,7 +14,6 @@ const HomePage = () => {
   const [loginFormNeeded, setLoginFormNeeded] = useState(true);
 
   const [firstLoaded, setFirstLoaded] = useState(true)
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn)
   const token = Object.values(queryString.parse(window.location.href))[0];
 
   useEffect(()=> {
