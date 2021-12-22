@@ -32,6 +32,7 @@ function App() {
       navigate('/report');
     }
     console.log("----------")
+    // eslint-disable-next-line
   }, []);
 
   return isFetchingUser ? (
