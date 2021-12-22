@@ -63,7 +63,7 @@ a {
     transform cubic-bezier(0.4, 0, 0.2, 1) 250ms;
 }
 .buttonText {
-  font-size: 10px;
+  font-size: 11px;
   line-height: 12px;
   color: black;
   font-weight: bold;
