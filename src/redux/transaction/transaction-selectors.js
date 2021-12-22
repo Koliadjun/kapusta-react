@@ -15,9 +15,26 @@ export const getIncomeSummaryPerMonth = month => state => {
     const income = state.transaction.transaction.summary.income
     return income[month - 1];
 }
+
 export const getSpendSummaryPerMonth = month => state => {
     const spend = state.transaction.transaction.summary.spend
     return spend[month - 1];
+}
+
+export const getCurrentMonth = state => {
+    const date = state.transaction.date
+    return date.getMonth() + 1;
+}
+
+export const getCurrentYear = state => {
+    const date = state.transaction.date
+    return date.getFullYear();
+
+}
+
+export const getCurrentDay = state => {
+    const date = state.transaction.date
+    return date.getDate()
 }
 
 export const getIncomeReportDataPerMonth = month => state => {

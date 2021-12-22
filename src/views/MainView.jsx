@@ -15,6 +15,9 @@ import Modal from '../components/Modal/Modal';
 import BalanceModal from '../components/InitialBalanceFormModal/Modal/BalanceModal';
 import Container from 'components/Container/Container';
 import Datepicker from 'components/DatePicker/Datepicker';
+import { ReduxTest } from 'components/reduxTest/ReduxTest';
+import { useSelector } from 'react-redux';
+import { transactionSelectors } from 'redux/transaction';
 
 function MainPage({
   balance,
@@ -34,7 +37,7 @@ function MainPage({
   };
 
   // const [balance, setBalance] = useState(0);
-
+  const data = useSelector(transactionSelectors.getAllIncomeSummary);
   return (
     <div>
       <Container>
@@ -49,7 +52,8 @@ function MainPage({
         <IncomeSpendSection />
 
         <button onClick={() => setModalActive(true)}>Проверка модалки</button>
-        <Summary />
+        <ReduxTest />
+        <Summary data={data} />
       </Container>
       <Modal active={modalActive} setActive={setModalActive}>
         <ModalContent
