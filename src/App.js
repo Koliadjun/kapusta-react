@@ -40,29 +40,15 @@ function App() {
       <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />
-        <Route
-          index
-          path="home"
-          element={
-            isLoggedin ? <Navigate replace to="/report" /> : <HomePage />
-          }
-        />
+        <Route index path="home" element={isLoggedin ? <Navigate replace to="/report" /> : <HomePage />} />
         <Route exact path="home/:data" element={<HomePage />} />
-        <Route
-          path="comment"
-          element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
-        />
-        <Route
-          path="report"
-          element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
-        />
+        <Route path="comment" element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />} />
+        <Route path="report" element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />} />
         <Route
           path="*"
-          element={
-            <NotFoundView>
-              <Loader />
-            </NotFoundView>
-          }
+          element={<NotFoundView >
+            <Loader />
+          </NotFoundView>}
         />
       </Routes>
     </>
