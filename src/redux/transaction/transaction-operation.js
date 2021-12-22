@@ -1,6 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
-
+import { createAsyncThunk, createAction } from '@reduxjs/toolkit'
 import * as transactionAPI from 'services/transactionAPI'
+
 const getAllTransaction = createAsyncThunk(
     'transaction/getAll',
     async (_, thunkAPI) => {
@@ -78,11 +78,11 @@ const getAllTransaction = createAsyncThunk(
         }
     }
 )
-
+const setDate = createAction('Set_date');
 
 const operations = {
     getAllTransaction,
-
+    setDate
 
 };
 export default operations;

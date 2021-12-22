@@ -49,6 +49,15 @@ export const ReduxTest = () => {
           Click me
         </button>
       ) : null}
+      <button
+        onClick={() => {
+          dispatch(
+            transactionOperations.setDate({ day: 11, month: 11, year: 2021 }),
+          );
+        }}
+      >
+        Date
+      </button>
       {/* <p>{toString(a)}</p> */}
       {/* <ul>
         {transactions.map(element => {
