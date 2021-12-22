@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import RegistrationForm from '../components/RegistrationForm';
 import queryString from 'query-string';
-import { authOperations } from '../redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
 import {
   useDispatch,
+  useSelector,
   // useSelector
 } from 'react-redux';
 
@@ -21,12 +22,6 @@ function HomeView({ ...props }) {
   useEffect(() => {
     if (firstLoaded && token) {
       setFirstLoaded(false);
-
-      dispatch(authOperations.isGooglingUser(token));
-      setFirstLoaded(false);
-    }
-  }, []);
-
       dispatch(authOperations.isGooglingUser(token.slice(0, -1)));
       setFirstLoaded(false);
     }
