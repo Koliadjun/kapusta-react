@@ -1,12 +1,12 @@
 .form {
   display: flex;
   align-items: center;
-  margin: 40px auto 0;
+  margin-left: auto;
+  margin-right: 211px;
   width: 369px;
   height: 44px;
 
-  /* background: transparent; */
-  background: rgb(182, 182, 207);
+  background: transparent;
 }
 
 .label {
@@ -54,7 +54,7 @@
   width: 125px;
   height: 44px;
   border-radius: 16px;
-  border: 2px solid #f2f5fc;
+  border: 2px solid #ffffff;
   font-style: normal;
   font-weight: 900;
   font-size: 12px;

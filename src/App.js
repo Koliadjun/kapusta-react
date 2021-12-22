@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Routes,
   Route,
@@ -22,7 +22,7 @@ import {
 // import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 import Loader from 'components/Loader';
 
-import CommentView from './views/CommentView';
+import MainView from './views/MainView';
 import HomeView from './views/HomeView';
 import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
@@ -44,7 +44,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import Tabs from 'components/Tabs/Tabs';
 
 function App() {
-  // const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   // const [modalActive, setModalActive] = useState(false);
   // const sendBalance = () => {
   //   setModal(false);
@@ -52,10 +52,22 @@ function App() {
 
   // const [balance, setBalance] = useState(0);
 
+  //DatePicker -------------- BEGINNING -----------
+  const [date, setDate] = useState(new Date().getDate());
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
+  const [year, setYear] = useState(new Date().getFullYear());
+  function onSelectedDate({ selectedDay, selectedMonth, selectedYear }) {
+    setDate(selectedDay);
+    setMonth(selectedMonth);
+    setYear(selectedYear);
+  }
+  //DatePicker -------------- END-----------
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedin = true;
   const isGoogled = useSelector(authSelectors.getIsGoogled);
 
   useEffect(() => {
@@ -71,8 +83,9 @@ function App() {
     <div>
       {/* <ButtonsBlock />
       <Modal active={modalActive} setActive={setModalActive} /> */}
+
       <Routes>
-        <Route exact path="/" element={<Navigate to="home" />} />
+        {/* <Route exact path="/" element={<Navigate to="home" />} />
         <Route
           index
           path="home"
@@ -80,17 +93,38 @@ function App() {
             isLoggedin ? <Navigate replace to="/report" /> : <HomeView />
           }
         />
-        <Route exact path="home/:data" element={<HomeView />} />
+        <Route exact path="home/:data" element={<HomeView />} /> */}
+
         <Route
-          path="comment"
-          element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
+          name={'main'}
+          path="/main"
+          date={date}
+          setDate={setDate}
+          month={month}
+          setMonth={setMonth}
+          year={year}
+          setYear={setYear}
+          onSelectedDate={onSelectedDate}
+          modal={modal}
+          setModal={setModal}
+          element={isLoggedin ? <MainView /> : <Navigate replace to="/" />}
         />
         <Route
-          path="report"
+          path="/report"
+          name={'report'}
+          date={date}
+          setDate={setDate}
+          month={month}
+          setMonth={setMonth}
+          year={year}
+          setYear={setYear}
+          modal={modal}
+          setModal={setModal}
           element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+
       {/* <AppBar />
       <ButtonsBlock />
       <IncomeSpendSection />
