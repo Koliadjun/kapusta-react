@@ -96,31 +96,45 @@ function App() {
         <Route exact path="home/:data" element={<HomeView />} /> */}
 
         <Route
-          name={'main'}
           path="/main"
-          date={date}
-          setDate={setDate}
-          month={month}
-          setMonth={setMonth}
-          year={year}
-          setYear={setYear}
-          onSelectedDate={onSelectedDate}
-          modal={modal}
-          setModal={setModal}
-          element={isLoggedin ? <MainView /> : <Navigate replace to="/" />}
+          element={
+            isLoggedin ? (
+              <MainView
+                name={'main'}
+                date={date}
+                setDate={setDate}
+                month={month}
+                setMonth={setMonth}
+                year={year}
+                setYear={setYear}
+                onSelectedDate={onSelectedDate}
+                modal={modal}
+                setModal={setModal}
+              />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="/report"
-          name={'report'}
-          date={date}
-          setDate={setDate}
-          month={month}
-          setMonth={setMonth}
-          year={year}
-          setYear={setYear}
-          modal={modal}
-          setModal={setModal}
-          element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
+          element={
+            isLoggedin ? (
+              <ReportView
+                name={'report'}
+                date={date}
+                setDate={setDate}
+                month={month}
+                setMonth={setMonth}
+                year={year}
+                setYear={setYear}
+                modal={modal}
+                setModal={setModal}
+              />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
