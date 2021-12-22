@@ -9,8 +9,8 @@ export const ReduxTest = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const transactions = useSelector(transactionSelectors.getAllTransaction);
-  console.log(transactions);
+  const a = useSelector(transactionSelectors.getSpendReportDataPerMonth(5));
+  console.log(`a`, a);
   return (
     <div>
       <form
@@ -49,11 +49,12 @@ export const ReduxTest = () => {
           Click me
         </button>
       ) : null}
-      <ul>
+      {/* <p>{toString(a)}</p> */}
+      {/* <ul>
         {transactions.map(element => {
           return <li key={element._id}>{element.sum}</li>;
         })}
-      </ul>
+      </ul> */}
     </div>
   );
 };

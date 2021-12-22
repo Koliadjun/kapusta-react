@@ -3,7 +3,21 @@ const { transactionOperations } = require('redux/transaction');
 
 
 const initialState = {
-    transaction: [],
+    transaction: {
+        transactions: {
+            income: [],
+            spend: [],
+        },
+        summary: {
+            income: [],
+            spend: [],
+        },
+        reportData: {
+            income: [],
+            spend: []
+        }
+    },
+    date: null,
     error: null
 }
 const transactionSlice = createSlice({

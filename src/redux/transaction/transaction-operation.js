@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { element } from 'prop-types'
 
 import * as transactionAPI from 'services/transactionAPI'
 const getAllTransaction = createAsyncThunk(
@@ -26,7 +25,6 @@ const getAllTransaction = createAsyncThunk(
                 const spend = response.filter(element => element.negative)
                 const spendCategory = []
                 const incomeCategory = []
-                console.log('res', spendCategory, incomeCategory)
                 for (let i = 0; i < 12; i++) {
                     result.summary.income[i] = income.filter(element => element.month === i + 1).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
                 }
@@ -41,10 +39,35 @@ const getAllTransaction = createAsyncThunk(
                 }
                 spendCategory.forEach((element, index) => {
                     if (element.length !== 0) {
-                        // result.reportData.income[element.month - 1]
+                        const a = element.reduce((object, item) => {
+                            var category = item.category;
+                            var amount = parseInt(item.sum);
+                            if (!object.hasOwnProperty(category)) {
+                                object[category] = 0;
+                            }
+
+                            object[category] += amount;
+                            return object;
+                        }, {});
+                        result.reportData.spend[index] = a
+
                     }
                 });
-                console.log(result)
+                incomeCategory.forEach((element, index) => {
+                    if (element.length !== 0) {
+                        const a = element.reduce((object, item) => {
+                            var category = item.category;
+                            var amount = parseInt(item.sum);
+                            if (!object.hasOwnProperty(category)) {
+                                object[category] = 0;
+                            }
+
+                            object[category] += amount;
+                            return object;
+                        }, {});
+                        result.reportData.income[index] = a
+                    }
+                });
                 result.transactions.income = [...income]
                 result.transactions.spend = [...spend]
                 return result
