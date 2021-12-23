@@ -17,6 +17,15 @@ export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
   const year = useSelector(transactionSelectors.getCurrentYear);
   const day = useSelector(transactionSelectors.getCurrentDay);
+
+  const summarySpend = useSelector(
+    transactionSelectors.getAllSpendSummary(year),
+  );
+
+  const summaryIncome = useSelector(
+    transactionSelectors.getAllIncomeSummary(year),
+  );
+
   const [inputSpendDesk, setInputSpendDesk] = useState('');
   const [inputSpendSum, setInputSpendSum] = useState('');
   const [inputSpendCategory, setInputSpendCategory] = useState('');
@@ -107,10 +116,14 @@ export default function TabsContainer() {
             <div className={s.transactionsCont}>
               <Transactionslist data={transactionSpend} />
             </div>
-            {/* <div className={s.sumPK}><Summary /></div> */}
+            <div className={s.sumPK}>
+              <Summary data={summarySpend} />
+            </div>
           </div>
         </TabPanel>
-        <div className={s.sumTablet}>{/* <Summary /> */}</div>
+        <div className={s.sumTablet}>
+          <Summary data={summarySpend} />
+        </div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
@@ -127,7 +140,9 @@ export default function TabsContainer() {
             <div className={s.transactionsCont}>
               <Transactionslist data={transactionIncome} />
             </div>
-            <div className={s.sumPK}>{/* <Summary /> */}</div>
+            <div className={s.sumPK}>
+              <Summary data={summaryIncome} />
+            </div>
           </div>
         </TabPanel>
       </Tabs>

@@ -8,7 +8,7 @@ import shortid from 'shortid';
 import s from './LogOutHeaderMenu.module.css';
 import Modal from '../Modal/Modal';
 import ModalContent from '../ModalContent/ModalContent';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 function LogInHeaderMenu() {
   const [modal, setModal] = useState(false);
