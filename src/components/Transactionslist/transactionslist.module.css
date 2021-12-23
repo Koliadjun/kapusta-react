@@ -28,12 +28,12 @@
   padding: none;
 }
 
-.description {
+/* .description {
   width: 100px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 @media screen and (max-width: 768px) {
   .tabletItem {
@@ -159,13 +159,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  /* .tabletItem {
-    grid-template-columns: 20% 30% 15% 35%;
-  } */
-
-  /* .sumWrapper {
-    justify-content: center;
-  } */
   .scrollBar {
     height: 480px;
     overflow-y: scroll;
@@ -179,6 +172,10 @@
   line-height: 0.85;
   letter-spacing: 0.04em;
   margin-right: 20px;
+}
+
+.svg {
+  height: 18px !important;
 }
 
 .svg:hover {
