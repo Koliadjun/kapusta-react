@@ -10,9 +10,9 @@ import {transactionSelectors} from '../../../redux/transaction'
 // import trans from '../CategoryData/categoriesIncome.json'
 
 const CategoryIncome = ({year, month}) => {
-   const income = useSelector(transactionSelectors.getAllSpendPerMonth({year, month}))
-
-    return (
+   const income = useSelector(transactionSelectors.getAllSpendPerMonth({ month, year}))
+console.log(income);
+  return (
       <ul className={s.categoryList}>
       {income.length === 0 ? (
         <li className={s.noData}>За данный период транзакций нет</li>
