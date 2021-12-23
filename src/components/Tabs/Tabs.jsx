@@ -28,9 +28,11 @@ export default function TabsContainer() {
 
   const [inputSpendDesk, setInputSpendDesk] = useState('');
   const [inputSpendSum, setInputSpendSum] = useState('');
+  // eslint-disable-next-line
   const [inputSpendCategory, setInputSpendCategory] = useState('');
   const [inputIncomeDesk, setInputIncomeDesk] = useState('');
   const [inputIncomeSum, setInputIncomeSum] = useState('');
+  // eslint-disable-next-line
   const [inputIncomeCategory, setInputIncomeCategory] = useState('');
   const dispatch = useDispatch();
   const transactionIncome = useSelector(
@@ -62,6 +64,7 @@ export default function TabsContainer() {
   const onInputSpendSum = e => {
     setInputSpendSum(e.currentTarget.value);
   };
+  // eslint-disable-next-line
   const onInputSpendCategory = e => {
     setInputSpendCategory(e.currentTarget.value);
   };
@@ -87,6 +90,7 @@ export default function TabsContainer() {
   const onInputIncomeSum = e => {
     setInputIncomeSum(e.currentTarget.value);
   };
+  // eslint-disable-next-line
   const onInputIncomeCategory = e => {
     setInputIncomeCategory(e.currentTarget.value);
   };
