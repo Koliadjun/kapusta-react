@@ -16,21 +16,16 @@
   justify-content: space-around;
   padding-top: 59px;
   position: relative;
-  overflow: auto;
 }
 .transactionsCont {
-  background: #fbfcff;
+  background: #ffffff;
 }
 
 :global .react-tabs__tab-list {
   margin: 0 0 0px;
   padding: 0;
 }
-/* :global .react-tabs {
-  display: grid;
-  justify-content: center;
-  -webkit-tap-highlight-color: transparent;
-} */
+
 :global .react-tabs__tab {
   display: table-cell;
   width: 138px;
@@ -63,8 +58,6 @@
 }
 
 @media screen and (max-width: 767px) {
-  .Dpiker {
-  }
   .transactionsCont {
     background: #fff;
     width: 300px;
@@ -85,9 +78,6 @@
     position: sticky;
     top: 100%;
     width: 100%;
-    /* margin-bottom: 50px; */
-    /* bottom: 20px; */
-    /* margin-bottom: 50px; */
   }
   :global .react-tabs {
     display: flex;

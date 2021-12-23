@@ -1,6 +1,4 @@
-const getIsLoggedIn = (state) => {
-  return state.auth.token ? true : false;
-};
+const getIsLoggedIn = (state) => state.auth.isLoggedIn;
 const getName = (state) => state.auth.user.name;
 const getIsFetchingUser = (state) => state.auth.isFetchingUser;
 const getEmail = (state) => state.auth.email;
