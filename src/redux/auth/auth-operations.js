@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import * as transactionAPI from 'services/transactionAPI'
+import * as transactionAPI from 'services/transactionAPI'
 axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/api";
 // axios.defaults.baseURL = 'http://localhost:5000';
 
@@ -25,7 +25,7 @@ const registration = createAsyncThunk(
       if (data.newUser.token) token.set(data.newUser.token);
 
       alert(
-        'Registration successful! Please check your email for verification',
+        'Registration successful! Please logIn!',
       );
       return data.newUser;
     } catch (err) {
@@ -42,7 +42,6 @@ const registration = createAsyncThunk(
 const setBudget = createAsyncThunk(
   'auth/budget',
   async (initialBalance, thunkAPI) => {
-    console.log(`balans`, initialBalance)
     try {
       const { data } = await axios.patch(`/auth/budget`, { initialBalance });
 
@@ -64,12 +63,8 @@ const logIn = createAsyncThunk(
         email,
         password,
       });
-      console.log(`logIn`, data.user.token);
       token.set(data.user.token);
-      console.log(
-        `axios.defaults.headers.common.Authorization`,
-        axios.defaults.headers.common.Authorization,
-      );
+      transactionAPI.token.set(data.user.token)
       return data.user;
     } catch (err) {
       if (err.response.status === 401) {
@@ -91,6 +86,7 @@ const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
     await axios.get('/auth/logout');
     token.unset();
+    transactionAPI.token.unset();
   } catch (err) {
     return thunkAPI.rejectWithValue({
       data: err.response.data.message,
@@ -110,6 +106,7 @@ const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('we got no token here');
     }
     token.set(savedToken);
+    transactionAPI.token.set(savedToken)
     try {
       const { data } = await axios.get('/auth/current');
       return data;

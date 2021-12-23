@@ -1,10 +1,13 @@
 import React from 'react';
-import data from '../Transactionslist/list.json';
+// import data from '../Transactionslist/list.json';
 import svg from '../../images/svg/sprite.svg';
 import SimpleBar from 'simplebar-react';
 import s from './transactionslist.module.css';
+import { useDispatch } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 
-export default function Transactionslist({ onDeleteClick }) {
+export default function Transactionslist({ data }) {
+  const dispatch = useDispatch();
   return (
     <div className={s.container}>
       <ul className={s.tableHeader}>
@@ -16,8 +19,8 @@ export default function Transactionslist({ onDeleteClick }) {
 
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
-          {data.map(({ id, income, description, date, category, negative }) => (
-            <li key={id} className={s.tabletItem}>
+          {data.map(({ _id, sum, description, date, category, negative }) => (
+            <li key={_id} className={s.tabletItem}>
               <span className={s.description}>{description}</span>
               <span className={s.data}>{date}</span>
               <span className={s.category}>{category}</span>
@@ -26,13 +29,13 @@ export default function Transactionslist({ onDeleteClick }) {
                   className={s.sum}
                   style={negative ? { color: 'red' } : { color: 'green' }}
                 >
-                  {income}
+                  {sum}
                 </span>
                 <button
                   className={s.button}
                   type="button"
                   onClick={() => {
-                    onDeleteClick(id);
+                    dispatch(transactionOperations.removeOneTransaction(_id));
                   }}
                 >
                   <svg className={s.svg} width="18" height="18">

@@ -9,8 +9,94 @@ import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
 import InputBalance from '../InputBalance/InputBalance';
 import CategoryList from '../CategoryList';
+import { transactionOperations, transactionSelectors } from 'redux/transaction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 export default function TabsContainer() {
+  const month = useSelector(transactionSelectors.getCurrentMonth);
+  const year = useSelector(transactionSelectors.getCurrentYear);
+  const day = useSelector(transactionSelectors.getCurrentDay);
+
+  const summarySpend = useSelector(
+    transactionSelectors.getAllSpendSummary(year),
+  );
+
+  const summaryIncome = useSelector(
+    transactionSelectors.getAllIncomeSummary(year),
+  );
+
+  const [inputSpendDesk, setInputSpendDesk] = useState('');
+  const [inputSpendSum, setInputSpendSum] = useState('');
+  // eslint-disable-next-line
+  const [inputSpendCategory, setInputSpendCategory] = useState('');
+  const [inputIncomeDesk, setInputIncomeDesk] = useState('');
+  const [inputIncomeSum, setInputIncomeSum] = useState('');
+  // eslint-disable-next-line
+  const [inputIncomeCategory, setInputIncomeCategory] = useState('');
+  const dispatch = useDispatch();
+  const transactionIncome = useSelector(
+    transactionSelectors.getAllIncomePerMonth(month, year),
+  );
+  const transactionSpend = useSelector(
+    transactionSelectors.getAllSpendPerMonth(month, year),
+  );
+
+  console.log(useSelector(transactionSelectors.getBalance));
+
+  const onSubmitSpendForm = e => {
+    e.preventDefault();
+    dispatch(
+      transactionOperations.addOneTransaction({
+        description: inputSpendDesk,
+        sum: inputSpendSum,
+        date: `${year}-${month}-${day}`,
+        category: inputSpendCategory,
+        negative: true,
+        day,
+        month,
+        year,
+      }),
+    );
+  };
+  const onInputSpendDesk = e => {
+    setInputSpendDesk(e.currentTarget.value);
+  };
+  const onInputSpendSum = e => {
+    setInputSpendSum(e.currentTarget.value);
+  };
+  // eslint-disable-next-line
+  const onInputSpendCategory = data => {
+    setInputSpendCategory(data.value);
+  };
+  const onSubmitIncomeForm = e => {
+    e.preventDefault();
+    dispatch(
+      transactionOperations.addOneTransaction({
+        description: inputIncomeDesk,
+        sum: inputIncomeSum,
+        date: `${year}-${month}-${day}`,
+        category: inputIncomeCategory,
+        negative: false,
+        day,
+        month,
+        year,
+      }),
+    );
+    setInputIncomeCategory('');
+    setInputIncomeDesk('');
+    setInputIncomeSum('');
+  };
+  const onInputIncomeDesk = e => {
+    setInputIncomeDesk(e.currentTarget.value);
+  };
+  const onInputIncomeSum = e => {
+    setInputIncomeSum(e.currentTarget.value);
+  };
+  // eslint-disable-next-line
+  const onInputIncomeCategory = data => {
+    setInputIncomeCategory(data.value);
+  };
   return (
     <div className={s.container}>
       <Tabs>
@@ -24,43 +110,51 @@ export default function TabsContainer() {
             <div className={s.Dpiker}>
               <DatePicker />
             </div>
-            <div className={s.input_Cont}>
-              <InputDescriptionProduct />
-              <CategoryList />
-              <InputBalance />
-            </div>
+            <form onSubmit={onSubmitSpendForm} className={s.input_Cont}>
+              <InputDescriptionProduct onChange={onInputSpendDesk} />
+              <CategoryList
+                categoryType={'Категория товара'}
+                onSelect={onInputSpendCategory}
+              />
+              <InputBalance onChange={onInputSpendSum} />
+            </form>
             <div className={s.Buttons_cont}>
-              <ButtonsBlock />
+              <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
             </div>
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist />
+              <Transactionslist data={transactionSpend} />
             </div>
             <div className={s.sumPK}>
-              <Summary />
+              <Summary data={summarySpend} />
             </div>
           </div>
         </TabPanel>
         <div className={s.sumTablet}>
-          <Summary />
+          <Summary data={summarySpend} />
         </div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
             <div className={s.input_Cont}>
-              <InputDescriptionProduct />
-              <CategoryList />
-              <InputBalance />
+              <form onSubmit={onSubmitIncomeForm} className={s.input_Cont}>
+                <InputDescriptionProduct onChange={onInputIncomeDesk} />
+                <CategoryList
+                  categoryType={'Категория дохода'}
+                  onSelect={onInputIncomeCategory}
+                />
+                <InputBalance onChange={onInputIncomeSum} />
+              </form>
             </div>
-            <ButtonsBlock />
+            <ButtonsBlock onClickLeftButton={onSubmitIncomeForm} />
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist />
+              <Transactionslist data={transactionIncome} />
             </div>
             <div className={s.sumPK}>
-              <Summary />
+              <Summary data={summaryIncome} />
             </div>
           </div>
         </TabPanel>

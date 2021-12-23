@@ -19,11 +19,8 @@ const authSlice = createSlice({
       state.isFetchingUser = true;
     },
     [authOperations.registration.fulfilled]: (state, { payload }) => {
-      console.log(payload)
       state.user = payload;
-      // state.token = payload.token;
       state.isFetchingUser = false;
-      // state.isLoggedIn = true;
     },
     [authOperations.registration.rejected]: (state, { payload }) => {
       state.error = payload;
@@ -49,7 +46,6 @@ const authSlice = createSlice({
       state.isFetchingUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled]: (state, { payload }) => {
-      console.log(payload)
       if (!payload) {
         state.isFetchingUser = false;
         state.isLoggedIn = false;
@@ -64,12 +60,12 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [authOperations.isGooglingUser.pending]: (state, { payload }) => {
-      console.log(`authOperations.isGooglingUser.pending`, payload)
+
       state.isGooglingUser = true;
       state.isFetchingUser = false;
     },
     [authOperations.isGooglingUser.fulfilled]: (state, { payload }) => {
-      console.log(`authOperations.isGooglingUser.fulfilled`, payload)
+
 
       state.user = payload.userData;
       state.token = payload.userData.token;
@@ -79,7 +75,6 @@ const authSlice = createSlice({
       state.isFetchingUser = false;
     },
     [authOperations.isGooglingUser.rejected]: (state, { payload }) => {
-      console.log(`authOperations.isGooglingUser.rejected`, payload)
       state.error = payload;
       state.isGooglingUser = false;
       state.isFetchingUser = false;
