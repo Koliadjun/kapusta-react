@@ -12,10 +12,36 @@ const getAllTransaction = createAsyncThunk(
         }
     }
 )
+const addOneTransaction = createAsyncThunk(
+    'transaction/addOne',
+    async (payload, thunkAPI) => {
+        console.log(payload)
+        try {
+            const response = await transactionAPI.addTransaction(payload)
+
+            return response.data.result
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error)
+        }
+    }
+)
+const removeOneTransaction = createAsyncThunk(
+    'transaction/removeOne',
+    async (payload, thunkAPI) => {
+        try {
+            await transactionAPI.deleteTransactionById(payload)
+            return payload
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error)
+        }
+    }
+)
 const setDate = createAction('Set_date');
 
 const operations = {
     getAllTransaction,
+    addOneTransaction,
+    removeOneTransaction,
     setDate
 
 };

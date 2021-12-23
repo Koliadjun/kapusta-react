@@ -9,12 +9,18 @@ import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
 import InputBalance from '../InputBalance/InputBalance';
 import CategoryList from '../CategoryList';
-import { transactionSelectors } from 'redux/transaction';
-import { useSelector } from 'react-redux';
+import { transactionOperations, transactionSelectors } from 'redux/transaction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
 
 export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
   const year = useSelector(transactionSelectors.getCurrentYear);
+  const day = useSelector(transactionSelectors.getCurrentDay);
+  const [inputSpendDesk, setInputSpendDesk] = useState('');
+  const [inputSpendSum, setInputSpendSum] = useState('');
+  const [inputSpendCategory, setInputSpendCategory] = useState('');
+  const dispatch = useDispatch();
   const transactionIncome = useSelector(
     transactionSelectors.getAllIncomePerMonth(month, year),
   );
@@ -25,6 +31,31 @@ export default function TabsContainer() {
     transactionSelectors.getIncomeReportDataPerMonth(month, year),
   );
   console.log(`fuck`, transactionSpend1);
+  const onSubmitSpendForm = e => {
+    e.preventDefault();
+    dispatch(
+      transactionOperations.addOneTransaction({
+        description: inputSpendDesk,
+        sum: inputSpendSum,
+        date: `${year}-${month}-${day}`,
+        category: 'soda',
+        negative: true,
+        day,
+        month,
+        year,
+      }),
+    );
+  };
+  const onInputSpendDesk = e => {
+    console.log(e.currentTarget.value);
+    setInputSpendDesk(e.currentTarget.value);
+  };
+  const onInputSpendSum = e => {
+    setInputSpendSum(e.currentTarget.value);
+  };
+  const onInputCategory = e => {
+    setInputSpendCategory(e.currentTarget.value);
+  };
   return (
     <div className={s.container}>
       <Tabs>
@@ -38,18 +69,18 @@ export default function TabsContainer() {
             <div className={s.Dpiker}>
               <DatePicker />
             </div>
-            <div className={s.input_Cont}>
-              <InputDescriptionProduct />
+            <form onSubmit={onSubmitSpendForm} className={s.input_Cont}>
+              <InputDescriptionProduct onChange={onInputSpendDesk} />
               <CategoryList />
-              <InputBalance />
-            </div>
+              <InputBalance onChange={onInputSpendSum} />
+            </form>
             <div className={s.Buttons_cont}>
-              <ButtonsBlock />
+              <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
             </div>
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist data={transactionIncome} />
+              <Transactionslist data={transactionSpend} />
             </div>
             {/* <div className={s.sumPK}><Summary /></div> */}
           </div>
@@ -67,7 +98,7 @@ export default function TabsContainer() {
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist data={transactionSpend} />
+              <Transactionslist data={transactionIncome} />
             </div>
             <div className={s.sumPK}>{/* <Summary /> */}</div>
           </div>

@@ -7,6 +7,7 @@ export default function InputDescriptionProduct({
   onChange,
   name,
 }) {
+  const value = '';
   return (
     <div>
       <input
