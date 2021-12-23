@@ -29,8 +29,6 @@
 }
 
 /* .description {
-  width: 100px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 } */
@@ -51,6 +49,10 @@
     align-items: center;
     letter-spacing: 0.04em;
     margin-bottom: 4px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .data {
@@ -67,6 +69,7 @@
     letter-spacing: 0.04em;
     margin-right: 75px;
   }
+
   .sumWrapper {
     display: inline-block;
     position: absolute;
@@ -138,6 +141,9 @@
   }
 
   .description {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     grid-column-start: 2;
     grid-row-start: 1;
     font-weight: normal;
