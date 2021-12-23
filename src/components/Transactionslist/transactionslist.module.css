@@ -37,6 +37,7 @@
   .tabletItem {
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 10px;
     color: #52555f;
     border-bottom: 1px solid #f5f6fb;
   }

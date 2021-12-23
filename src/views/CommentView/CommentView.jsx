@@ -8,9 +8,11 @@ import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal';
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Content from 'components/InitialBalanceFormModal/Content/Content';
+import s from './CommentView.module.css';
+
 function CommentView({ name }) {
   return (
-    <>
+    <div className={s.section}>
       <Container>
         <BalanceLine name={name} />
         <div style={{ margin: 20 }}>
@@ -24,7 +26,7 @@ function CommentView({ name }) {
           <Content />
         </Wrapper>
       </BalanceModal>
-    </>
+    </div>
   );
 }
 

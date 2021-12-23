@@ -7,11 +7,12 @@ import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
-import InputBalance from '../InputBalance/InputBalance';
+// import InputCalculator from '../InputCalculator/InputCalculator';
 import CategoryList from '../CategoryList';
 import { transactionOperations, transactionSelectors } from 'redux/transaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import InputBalance from 'components/InputBalance/InputBalance';
 
 export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
@@ -58,6 +59,8 @@ export default function TabsContainer() {
         year,
       }),
     );
+    setInputSpendDesk('');
+    setInputSpendSum('');
   };
   const onInputSpendDesk = e => {
     setInputSpendDesk(e.currentTarget.value);
@@ -111,12 +114,15 @@ export default function TabsContainer() {
               <DatePicker />
             </div>
             <form onSubmit={onSubmitSpendForm} className={s.input_Cont}>
-              <InputDescriptionProduct onChange={onInputSpendDesk} />
+              <InputDescriptionProduct
+                value={inputSpendDesk}
+                onChange={onInputSpendDesk}
+              />
               <CategoryList
                 categoryType={'Категория товара'}
                 onSelect={onInputSpendCategory}
               />
-              <InputBalance onChange={onInputSpendSum} />
+              <InputBalance value={inputSpendSum} onChange={onInputSpendSum} />
             </form>
             <div className={s.Buttons_cont}>
               <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
@@ -139,12 +145,18 @@ export default function TabsContainer() {
             <DatePicker />
             <div className={s.input_Cont}>
               <form onSubmit={onSubmitIncomeForm} className={s.input_Cont}>
-                <InputDescriptionProduct onChange={onInputIncomeDesk} />
+                <InputDescriptionProduct
+                  value={inputIncomeDesk}
+                  onChange={onInputIncomeDesk}
+                />
                 <CategoryList
                   categoryType={'Категория дохода'}
                   onSelect={onInputIncomeCategory}
                 />
-                <InputBalance onChange={onInputIncomeSum} />
+                <InputBalance
+                  value={inputIncomeSum}
+                  onChange={onInputIncomeSum}
+                />
               </form>
             </div>
             <ButtonsBlock onClickLeftButton={onSubmitIncomeForm} />
