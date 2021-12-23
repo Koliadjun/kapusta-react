@@ -1,6 +1,17 @@
-.appBar{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.appBar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .appBar {
+    width: 290px;
+    padding-left: 19px;
+    position: absolute;
+    z-index: 1;
+
+    /* right: 0; */
+  }
 }

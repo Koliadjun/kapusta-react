@@ -8,21 +8,23 @@ import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal';
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Content from 'components/InitialBalanceFormModal/Content/Content';
+import s from './css/CommentView.module.css';
+
 function CommentView({ name }) {
   return (
-    <>
+    <div className={s.body}>
       <Container>
         <BalanceLine name={name} />
         <div style={{ margin: 20 }}>{/* <Datepicker date={date} /> */}</div>
         <Tabs />
       </Container>
-      <BalanceModal>
+      {/* <BalanceModal>
         <Wrapper>
           <Input />
           <Content />
         </Wrapper>
-      </BalanceModal>
-    </>
+      </BalanceModal> */}
+    </div>
   );
 }
 

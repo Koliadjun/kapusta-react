@@ -70,7 +70,7 @@ function LogInHeaderMenu() {
           </div>
         </>
       )}
-      {true && (
+      {false && (
         <div className={s.hederModalOut}>
           <Modal active={isModalOpen} setActive={setIsModalOpen} />
           <ModalContent

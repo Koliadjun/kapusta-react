@@ -8,12 +8,12 @@ import LogOutHeaderMenu from 'components/LogOutHeaderMenu/LogOutHeaderMenu';
 import s from './AppBar.module.css';
 
 export default function AppBar() {
-  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedin = true;
+  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   return (
     <Container>
       <div className={s.appBar}>
         <Header />
-
         {isLoggedin && <LogOutHeaderMenu />}
       </div>
     </Container>
