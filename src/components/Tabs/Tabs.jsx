@@ -7,7 +7,7 @@ import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
-import InputBalance from '../InputBalance/InputBalance';
+import InputCalculator from '../InputCalculator/InputCalculator';
 import CategoryList from '../CategoryList';
 
 export default function TabsContainer() {
@@ -27,7 +27,7 @@ export default function TabsContainer() {
             <div className={s.input_Cont}>
               <InputDescriptionProduct />
               <CategoryList />
-              <InputBalance />
+              <InputCalculator />
             </div>
             <div className={s.Buttons_cont}>
               <ButtonsBlock />
@@ -51,7 +51,7 @@ export default function TabsContainer() {
             <div className={s.input_Cont}>
               <InputDescriptionProduct />
               <CategoryList />
-              <InputBalance />
+              <InputCalculator />
             </div>
             <ButtonsBlock />
           </div>

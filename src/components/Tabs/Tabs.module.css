@@ -71,20 +71,26 @@
     display: none;
   }
   .dPicker_category_Cont {
-    display: none;
+    /* display: none; */
+    padding-top: 20px;
+    flex-wrap: wrap;
     width: 320px;
-    position: absolute;
-    /* position: sticky; */
-    top: 60%;
+    position: relative;
+    top: 200px;
   }
   .trans_Summ_Cont {
     padding-top: 0;
-    height: 145px;
-    position: absolute;
+    margin-top: 210px;
+    margin-bottom: 5px;
+    /* position: absolute; */
     position: sticky;
+    height: 160px;
     top: 100%;
     width: 100%;
     overflow-y: auto;
+  }
+  .input_Cont {
+    display: block;
   }
   :global .react-tabs {
     display: flex;
@@ -96,6 +102,7 @@
 
   :global .react-tabs__tab-panel--selected {
     height: 100vh;
+    z-index: 0;
     width: 320px;
     border-radius: 0px 0px 0px 0px;
   }
