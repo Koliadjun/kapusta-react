@@ -24,10 +24,10 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  const isLoggedin = true;
-  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedin = true;
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
-  console.log(`Hi !!!`, isLoggedin);
+  ;
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
     if (isGoogled) {
@@ -41,7 +41,6 @@ function App() {
     <Loader />
   ) : (
     <>
-      <Transactionslist />
       <AppBar />
       <Routes>
         <Route exact path="/" element={<Navigate to="home" />} />

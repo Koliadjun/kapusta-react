@@ -36,6 +36,10 @@ export async function refreshCurrUser() {
     const { data } = await axios.get(`/auth/current`);
     return data;
 }
+export async function setBudget(formData) {
+    const { data } = await axios.patch(`/auth/budget`);
+    return data;
+}
 export const token = {
     set(token) {
         axios.defaults.headers.common.Authorization = `Bearer ${token}`;

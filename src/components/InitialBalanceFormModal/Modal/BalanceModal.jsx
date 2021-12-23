@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './BalanceModal.module.css';
 
 export default function Modal({ children }) {
-  const visible = useSelector(state => state.auth.user.balanceIsSet);
+  const visible = !useSelector(state => state.auth.user.balanceIsSet);
   const rootStyles = [styles.modal];
   if (visible) {
     rootStyles.push(styles.active);
