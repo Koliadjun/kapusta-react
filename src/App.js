@@ -22,6 +22,7 @@ import AppBar from 'components/AppBar';
 import Footer from 'components/Footer'
 
 import { transactionOperations } from 'redux/transaction';
+import TeamPage from 'views/TeamPage';
 
 // import Transactionslist from 'components/Transactionslist/Transactionslist';
 
@@ -65,6 +66,10 @@ function App() {
           element={isLoggedin ? (<ReportView name={'report'} />) : (<Navigate replace to="/" />)}
         />
         <Route
+          path="developers"
+          element={<TeamPage />}
+        />
+        <Route
           path="*"
           element={
             <NotFoundView>
@@ -73,7 +78,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }
