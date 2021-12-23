@@ -15,9 +15,9 @@ function CommentView({ name }) {
     <div className={s.section}>
       <Container>
         <BalanceLine name={name} />
-        <div style={{ margin: 20 }}>
+        {/* <div style={{ margin: 20 }}>
           <Datepicker />
-        </div>
+        </div> */}
         <Tabs />
       </Container>
       <BalanceModal>
