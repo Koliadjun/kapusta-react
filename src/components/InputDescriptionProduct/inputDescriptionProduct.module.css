@@ -17,9 +17,11 @@
 
 @media screen and (max-width: 767px) {
   .input {
-    border-top-right-radius: 16px;
+    margin-top: 5px;
+    border-radius: 16px;
     border: 2px solid #ffffff;
     width: 282px;
+    height: 34px;
   }
 }
 

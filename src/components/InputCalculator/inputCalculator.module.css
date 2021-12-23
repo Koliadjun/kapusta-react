@@ -43,7 +43,16 @@
 
 @media screen and (max-width: 767px) {
   .input {
+    height: 20px;
     border-radius: 22px 0px 0px 22px;
+  }
+  .button {
+    height: 34px;
+  }
+  .wrapper {
+    margin-top: -20px;
+    margin-bottom: 10px;
+    justify-content: center;
   }
 }
 
