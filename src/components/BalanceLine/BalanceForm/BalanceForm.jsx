@@ -6,10 +6,12 @@ export default function BalanceForm({ balance }) {
   return (
     <div className={styles.form}>
       <div className={styles.label}>Баланс:</div>
-      <div className={styles.input} name="balanceInput">
-        {balance}
+      <div className={styles.container}>
+        <div className={styles.input} name="balanceInput">
+          {balance}
+        </div>
+        <div className={styles.button__balance}>ПОДТВЕРДИТЬ</div>
       </div>
-      <div className={styles.button__balance}>ПОДТВЕРДИТЬ</div>
     </div>
   );
 }
