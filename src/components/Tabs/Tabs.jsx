@@ -7,7 +7,7 @@ import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
-// import InputCalculator from '../InputCalculator/InputCalculator';
+import InputCalculator from '../InputCalculator/InputCalculator';
 import CategoryList from '../CategoryList';
 import { transactionOperations, transactionSelectors } from 'redux/transaction';
 import { useDispatch, useSelector } from 'react-redux';
@@ -122,7 +122,11 @@ export default function TabsContainer() {
                 categoryType={'Категория товара'}
                 onSelect={onInputSpendCategory}
               />
-              <InputBalance value={inputSpendSum} onChange={onInputSpendSum} />
+
+              <InputCalculator
+                value={inputSpendSum}
+                onChange={onInputSpendSum}
+              />
             </form>
             <div className={s.Buttons_cont}>
               <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
@@ -153,7 +157,7 @@ export default function TabsContainer() {
                   categoryType={'Категория дохода'}
                   onSelect={onInputIncomeCategory}
                 />
-                <InputBalance
+                <InputCalculator
                   value={inputIncomeSum}
                   onChange={onInputIncomeSum}
                 />
