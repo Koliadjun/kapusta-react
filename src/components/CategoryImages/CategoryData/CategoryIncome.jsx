@@ -9,8 +9,12 @@ import {transactionSelectors} from '../../../redux/transaction'
 
 // import trans from '../CategoryData/categoriesIncome.json'
 
-const CategoryIncome = ({year, month}) => {
-   const income = useSelector(transactionSelectors.getIncomeReportDataPerMonth({ year, month }))
+const CategoryIncome = () => {
+ 
+   const year = useSelector(transactionSelectors.getCurrentYear)
+   const month = useSelector(transactionSelectors.getCurrentMonth)
+  const income = useSelector(transactionSelectors.getIncomeReportDataPerMonth(month, year))
+  console.log(year);
 console.log(income);
   return (
       <ul className={s.categoryList}>
