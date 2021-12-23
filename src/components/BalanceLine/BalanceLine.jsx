@@ -7,6 +7,7 @@ import BackHomeButton from './BackHomeButton/BackHomeButton';
 import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 import { useSelector } from 'react-redux';
 import { transactionSelectors } from 'redux/transaction';
+import Datepicker from 'components/DatePicker/Datepicker';
 
 export default function BalanceLine({ name }) {
   const modal = !useSelector(state => state.auth.user.balanceIsSet);
@@ -19,6 +20,9 @@ export default function BalanceLine({ name }) {
           <BalanceForm balance={balance} />
           {name === 'main' && <ReportButton />}
           {name === 'report' && <CurrentPeriod />}
+          <div className={styles.datepicker} style={{ marginTop: 40 }}>
+            <Datepicker />
+          </div>
         </div>
       )}
     </div>
