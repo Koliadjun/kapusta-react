@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import * as transactionAPI from 'services/transactionAPI'
+import * as transactionAPI from 'services/transactionAPI'
 axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/api";
 // axios.defaults.baseURL = 'http://localhost:5000';
 
@@ -66,6 +66,7 @@ const logIn = createAsyncThunk(
       });
       console.log(`logIn`, data.user.token);
       token.set(data.user.token);
+      transactionAPI.token.set(data.user.token)
       console.log(
         `axios.defaults.headers.common.Authorization`,
         axios.defaults.headers.common.Authorization,
@@ -91,6 +92,7 @@ const logOut = createAsyncThunk('auth/logOut', async (_, thunkAPI) => {
   try {
     await axios.get('/auth/logout');
     token.unset();
+    transactionAPI.token.unset();
   } catch (err) {
     return thunkAPI.rejectWithValue({
       data: err.response.data.message,
@@ -110,6 +112,7 @@ const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('we got no token here');
     }
     token.set(savedToken);
+    transactionAPI.token.set(savedToken)
     try {
       const { data } = await axios.get('/auth/current');
       return data;

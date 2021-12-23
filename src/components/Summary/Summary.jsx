@@ -1,10 +1,9 @@
-import React from "react";
-import s from './Summary.module.css'
-import items from './items.json'
+import React from 'react';
+import s from './Summary.module.css';
+import items from './items.json';
 
-export default function Summary() {
-    
-    return (
+export default function Summary({ data }) {
+  return (
     <div className={s.wrap}>
       <table className={s.reportHistory}>
         <thead>
@@ -15,12 +14,17 @@ export default function Summary() {
           </tr>
         </thead>
         <tbody>
-          {items.map(item => (
-            <tr className={s.tr} key={item.month}>
-              <td className={s.month}>{item.month}</td>
-              <td className={s.sum}>{item.sum}</td>
-            </tr>
-          ))}
+          {data.map((item, index) => {
+            if (item !== 0) {
+              return (
+                <tr className={s.tr} key={index}>
+                  <td className={s.month}>{items[index]}</td>
+                  <td className={s.sum}>{item}</td>
+                </tr>
+              );
+            }
+            return null;
+          })}
           <tr className={s.empty}>
             <td></td>
           </tr>
