@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
+import { useDispatch } from 'react-redux';
+import { authOperations } from 'redux/auth';
 
 import styles from './Input.module.css';
 
-export default function Input({ sendBalance, setBalance }) {
+export default function Input() {
   const [input, setInput] = useState('');
+  const dispatch = useDispatch();
   const onSubmit = e => {
     e.preventDefault();
     //callback, that sends balance to DataBase
-    sendBalance(false);
-    setBalance(input);
+    // sendBalance(false);
+    // setBalance(input);
+    dispatch(
+      authOperations.setBudget(Number(input.slice(0, -4).replace(/\s/g, ''))),
+    );
     document.body.style.overflow = 'auto';
   };
   const onChange = e => {

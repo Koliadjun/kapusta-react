@@ -84,6 +84,17 @@ const authSlice = createSlice({
       state.isGooglingUser = false;
       state.isFetchingUser = false;
     },
+    [authOperations.setBudget.pending]: (state, { payload }) => {
+      state.isFetchingUser = true;
+    },
+    [authOperations.setBudget.fulfilled]: (state, { payload }) => {
+      state.user.initialBalance = payload.data.result.initialBalance;
+      state.user.balanceIsSet = true;
+      state.isFetchingUser = false;
+    },
+    [authOperations.setBudget.rejected]: (state, { payload }) => {
+      state.isFetchingUser = false;
+    },
   },
 });
 

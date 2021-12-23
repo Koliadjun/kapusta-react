@@ -8,8 +8,8 @@ import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 import { useSelector } from 'react-redux';
 
 export default function BalanceLine({ name }) {
-  const modal = useSelector(state => state.auth.user.balanceIsSet);
-  const balance = useSelector(state => state.auth.user.initialBalance) + 1;
+  const modal = !useSelector(state => state.auth.user.balanceIsSet);
+  const balance = useSelector(state => state.auth.user.initialBalance);
   return (
     <div className={styles.balanceLine}>
       {modal === false && (

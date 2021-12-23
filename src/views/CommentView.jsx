@@ -18,8 +18,7 @@ function CommentView({ name }) {
       </Container>
       <BalanceModal>
         <Wrapper>
-          {/* <Input sendBalance={sendBalance} setBalance={setBalance} /> */}
-
+          <Input />
           <Content />
         </Wrapper>
       </BalanceModal>

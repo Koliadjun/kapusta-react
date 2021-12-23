@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import * as transactionAPI from 'services/transactionAPI'
 axios.defaults.baseURL = "https://kapusta-api-iteam.herokuapp.com/api";
 // axios.defaults.baseURL = 'http://localhost:5000';
 
@@ -32,6 +32,22 @@ const registration = createAsyncThunk(
       if (err.response.status !== 409) {
         alert('We got some problems with servers. Please try again later');
       }
+      if (err.response.status === 409) {
+        alert(err.response.data.message);
+      }
+      return thunkAPI.rejectWithValue(err.response);
+    }
+  },
+);
+const setBudget = createAsyncThunk(
+  'auth/budget',
+  async (initialBalance, thunkAPI) => {
+    console.log(`balans`, initialBalance)
+    try {
+      const { data } = await axios.patch(`/auth/budget`, { initialBalance });
+
+      return data;
+    } catch (err) {
       if (err.response.status === 409) {
         alert(err.response.data.message);
       }
@@ -155,6 +171,7 @@ const authOperations = {
   logOut,
   fetchCurrentUser,
   isGooglingUser,
+  setBudget
 };
 
 export default authOperations;
