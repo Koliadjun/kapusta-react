@@ -6,11 +6,11 @@ import BalanceLine from '../../components/BalanceLine/BalanceLine';
 import Container from "components/Container/Container";
 import s from './ReportView.module.css'
 
-const ReportView = () => {
+const ReportView = ({name}) => {
     return (
         <section className={s.section}>
             <Container>
-                <BalanceLine />
+                <BalanceLine name={ name}/>
                 <IncomeSpendSection />
                 <CategoryImagesList/>
         </Container>
