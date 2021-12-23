@@ -6,10 +6,11 @@ import ReportButton from './ReportButton/ReportButton';
 import BackHomeButton from './BackHomeButton/BackHomeButton';
 import CurrentPeriod from './CurrentPeriod/CurrentPeriod';
 import { useSelector } from 'react-redux';
+import { transactionSelectors } from 'redux/transaction';
 
 export default function BalanceLine({ name }) {
   const modal = !useSelector(state => state.auth.user.balanceIsSet);
-  const balance = useSelector(state => state.auth.user.initialBalance);
+  const balance = useSelector(transactionSelectors.getBalance);
   return (
     <div className={styles.balanceLine}>
       {modal === false && (

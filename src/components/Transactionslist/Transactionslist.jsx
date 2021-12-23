@@ -2,8 +2,6 @@ import React from 'react';
 // import data from '../Transactionslist/list.json';
 import svg from '../../images/svg/sprite.svg';
 import SimpleBar from 'simplebar-react';
-// import 'simplebar/dist/simplebar.min.css';
-import LinesEllipsis from 'react-lines-ellipsis';
 import s from './transactionslist.module.css';
 import { useDispatch } from 'react-redux';
 import { transactionOperations } from 'redux/transaction';
@@ -23,16 +21,7 @@ export default function Transactionslist({ data }) {
         <ul className={s.tablet}>
           {data.map(({ _id, sum, description, date, category, negative }) => (
             <li key={_id} className={s.tabletItem}>
-              <LinesEllipsis
-                className={s.description}
-                text={description}
-                maxLine="0"
-                ellipsis="..."
-                clamped="true"
-                min="1"
-                max="10"
-              ></LinesEllipsis>
-              {/* <span className={s.description}>{description}</span> */}
+              <span className={s.description}>{description}</span>
               <span className={s.data}>{date}</span>
               <span className={s.category}>{category}</span>
               <div className={s.sumWrapper}>

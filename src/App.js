@@ -10,7 +10,7 @@ import {
 
 import Loader from 'components/Loader';
 
-import CommentView from './views/CommentView';
+import CommentView from './views/CommentView/CommentView';
 import ReportView from './views/ReportView/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';

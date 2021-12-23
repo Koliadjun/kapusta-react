@@ -2,7 +2,7 @@
   {
     "id": 1,
     "income": "-30.000 grn.",
-    "description": "Метроooooookkkkkk",
+    "description": "Метроooooookkkkkkддддддддддддд",
     "date": "05.09.2019",
     "category": "transpork",
     "negative": true
@@ -42,9 +42,9 @@
   {
     "id": 6,
     "income": "20.000.00 grn.",
-    "description": "Моя зп",
+    "description": "Моя зарплата",
     "date": "05.09.2019",
-    "category": "zp",
+    "category": "zpдддд",
     "negative": false
   },
   {

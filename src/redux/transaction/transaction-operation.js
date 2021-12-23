@@ -15,7 +15,6 @@ const getAllTransaction = createAsyncThunk(
 const addOneTransaction = createAsyncThunk(
     'transaction/addOne',
     async (payload, thunkAPI) => {
-        console.log(payload)
         try {
             const response = await transactionAPI.addTransaction(payload)
 
