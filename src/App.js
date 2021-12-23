@@ -11,7 +11,7 @@ import {
 import Loader from 'components/Loader';
 
 import CommentView from './views/CommentView';
-import ReportView from './views/ReportView/ReportView';
+import ReportView from './views/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,10 +24,9 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  // const isLoggedin = true;
-  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isLoggedin = true;
+  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
-  ;
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
     if (isGoogled) {
@@ -46,16 +45,30 @@ function App() {
         <Route
           index
           path="home"
-          element={isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />}
+          element={
+            isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />
+          }
         />
         <Route exact path="home/:data" element={<HomePage />} />
         <Route
           path="comment"
-          element={isLoggedin ? <CommentView name={'main'} /> : <Navigate replace to="/" />}
+          element={
+            isLoggedin ? (
+              <CommentView name={'main'} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="report"
-          element={isLoggedin ? (<ReportView name={'report'} />) : (<Navigate replace to="/" />)}
+          element={
+            isLoggedin ? (
+              <ReportView name={'report'} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="*"

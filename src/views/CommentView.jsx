@@ -16,12 +16,12 @@ function CommentView({ name }) {
         <div style={{ margin: 20 }}>{/* <Datepicker date={date} /> */}</div>
         <Tabs />
       </Container>
-      <BalanceModal>
+      {/* <BalanceModal>
         <Wrapper>
           <Input />
           <Content />
         </Wrapper>
-      </BalanceModal>
+      </BalanceModal> */}
     </>
   );
 }
