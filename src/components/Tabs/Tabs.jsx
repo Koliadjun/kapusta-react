@@ -41,7 +41,7 @@ export default function TabsContainer() {
     transactionSelectors.getAllSpendPerMonth(month, year),
   );
 
-  console.log(useSelector(transactionSelectors.getBalance));
+  // console.log(useSelector(transactionSelectors.getBalance));
 
   const onSubmitSpendForm = e => {
     e.preventDefault();
@@ -139,9 +139,6 @@ export default function TabsContainer() {
             </div>
           </div>
         </TabPanel>
-        <div className={s.sumTablet}>
-          <Summary data={summarySpend} />
-        </div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
@@ -172,6 +169,9 @@ export default function TabsContainer() {
             </div>
           </div>
         </TabPanel>
+        <div className={s.sumTablet}>
+          <Summary data={summaryIncome} />
+        </div>
       </Tabs>
     </div>
   );
