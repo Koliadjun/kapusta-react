@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
 import AppBar from 'components/AppBar';
+import Footer from 'components/Footer'
 // import Transactionslist from 'components/Transactionslist/Transactionslist';
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer/>
     </>
   );
 }
