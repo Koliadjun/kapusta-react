@@ -10,7 +10,7 @@ export default function IncomeSpendSection() {
     transactionSelectors.getIncomeSummaryPerMonth(month, year),
   );
   const totalSpend = useSelector(
-    transactionSelectors.getIncomeSummaryPerMonth(month, year),
+    transactionSelectors.getSpendSummaryPerMonth(month, year),
   );
   return (
     <div className={s.container}>
