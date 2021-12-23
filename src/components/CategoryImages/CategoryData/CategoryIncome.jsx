@@ -10,7 +10,7 @@ import {transactionSelectors} from '../../../redux/transaction'
 // import trans from '../CategoryData/categoriesIncome.json'
 
 const CategoryIncome = ({year, month}) => {
-   const income = useSelector(transactionSelectors.getAllSpendPerMonth({ month, year}))
+   const income = useSelector(transactionSelectors.getIncomeReportDataPerMonth({ year, month }))
 console.log(income);
   return (
       <ul className={s.categoryList}>
@@ -23,7 +23,7 @@ console.log(income);
             className={s.categoryItem}
             
           >
-            <p className={s.costs}>{item.costs}</p>
+            <p className={s.costs}>{item.sum}</p>
 
             <svg className={s.icon}>
               <use

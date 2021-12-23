@@ -9,12 +9,9 @@ import sprite from '../../../images/svg/icon.svg';
 import {transactionSelectors} from '../../../redux/transaction'
 
 
-const CategoryCoast = ({year, month}) => {
-const coast = useSelector(transactionSelectors.getAllSpendPerMonth({year, month}))
-   
-
-  
-    return (
+const CategoryCoast = ({ year, month }) => {
+  const coast = useSelector(transactionSelectors.getSpendReportDataPerMonth( { year, month }))
+   return (
       <ul className={s.categoryList}>
       {coast?.length === 0 ? (
         <li className={s.noData}>За данный период транзакций нет</li>
@@ -25,7 +22,7 @@ const coast = useSelector(transactionSelectors.getAllSpendPerMonth({year, month}
             className={s.categoryItem}
            
           >
-            <p className={s.costs}>{item.costs}</p>
+            <p className={s.costs}>{item.sum}</p>
 
             <svg className={s.icon}>
               <use
