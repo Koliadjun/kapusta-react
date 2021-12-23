@@ -20,6 +20,9 @@ export default function TabsContainer() {
   const [inputSpendDesk, setInputSpendDesk] = useState('');
   const [inputSpendSum, setInputSpendSum] = useState('');
   const [inputSpendCategory, setInputSpendCategory] = useState('');
+  const [inputIncomeDesk, setInputIncomeDesk] = useState('');
+  const [inputIncomeSum, setInputIncomeSum] = useState('');
+  const [inputIncomeCategory, setInputIncomeCategory] = useState('');
   const dispatch = useDispatch();
   const transactionIncome = useSelector(
     transactionSelectors.getAllIncomePerMonth(month, year),
@@ -27,10 +30,7 @@ export default function TabsContainer() {
   const transactionSpend = useSelector(
     transactionSelectors.getAllSpendPerMonth(month, year),
   );
-  const transactionSpend1 = useSelector(
-    transactionSelectors.getIncomeReportDataPerMonth(month, year),
-  );
-  console.log(`fuck`, transactionSpend1);
+
   const onSubmitSpendForm = e => {
     e.preventDefault();
     dispatch(
@@ -53,8 +53,33 @@ export default function TabsContainer() {
   const onInputSpendSum = e => {
     setInputSpendSum(e.currentTarget.value);
   };
-  const onInputCategory = e => {
+  const onInputSpendCategory = e => {
     setInputSpendCategory(e.currentTarget.value);
+  };
+  const onSubmitIncomeForm = e => {
+    e.preventDefault();
+    dispatch(
+      transactionOperations.addOneTransaction({
+        description: inputIncomeDesk,
+        sum: inputIncomeSum,
+        date: `${year}-${month}-${day}`,
+        category: 'sallary',
+        negative: false,
+        day,
+        month,
+        year,
+      }),
+    );
+  };
+  const onInputIncomeDesk = e => {
+    console.log(e.currentTarget.value);
+    setInputIncomeDesk(e.currentTarget.value);
+  };
+  const onInputIncomeSum = e => {
+    setInputIncomeSum(e.currentTarget.value);
+  };
+  const onInputIncomeCategory = e => {
+    setInputIncomeCategory(e.currentTarget.value);
   };
   return (
     <div className={s.container}>
@@ -90,11 +115,13 @@ export default function TabsContainer() {
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
             <div className={s.input_Cont}>
-              <InputDescriptionProduct />
-              <CategoryList />
-              <InputBalance />
+              <form onSubmit={onSubmitIncomeForm} className={s.input_Cont}>
+                <InputDescriptionProduct onChange={onInputIncomeDesk} />
+                <CategoryList />
+                <InputBalance onChange={onInputIncomeSum} />
+              </form>
             </div>
-            <ButtonsBlock />
+            <ButtonsBlock onClickLeftButton={onSubmitIncomeForm} />
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
