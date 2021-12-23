@@ -21,9 +21,7 @@ const authSlice = createSlice({
     [authOperations.registration.fulfilled]: (state, { payload }) => {
       console.log(payload)
       state.user = payload;
-      // state.token = payload.token;
       state.isFetchingUser = false;
-      // state.isLoggedIn = true;
     },
     [authOperations.registration.rejected]: (state, { payload }) => {
       state.error = payload;
@@ -49,7 +47,6 @@ const authSlice = createSlice({
       state.isFetchingUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled]: (state, { payload }) => {
-      console.log(payload)
       if (!payload) {
         state.isFetchingUser = false;
         state.isLoggedIn = false;
