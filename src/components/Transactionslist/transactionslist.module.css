@@ -34,6 +34,10 @@
 } */
 
 @media screen and (max-width: 768px) {
+  .scrollBar {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
   .tabletItem {
     padding-bottom: 10px;
     padding-top: 10px;
@@ -52,7 +56,6 @@
     margin-bottom: 4px;
     width: 50%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
   }
 
@@ -84,6 +87,7 @@
   .scrollBar {
     height: 310px;
     overflow-y: scroll;
+
     border: 2px solid #f5f6fb;
     border-radius: 0 0 20px 20px;
   }

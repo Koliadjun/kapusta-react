@@ -1,14 +1,16 @@
-@media screen and (max-width: 767px) {
-  .line {
-    position: relative;
-  }
-}
-
 .line {
   margin: 0 auto;
   background-color: #f2f5fc;
   padding-top: 30px;
   padding-bottom: 40px;
+}
+@media screen and (max-width: 767px) {
+  .line {
+    position: relative;
+    z-index: 1;
+    padding-top: 62px;
+    padding-bottom: 0px;
+  }
 }
 
 @media screen and (min-width: 768px) {

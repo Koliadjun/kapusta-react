@@ -14,7 +14,7 @@ const CategoryCoast = () => {
     transactionSelectors.getSpendReportDataPerMonth(month, year),
   );
 
-  console.log(`coast`,coast);
+  // console.log(`coast`,coast);
   return (
     <ul className={s.categoryList}>
       {coast.length === 0 ? (
@@ -25,10 +25,7 @@ const CategoryCoast = () => {
             <p className={s.costs}>{item.value}</p>
 
             <svg className={s.icon}>
-              <use
-                className={s.useSvg}
-                xlinkHref={`${sprite}#${item.name}`}
-              />
+              <use className={s.useSvg} xlinkHref={`${sprite}#${item.name}`} />
             </svg>
 
             <h3 className={s.price}>{item.name}</h3>
