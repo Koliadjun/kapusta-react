@@ -33,7 +33,6 @@ function App() {
   // const isLoggedin = true;
   const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
-  ;
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
 
@@ -54,16 +53,30 @@ function App() {
         <Route
           index
           path="home"
-          element={isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />}
+          element={
+            isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />
+          }
         />
         <Route exact path="home/:data" element={<HomePage />} />
         <Route
           path="comment"
-          element={isLoggedin ? <CommentView name={'main'} /> : <Navigate replace to="/" />}
+          element={
+            isLoggedin ? (
+              <CommentView name={'main'} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="report"
-          element={isLoggedin ? (<ReportView name={'report'} />) : (<Navigate replace to="/" />)}
+          element={
+            isLoggedin ? (
+              <ReportView name={'report'} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="developers"

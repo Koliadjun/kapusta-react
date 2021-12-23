@@ -7,11 +7,12 @@ import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
-import InputBalance from '../InputBalance/InputBalance';
+// import InputCalculator from '../InputCalculator/InputCalculator';
 import CategoryList from '../CategoryList';
 import { transactionOperations, transactionSelectors } from 'redux/transaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import InputBalance from 'components/InputBalance/InputBalance';
 
 export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
