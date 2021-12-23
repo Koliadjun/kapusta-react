@@ -11,7 +11,6 @@ import ModalContent from '../ModalContent/ModalContent';
 import { useSelector } from 'react-redux';
 
 function LogInHeaderMenu() {
-  const state = useSelector(state => state.state);
   const [modal, setModal] = useState(false);
   const { isModalOpen, setIsModalOpen } = useState(false);
   const userId = shortid.generate();
@@ -70,7 +69,7 @@ function LogInHeaderMenu() {
           </div>
         </>
       )}
-      {true && (
+      {modal && (
         <div className={s.hederModalOut}>
           <Modal active={isModalOpen} setActive={setIsModalOpen} />
           <ModalContent
