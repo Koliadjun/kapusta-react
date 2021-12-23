@@ -60,7 +60,7 @@ export default function CurrentPeriod() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <span className={styles.label}>Текущий период:</span>
       <div className={styles.wrapper}>
         <ArrowLeftIcon className={styles.icon} onClick={onClickLeft} />

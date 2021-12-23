@@ -1,5 +1,11 @@
+@media screen and (max-width: 767px) {
+  .form {
+    position: relative;
+    top: 80px;
+  }
+}
+
 .form {
-  position: relative;
   align-items: center;
   margin: 0 auto;
 
@@ -7,7 +13,6 @@
 }
 
 .label {
-  position: relative;
   display: flex;
   margin: 0 auto 6px;
 
@@ -30,7 +35,6 @@
 }
 
 .container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +42,8 @@
 }
 
 .input {
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 125px;
   height: 44px;
 
@@ -55,7 +60,7 @@
 }
 
 .button__balance {
-  position: relative;
+  /* display: none; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +81,6 @@
 
 @media screen and (min-width: 768px) {
   .form {
-    position: static;
     display: flex;
     align-items: center;
     margin-left: auto;

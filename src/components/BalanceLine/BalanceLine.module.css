@@ -1,3 +1,9 @@
+@media screen and (max-width: 767px) {
+  .line {
+    position: relative;
+  }
+}
+
 .line {
   margin: 0 auto;
   background-color: #f2f5fc;
