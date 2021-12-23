@@ -8,7 +8,6 @@ import s from './styles.module.css';
 export default function CategoryList({ categoryType = 'Категория товара' }) {
   // eslint-disable-next-line
   const [_, setSelectedOption] = useState({});
-  console.log(_);
   const handlerChange = selectedOption => {
     setSelectedOption({
       category: categoryType,

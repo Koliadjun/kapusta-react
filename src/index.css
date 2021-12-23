@@ -54,3 +54,16 @@ a {
 button {
   cursor: pointer;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f6fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(#ff751d, #fff01d);
+  border-radius: 25px;
+}

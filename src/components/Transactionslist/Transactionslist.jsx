@@ -15,6 +15,7 @@ export default function Transactionslist({ onDeleteClick }) {
         <li className={s.tableHeaderItem}>Категория</li>
         <li className={s.tableHeaderItem}>Сумма</li>
       </ul>
+
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
           {data.map(({ id, income, description, date, category, negative }) => (

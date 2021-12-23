@@ -19,7 +19,6 @@ function CommentView({ name }) {
       <BalanceModal>
         <Wrapper>
           <Input />
-
           <Content />
         </Wrapper>
       </BalanceModal>
