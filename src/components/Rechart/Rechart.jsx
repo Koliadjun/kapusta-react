@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   BarChart,
   Bar,
@@ -23,7 +23,7 @@ export default function Rechart({ itemsArray }) {
           textAnchor="middle"
           dy={-10}
           fontSize={10}
-          fontColor="var(--main-text-color)"
+          // fontColor="var(--main-text-color)"
         >{`${value} грн`}</text>
       );
     }
@@ -35,7 +35,7 @@ export default function Rechart({ itemsArray }) {
         textAnchor="middle"
         dy={-10}
         fontSize={10}
-        fontColor="var(--main-text-color)"
+        // fontColor="var(--main-text-color)"
       >{`${value} грн`}</text>
     );
   };
@@ -47,7 +47,7 @@ export default function Rechart({ itemsArray }) {
           y={y - 4}
           dy={-10}
           fontSize={10}
-          fontColor="var(--main-text-color)"
+          // fontColor="var(--main-text-color)"
           textAnchor="start"
         >
           {name}
@@ -60,7 +60,7 @@ export default function Rechart({ itemsArray }) {
         y={y + height + 20}
         dy={-10}
         fontSize={10}
-        fontColor="var(--main-text-color)"
+        // fontColor="var(--main-text-color)"
         textAnchor="start"
       >
         {name}
@@ -111,5 +111,5 @@ export default function Rechart({ itemsArray }) {
 }
 
 Rechart.propTypes = {
-  itemsArray: PropTypes.array
+  itemsArray: PropTypes.array,
 };
