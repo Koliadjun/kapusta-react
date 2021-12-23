@@ -14,7 +14,7 @@ export async function addTransaction(incomeData) {
     return data;
 }
 export async function deleteTransactionById(transactionId) {
-    await axios.delete(`/transaction/${transactionId}`);
+    await axios.delete(`/transactions/${transactionId}`);
 }
 
 export async function registerUser(formData) {

@@ -64,6 +64,8 @@ fill: #CBCCD0;
   position: absolute;
   top: 40%;
   right: 38%;
+  z-index: 10000;
+  background-color: var(--main-background-color);
 }
 
 
