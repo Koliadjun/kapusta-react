@@ -2,7 +2,7 @@ import React from 'react';
 import s from './CategoryList.module.css';
 
 import { useSelector } from 'react-redux';
-
+import shortid from 'shortid';
 import sprite from '../../../images/svg/icon.svg';
 // import trans from '../CategoryData/categoriesCoasts.json'
 import { transactionSelectors } from '../../../redux/transaction';
@@ -13,23 +13,25 @@ const CategoryCoast = () => {
   const coast = useSelector(
     transactionSelectors.getSpendReportDataPerMonth(month, year),
   );
+
+  console.log(`coast`,coast);
   return (
     <ul className={s.categoryList}>
-      {coast?.length === 0 ? (
-        <li className={s.noData}>За данный период транзакций нет</li>
+      {coast.length === 0 ? (
+        <p className={s.noData}>За данный период транзакций нет</p>
       ) : (
-        coast?.map(item => (
-          <li key={item.id} className={s.categoryItem}>
-            <p className={s.costs}>{item.sum}</p>
+        coast.map(item => (
+          <li key={shortid.generate()} className={s.categoryItem}>
+            <p className={s.costs}>{item.value}</p>
 
             <svg className={s.icon}>
               <use
                 className={s.useSvg}
-                xlinkHref={`${sprite}#${item.category}`}
+                xlinkHref={`${sprite}#${item.name}`}
               />
             </svg>
 
-            <h3 className={s.price}>{item.category}</h3>
+            <h3 className={s.price}>{item.name}</h3>
           </li>
         ))
       )}

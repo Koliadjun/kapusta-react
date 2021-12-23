@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 
 import sprite from '../../../images/svg/icon.svg';
 import { transactionSelectors } from '../../../redux/transaction';
+import shortid from 'shortid';
 
-// import trans from '../CategoryData/categoriesIncome.json'
 
 const CategoryIncome = () => {
   const year = useSelector(transactionSelectors.getCurrentYear);
@@ -14,6 +14,8 @@ const CategoryIncome = () => {
   const income = useSelector(
     transactionSelectors.getIncomeReportDataPerMonth(month, year),
   );
+    
+
   console.log(year);
   console.log(`income`, income);
   return (
@@ -22,7 +24,7 @@ const CategoryIncome = () => {
         <li className={s.noData}>За данный период транзакций нет</li>
       ) : (
         income.map(item => (
-          <li key={item.id} className={s.categoryItem}>
+          <li key={shortid.generate()} className={s.categoryItem}>
             <p className={s.costs}>{item.sum}</p>
 
             <svg className={s.icon}>
@@ -32,7 +34,7 @@ const CategoryIncome = () => {
               />
             </svg>
 
-            <h3 className={s.price}>{item.category}</h3>
+            <h3 className={s.price}>{item.name}</h3>
           </li>
         ))
       )}
