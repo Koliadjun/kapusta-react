@@ -53,13 +53,19 @@ function App() {
           }
         />
         <Route exact path="home/:data" element={<HomePage />} />
-        <Route
+        {/* <Route
           path="comment"
           element={isLoggedin ? <CommentView name={'main'} /> : <Navigate replace to="/" />}
-        />
+        /> */}
         <Route
           path="report"
-          element={isLoggedin ? <ReportView name={'report'} /> : <Navigate replace to="/" />}
+          element={
+            isLoggedin ? (
+              <ReportView name={'report'} />
+            ) : (
+              <Navigate replace to="/" />
+            )
+          }
         />
         <Route
           path="*"
