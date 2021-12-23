@@ -15,7 +15,7 @@ const CategoryIncome = ({year, month}) => {
     return (
       <ul className={s.categoryList}>
       {income.length === 0 ? (
-        <li className={s.transEmpty}>За данный период транзакций нет</li>
+        <li className={s.noData}>За данный период транзакций нет</li>
       ) : (
         income.map(item => (
           <li

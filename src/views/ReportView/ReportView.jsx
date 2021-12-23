@@ -5,7 +5,6 @@ import BalanceLine from '../../components/BalanceLine/BalanceLine';
 
 import Container from 'components/Container/Container';
 import s from './ReportView.module.css';
-import BalanceLine from 'components/BalanceLine/BalanceLine';
 
 const ReportView = ({name}) => {
     return (
