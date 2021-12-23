@@ -36,7 +36,7 @@ function App() {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
 
-    dispatch(transactionOperations.getAllTransaction(2021));
+    dispatch(transactionOperations.getAllTransaction());
     if (isGoogled) {
       navigate('/comment');
     }
