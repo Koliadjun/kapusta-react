@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Container from 'components/Container/Container';
-// import Datepicker from 'components/DatePicker/Datepicker';
+import Datepicker from 'components/DatePicker/Datepicker';
 import Tabs from '../components/Tabs/Tabs';
 import BalanceLine from 'components/BalanceLine/BalanceLine';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
@@ -13,7 +13,9 @@ function CommentView({ name }) {
     <>
       <Container>
         <BalanceLine name={name} />
-        <div style={{ margin: 20 }}>{/* <Datepicker date={date} /> */}</div>
+        <div style={{ margin: 20 }}>
+          <Datepicker />
+        </div>
         <Tabs />
       </Container>
       <BalanceModal>
