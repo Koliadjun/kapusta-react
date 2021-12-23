@@ -72,7 +72,12 @@ export const getIncomeReportDataPerMonth = (month, year) => state => {
         object[category] += amount;
         return object;
     }, {});
-    return a
+    const result = []
+    for (const key in a) {
+        result.push({ name: key, value: a[key] })
+    }
+    return result
+
 
 }
 export const getSpendReportDataPerMonth = (month, year) => state => {
@@ -88,7 +93,20 @@ export const getSpendReportDataPerMonth = (month, year) => state => {
         object[category] += amount;
         return object;
     }, {});
-    return a
+    const result = []
+    for (const key in a) {
+        result.push({ name: key, value: a[key] })
+    }
+    return result
 
 }
 
+export const getBalance = state => {
+    const filterS = { negative: true }
+    const filterI = { negative: false }
+    const balance = state.auth.user.initialBalance
+    const income = getAllTransaction(state).filter(search, filterI).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    const spend = getAllTransaction(state).filter(search, filterS).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    const result = balance + income - spend
+    return result
+}

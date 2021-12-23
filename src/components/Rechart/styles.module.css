@@ -1,0 +1,45 @@
+.rechartSection {
+  padding-top: 34px;
+  padding-bottom: 34px;
+  background-color: var(--main-background-color);
+}
+:global .recharts-wrapper{
+margin: 0 auto;
+width: 100%;
+height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  :global .recharts-surface {
+      
+    height: 282px;
+    width: 400px;
+
+  }
+   
+}
+@media screen and (min-width: 768px) {
+  :global .recharts-surface {
+      
+    height: 422px;
+    width: 100%;
+   
+ }
+  .rechartSection{
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 30px;
+       
+  }
+  
+}
+
+:global .recharts-layer.recharts-bar-rectangle {
+  fill: var(--secondary-accent-color);
+}
+:global .recharts-rectangle {
+  fill: inherit;
+  width: 15px;
+}
+:global .recharts-layer.recharts-bar-rectangle:nth-child(3n + 1) {
+  fill: var(--accent-color);
+}
