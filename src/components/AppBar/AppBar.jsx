@@ -6,10 +6,12 @@ import Header from 'components/Header/Header';
 import Container from 'components/Container/Container';
 import LogOutHeaderMenu from 'components/LogOutHeaderMenu/LogOutHeaderMenu';
 import s from './AppBar.module.css';
+import { useSelector } from 'react-redux';
+import { authSelectors } from 'redux/auth';
 
 export default function AppBar() {
-  const isLoggedin = true;
-  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedin = true;
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   return (
     <Container>
       <div className={s.appBar}>
