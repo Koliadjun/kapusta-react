@@ -15,8 +15,9 @@
 }
 body {
   margin: 0;
-  font: normal var(--main-font-weight) var(--main-font-size) 'Roboto',
-    sans-serif;
+  /* font: normal var(--main-font-weight) var(--main-font-size) 'Roboto',
+    sans-serif; */
+  font: normal 400 12px 'Roboto', sans-serif;
   line-height: 1.17;
 
   background-color: #ffffff;
