@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import operations from '../../redux/auth/auth-operations'
+import { authOperations, authSelectors } from '../../redux/auth';
 import sprite from '../../images/svg/sprite.svg'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 import users from './users.json'
@@ -10,39 +10,32 @@ import shortid from 'shortid';
 import s from './LogOutHeaderMenu.module.css'
 import Modal from '../Modal/Modal'
 import ModalContent from '../ModalContent/ModalContent'
+import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
 
-
-function LogInHeaderMenu({onClickLeftButton, onClickRightButton, onClick},) {
-  // const post=  
+function LogInHeaderMenu() {
+  const name = useSelector(authSelectors.getName)
   const [modal, setModal] = useState(false);
-  const {isModalOpen, setIsModalOpen}=useState(false)
+  // const {modalActive, setModalActive}=useState(false)
   const userId = shortid.generate();
   const viewPort = useWindowDimensions();
   const dispatch = useDispatch()
-  const logOut = useSelector(operations.logOut)
 
   const toggleBtn = () => {
-  setModal(prevModal=>!prevModal)
+    setModal(prevModal => !prevModal)
   }
-
-  console.log(logOut);
-
   const logOutModal = () => {
-    dispatch(logOut);
-
+    dispatch(authOperations.logOut());
+    toggleBtn()
   }
-
+ 
   return (
         <div className={s.userMenu}>
-    
       {viewPort.width >= 768 && (
-       
-        <>
+       <>
             <Avatar
               className={s.userAvatar}
-        size="32"
-        
-              color={Avatar.getRandomColor('sitebase', [
+             size="32"
+             color={Avatar.getRandomColor('sitebase', [
                 'red',
                 'green',
                 'blue',
@@ -51,7 +44,7 @@ function LogInHeaderMenu({onClickLeftButton, onClickRightButton, onClick},) {
       />
            <div className={s.line}>
         {users.map(user => (
-          <p className={s.userName} key={userId}>{user.name}</p>))}
+          <p className={s.userName} key={userId}>{name}</p>))}
      </div> 
       <button className={s.logoutBtn} onClick={toggleBtn}>
         <p className={s.textBtn}>Выйти</p>
@@ -85,20 +78,20 @@ function LogInHeaderMenu({onClickLeftButton, onClickRightButton, onClick},) {
       </>
       )}
       {modal &&
-        <div className={s.hederModalOut }>
-          <Modal
-            active={isModalOpen}
-            setActive={setIsModalOpen}
-            onClickLeftButton={logOutModal}
-            onClickRightButton={toggleBtn}
-            onClose={toggleBtn }
-          />
-          <ModalContent   
-          message={'Вы уверены?'}
-          textLeftButton={'да'}
-            textRightButton={'нет'} />
-            
-      </div>
+        <div className={s.hederModalOut} >
+           
+          <Modal active={modal}
+              setActive={setModal}
+             >
+          <ModalContent
+              message={'Вы уверены?'}
+              textLeftButton={'да'}
+              textRightButton={'нет'}
+              onClickRightButton={toggleBtn}
+              onClickLeftButton={logOutModal}
+            />
+          </Modal>
+     </div> 
       }
      </div>   
     )
