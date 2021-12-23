@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useState } from 'react';
-import { authSelectors } from 'redux/auth';
-import { useSelector } from 'react-redux';
+// import { authSelectors } from 'redux/auth';
+// import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import Container from 'components/Container/Container';
 import LogOutHeaderMenu from 'components/LogOutHeaderMenu/LogOutHeaderMenu';

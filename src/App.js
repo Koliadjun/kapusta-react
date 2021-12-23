@@ -30,8 +30,8 @@ function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  const isLoggedin = true;
-  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedin = true;
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());

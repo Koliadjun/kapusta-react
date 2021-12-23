@@ -7,9 +7,8 @@ import BalanceLine from 'components/BalanceLine/BalanceLine';
 import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
 import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal';
 import Input from 'components/InitialBalanceFormModal/Input/Input';
-import BalanceLine from '../components/BalanceLine/BalanceLine';
 import Content from 'components/InitialBalanceFormModal/Content/Content';
-import s from './css/CommentView.module.css';
+import s from './CommentView.module.css';
 
 function CommentView({ name }) {
   return (
