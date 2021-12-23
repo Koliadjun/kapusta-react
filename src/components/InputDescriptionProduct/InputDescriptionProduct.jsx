@@ -6,10 +6,12 @@ export default function InputDescriptionProduct({
   placeholder,
   onChange,
   name,
+  value,
 }) {
   return (
     <div>
       <input
+        value={value}
         className={s.input}
         type="text"
         onChange={onChange}

@@ -58,6 +58,8 @@ export default function TabsContainer() {
         year,
       }),
     );
+    setInputSpendDesk('');
+    setInputSpendSum('');
   };
   const onInputSpendDesk = e => {
     setInputSpendDesk(e.currentTarget.value);
@@ -111,12 +113,15 @@ export default function TabsContainer() {
               <DatePicker />
             </div>
             <form onSubmit={onSubmitSpendForm} className={s.input_Cont}>
-              <InputDescriptionProduct onChange={onInputSpendDesk} />
+              <InputDescriptionProduct
+                value={inputSpendDesk}
+                onChange={onInputSpendDesk}
+              />
               <CategoryList
                 categoryType={'Категория товара'}
                 onSelect={onInputSpendCategory}
               />
-              <InputBalance onChange={onInputSpendSum} />
+              <InputBalance value={inputSpendSum} onChange={onInputSpendSum} />
             </form>
             <div className={s.Buttons_cont}>
               <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
@@ -139,12 +144,18 @@ export default function TabsContainer() {
             <DatePicker />
             <div className={s.input_Cont}>
               <form onSubmit={onSubmitIncomeForm} className={s.input_Cont}>
-                <InputDescriptionProduct onChange={onInputIncomeDesk} />
+                <InputDescriptionProduct
+                  value={inputIncomeDesk}
+                  onChange={onInputIncomeDesk}
+                />
                 <CategoryList
                   categoryType={'Категория дохода'}
                   onSelect={onInputIncomeCategory}
                 />
-                <InputBalance onChange={onInputIncomeSum} />
+                <InputBalance
+                  value={inputIncomeSum}
+                  onChange={onInputIncomeSum}
+                />
               </form>
             </div>
             <ButtonsBlock onClickLeftButton={onSubmitIncomeForm} />
