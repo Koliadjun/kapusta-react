@@ -5,14 +5,18 @@ import PropTypes from 'prop-types';
 import list from './list.json';
 import s from './styles.module.css';
 
-export default function CategoryList({ categoryType = 'Категория товара' }) {
+export default function CategoryList({
+  categoryType = 'Категория товара',
+  onSelect,
+}) {
   // eslint-disable-next-line
-  const [_, setSelectedOption] = useState({});
+  const [selectedOption, setSelectedOption] = useState({});
   const handlerChange = selectedOption => {
     setSelectedOption({
       category: categoryType,
       categoryItem: selectedOption.value,
     });
+    onSelect(selectedOption);
   };
   const filtredArray = Array.from(
     list.map(item => {

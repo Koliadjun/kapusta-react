@@ -16,8 +16,8 @@ function Datepicker() {
   // const selectedDay = selectedDate.getDate();
   // const selectedMonth = selectedDate.getMonth() + 1;
   // const selectedYear = selectedDate.getFullYear();
-  const dispatch = useDispatch();
-  // console.log(storeDate)
+  const dispatch = useDispatch()
+
   function handleSelect(date) {
     // setSelectedDate(date);
 

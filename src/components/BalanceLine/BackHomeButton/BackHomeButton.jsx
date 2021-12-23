@@ -7,7 +7,7 @@ import { ReactComponent as BackHomeIcon } from '../../../images/svg/arrow-left.s
 export default function BackHomeButton() {
   return (
     <div className={styles.button}>
-      <Link className={styles.link} to="/main">
+      <Link className={styles.link} to="/comment">
         <BackHomeIcon className={styles.icon} />
         <span className={styles.buttonName}>Вернуться на главную</span>
       </Link>
