@@ -2,25 +2,10 @@ import React from 'react';
 import s from './Button.module.css';
 // import propTypes from 'prop-types';
 
-export default function Button({
-  text,
-  type = 'button',
-  onClick,
-  rectangle,
-  border = false,
-}) {
+export default function Button({ text, type = 'button', onClick }) {
   return (
-    <div className={rectangle && s.rectangleContainer}>
-      <button
-        className={rectangle ? s.rectangle : s.button}
-        type={type}
-        onClick={onClick}
-        style={
-          border
-            ? { borderTopLeftRadius: ' 0', borderBottomLeftRadius: ' 0' }
-            : {}
-        }
-      >
+    <div className={s.rectangleContainer}>
+      <button className={s.button} type={type} onClick={onClick}>
         {text}
       </button>
     </div>

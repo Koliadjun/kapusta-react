@@ -1,0 +1,53 @@
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 8px;
+  height: 20px;
+
+  fill: #ff751d;
+
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.04em;
+
+  color: rgba(82, 85, 95, 0.7);
+}
+
+.data {
+  display: flex;
+  justify-content: center;
+  margin: 0 15px;
+  min-width: 110px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  color: #000000;
+}

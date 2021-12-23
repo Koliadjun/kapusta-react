@@ -1,97 +1,198 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  Routes,
+  Route,
+  // Link,
+  // Outlet,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
 
-import RegistrationForm from './components/RegistrationForm';
-import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-import Modal from 'components/Modal/Modal';
-import ModalContent from 'components/ModalContent/ModalContent';
-import AppBar from 'components/AppBar/AppBar';
-import Summary from 'components/Summary/Summary';
-import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-import Content from 'components/InitialBalanceFormModal/Content/Content';
-import Input from 'components/InitialBalanceFormModal/Input/Input';
-import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
-import BalanceForm from 'BalanceForm/BalanceForm';
-import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
-import Loader from 'components/Loader/Loader' 
-import CategoryList from 'components/CategoryList';
+import Loader from 'components/Loader';
 
-// import './App.css';
-import Transactionslist from 'components/Transactionslist/Transactionslist';
-import Container from 'components/Container/Container';
-// import RegistrationForm from './components/RegistrationForm';
-// import ButtonsBlock from 'components/ButtonsBlock/ButtonsBlock';
-// import Modal from 'components/Modal/Modal';
-// import ModalContent from 'components/ModalContent/ModalContent';
-// import AppBar from 'components/AppBar/AppBar';
-// import Summary from 'components/Summary/Summary';
-import InputBalance from 'components/InputBalance/InputBalance';
-import InputRegister from 'components/InputRegister/InputRegister';
-import InputDescriptionProduct from 'components/InputDescriptionProduct/InputDescriptionProduct';
-// import HomePage from './view/HomePage';
-// import BalanceModal from './components/InitialBalanceFormModal/Modal/BalanceModal';
-// import Content from 'components/InitialBalanceFormModal/Content/Content';
-// import Input from 'components/InitialBalanceFormModal/Input/Input';
-// import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
-// import BalanceForm from 'BalanceForm/BalanceForm';
-import Tabs from 'components/Tabs/Tabs';
-// import Loader from 'components/Loader/Loader';
-
+import CommentView from './views/CommentView';
+import ReportView from './views/ReportView/ReportView';
+import { authOperations, authSelectors } from 'redux/auth';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import HomePage from './views/HomePage';
+import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
+import AppBar from 'components/AppBar';
+// import Transactionslist from 'components/Transactionslist/Transactionslist';
 
 function App() {
-  // const [modal, setModal] = useState(true);
-  // const [modalActive, setModalActive] = useState(false);
-  // const sendBalance = () => {
-  //   setModal(false);
-  // };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
+  // const isLoggedin = true;
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  const isGoogled = useSelector(authSelectors.getIsGoogled);
+  ;
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+    if (isGoogled) {
+      navigate('/comment');
+    }
+    // eslint-disable-next-line
+  }, [isGoogled]);
 
-  // const [balance, setBalance] = useState(0);
-
-  return (
-    <div>
-
-      <Container>
-        <Transactionslist />
-        <InputBalance></InputBalance>
-        <InputRegister></InputRegister>
-        <InputDescriptionProduct></InputDescriptionProduct>
-      </Container>
-
-      <Tabs />
-      {/* <HomePage></HomePage> */}
-
-      {/* <RegistrationForm />
+  return isFetchingUser ? (
+    <Loader />
+  ) : (
+    <>
       <AppBar />
-      <ButtonsBlock /> */}
-      {/* <Modal active={modalActive} setActive={setModalActive}>
-        <ModalContent
-          message={'Вы уверены?'}
-          textLeftButton={'да'}
-          textRightButton={'нет'}
+      <Routes>
+        <Route exact path="/" element={<Navigate to="home" />} />
+        <Route
+          index
+          path="home"
+          element={isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />}
         />
-      </Modal> */}
-      {/* <button onClick={() => setModalActive(true)}>Проверка модалки</button> */}
-      {/* <BalanceModal visible={modal} setVisible={setModal}>
-        <Wrapper>
-          <Input sendBalance={sendBalance} setBalance={setBalance} />
-
-
-      <button onClick={() => setModalActive(true)}>Проверка модалки</button>
-      <Summary /> */}
-
-      {/* <Content />
-        </Wrapper>
-
-      </BalanceModal>
-      {!modal === true && <BalanceForm balance={balance} />}
-      <Loader />
-      <CategoryList/>
-
-      </BalanceModal> } */}
-      {/* {!modal === true && <BalanceForm balance={balance} />} */}
-      {/* <Loader /> */}
-
-    </div>
+        <Route exact path="home/:data" element={<HomePage />} />
+        <Route
+          path="comment"
+          element={isLoggedin ? <CommentView name={'main'} /> : <Navigate replace to="/" />}
+        />
+        <Route
+          path="report"
+          element={isLoggedin ? (<ReportView name={'report'} />) : (<Navigate replace to="/" />)}
+        />
+        <Route
+          path="*"
+          element={
+            <NotFoundView>
+              <Loader />
+            </NotFoundView>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 
 export default App;
+// import React, { useState } from 'react';
+// import {
+//   Routes,
+//   Route,
+//   // Link,
+//   // Outlet,
+//   Navigate,
+//   useNavigate,
+// } from 'react-router-dom';
+
+// import Loader from 'components/Loader';
+
+// import CommentView from './views/CommentView';
+// import ReportView from './views/ReportView/ReportView';
+// import { authOperations, authSelectors } from 'redux/auth';
+// import { useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import HomePage from './views/HomePage';
+// import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
+
+// function App() {
+//   const [modal, setModal] = useState(false);
+//   // const [modalActive, setModalActive] = useState(false);
+//   // const sendBalance = () => {
+//   //   setModal(false);
+//   // };
+
+//   // const [balance, setBalance] = useState(0);
+
+//   //DatePicker -------------- BEGINNING -----------
+//   // const [date, setDate] = useState(new Date().getDate());
+//   // const [month, setMonth] = useState(new Date().getMonth() + 1);
+//   // const [year, setYear] = useState(new Date().getFullYear());
+//   // function onSelectedDate({ selectedDay, selectedMonth, selectedYear }) {
+//   //   setDate(selectedDay);
+//   //   setMonth(selectedMonth);
+//   //   setYear(selectedYear);
+//   // }
+//   //DatePicker -------------- END-----------
+
+//   const dispatch = useDispatch();
+//   const navigate = useNavigate();
+//   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
+//   // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+//   const isLoggedin = true;
+//   const isGoogled = useSelector(authSelectors.getIsGoogled);
+
+//   useEffect(() => {
+//     dispatch(authOperations.fetchCurrentUser());
+//     if (isGoogled) {
+//       navigate('/report');
+//     }
+//     console.log("----------")
+//     // eslint-disable-next-line
+//   }, [isGoogled]);
+
+//   return isFetchingUser ? (
+//     <Loader />
+//   ) : (
+//     <div>
+//       <Routes>
+//         <Route exact path="/" element={<Navigate to="home" />} />
+//         <Route
+//           index
+//           path="home"
+//           element={
+//             isLoggedin ? <Navigate replace to="/report" /> : <HomePage />
+//           }
+//         />
+//         <Route exact path="home/:data" element={<HomePage />} />
+//         {/* <Route
+//           path="/main"
+//           element={
+//             isLoggedin ? (
+//               <MainView
+//                 name={'main'}
+//                 // date={date}
+//                 // setDate={setDate}
+//                 // month={month}
+//                 // setMonth={setMonth}
+//                 // year={year}
+//                 // setYear={setYear}
+//                 // onSelectedDate={onSelectedDate}
+//                 modal={modal}
+//                 setModal={setModal}
+//               />
+//             ) : (
+//               <Navigate replace to="/" />
+//             )
+//           }
+//         />
+//         <Route
+//           path="/report"
+//           element={
+//             isLoggedin ? (
+//               <ReportView
+//                 name={'report'}
+//                 // date={date}
+//                 // setDate={setDate}
+//                 // month={month}
+//                 // setMonth={setMonth}
+//                 // year={year}
+//                 // setYear={setYear}
+//                 modal={modal}
+//                 setModal={setModal}
+//               />
+//             ) : (
+//               <Navigate replace to="/" />
+//             )
+//           }
+//         />
+//         <Route
+//           path="*"
+//           element={
+//             <NotFoundView>
+//               <Loader />
+//             </NotFoundView>
+//           }
+//         />
+//       </Routes> */}
+//     </div>
+//   );
+// }
+
+// export default App;
