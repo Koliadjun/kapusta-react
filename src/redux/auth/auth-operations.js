@@ -25,7 +25,7 @@ const registration = createAsyncThunk(
       if (data.newUser.token) token.set(data.newUser.token);
 
       alert(
-        'Registration successful! Please check your email for verification',
+        'Registration successful! Please logIn!',
       );
       return data.newUser;
     } catch (err) {
