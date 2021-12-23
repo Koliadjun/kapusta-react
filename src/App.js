@@ -33,7 +33,6 @@ function App() {
     if (isGoogled) {
       navigate('/comment');
     }
-    console.log('----------');
     // eslint-disable-next-line
   }, [isGoogled]);
 

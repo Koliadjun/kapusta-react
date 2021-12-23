@@ -49,7 +49,6 @@ const authSlice = createSlice({
       state.isFetchingUser = true;
     },
     [authOperations.fetchCurrentUser.fulfilled]: (state, { payload }) => {
-      console.log(payload)
       if (!payload) {
         state.isFetchingUser = false;
         state.isLoggedIn = false;
