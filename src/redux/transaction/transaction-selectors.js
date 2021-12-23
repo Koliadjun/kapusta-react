@@ -88,7 +88,11 @@ export const getSpendReportDataPerMonth = (month, year) => state => {
         object[category] += amount;
         return object;
     }, {});
-    return a
+    const result = []
+    for (const key in a) {
+        result.push({ category: key, value: a[key] })
+    }
+    return result
 
 }
 

@@ -5,11 +5,12 @@ import s from './IncomeSpendSection.module.css';
 
 export default function IncomeSpendSection() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
+  const year = useSelector(transactionSelectors.getCurrentYear);
   const totalIncome = useSelector(
-    transactionSelectors.getIncomeSummaryPerMonth(month),
+    transactionSelectors.getIncomeSummaryPerMonth(month, year),
   );
   const totalSpend = useSelector(
-    transactionSelectors.getIncomeSummaryPerMonth(month),
+    transactionSelectors.getIncomeSummaryPerMonth(month, year),
   );
   return (
     <div className={s.container}>
