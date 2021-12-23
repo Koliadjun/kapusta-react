@@ -1,31 +1,112 @@
-export const getAllIncomePerMonth = month => state => {
-    const income = state.transaction.transaction.transactions.income
-    return income.find((post) => post.month === month);;
+function search(user) {
+    return Object.keys(this).every((key) => user[key] === this[key]);
+}
+export const getAllTransaction = state => state.transaction.transaction
+
+export const getAllIncomePerMonth = (month, year) => state => {
+    const filter = { year, month, negative: false }
+    const income = getAllTransaction(state).filter(search, filter);
+    return income || [];
+}
+export const getAllSpendPerMonth = (month, year) => state => {
+    const filter = { year, month, negative: true }
+    const spend = getAllTransaction(state).filter(search, filter)
+    return spend || [];
+}
+export const getAllSpendSummary = year => state => {
+    const filter = { year, negative: true }
+    const spend = getAllTransaction(state).filter(search, filter)
+    const result = []
+    for (let i = 0; i < 12; i++) {
+        result[i] = spend.filter(element => element.month === i + 1).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    }
+    return result
 }
 
-export const getAllSpendPerMonth = month => state => {
-    const spend = state.transaction.transaction.transactions.spend
-    return spend.find((post) => post.month === month);
-}
-export const getAllSpendSummary = state => state.transaction.transaction.summary.spend
-
-export const getAllIncomeSummary = state => state.transaction.transaction.summary.income
-
-export const getIncomeSummaryPerMonth = month => state => {
-    const income = state.transaction.transaction.summary.income
-    return income[month - 1];
-}
-export const getSpendSummaryPerMonth = month => state => {
-    const spend = state.transaction.transaction.summary.spend
-    return spend[month - 1];
+export const getAllIncomeSummary = year => state => {
+    const filter = { year, negative: false }
+    const spend = getAllTransaction(state).filter(search, filter)
+    const result = []
+    for (let i = 0; i < 12; i++) {
+        result[i] = spend.filter(element => element.month === i + 1).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    }
+    return result
 }
 
-export const getIncomeReportDataPerMonth = month => state => {
-    const income = state.transaction.transaction.reportData.income
-    return income[month - 1];
-}
-export const getSpendReportDataPerMonth = month => state => {
-    const spend = state.transaction.transaction.reportData.spend
-    return spend[month - 1];
+export const getIncomeSummaryPerMonth = (month, year) => state => {
+    const income = getAllIncomeSummary(year)
+    return income(state)[month - 1];
 }
 
+export const getSpendSummaryPerMonth = (month, year) => state => {
+    const spend = getAllSpendSummary(year)
+    return spend(state)[month - 1];
+}
+
+export const getCurrentMonth = state => {
+    const date = state.transaction.date
+    return date.getMonth() + 1;
+}
+
+export const getCurrentYear = state => {
+    const date = state.transaction.date
+    return date.getFullYear();
+
+}
+
+export const getCurrentDay = state => {
+    const date = state.transaction.date
+    return date.getDate()
+}
+
+export const getIncomeReportDataPerMonth = (month, year) => state => {
+    const filter = { month, year, negative: false }
+    const income = getAllTransaction(state).filter(search, filter)
+    const a = income.reduce((object, item) => {
+        var category = item.category;
+        var amount = parseInt(item.sum);
+        if (!object.hasOwnProperty(category)) {
+            object[category] = 0;
+        }
+
+        object[category] += amount;
+        return object;
+    }, {});
+    const result = []
+    for (const key in a) {
+        result.push({ name: key, value: a[key] })
+    }
+    return result
+
+
+}
+export const getSpendReportDataPerMonth = (month, year) => state => {
+    const filter = { month, year, negative: true }
+    const income = getAllTransaction(state).filter(search, filter)
+    const a = income.reduce((object, item) => {
+        var category = item.category;
+        var amount = parseInt(item.sum);
+        if (!object.hasOwnProperty(category)) {
+            object[category] = 0;
+        }
+
+        object[category] += amount;
+        return object;
+    }, {});
+    const result = []
+    for (const key in a) {
+        result.push({ name: key, value: a[key] })
+    }
+    return result
+
+}
+
+export const getBalance = state => {
+    const filterS = { negative: true }
+    const filterI = { negative: false }
+    const balance = state.auth.user.initialBalance
+    const income = getAllTransaction(state).filter(search, filterI).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    const spend = getAllTransaction(state).filter(search, filterS).reduce((previousValue, currentValue) => previousValue + parseInt(currentValue.sum), 0)
+    const result = balance + income - spend
+    return result
+}

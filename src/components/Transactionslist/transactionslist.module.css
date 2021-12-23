@@ -29,8 +29,6 @@
 }
 
 /* .description {
-  width: 100px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 } */
@@ -39,6 +37,7 @@
   .tabletItem {
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 10px;
     color: #52555f;
     border-bottom: 1px solid #f5f6fb;
   }
@@ -51,6 +50,10 @@
     align-items: center;
     letter-spacing: 0.04em;
     margin-bottom: 4px;
+    width: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .data {
@@ -67,6 +70,7 @@
     letter-spacing: 0.04em;
     margin-right: 75px;
   }
+
   .sumWrapper {
     display: inline-block;
     position: absolute;
@@ -138,6 +142,9 @@
   }
 
   .description {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     grid-column-start: 2;
     grid-row-start: 1;
     font-weight: normal;
@@ -180,4 +187,15 @@
 
 .svg:hover {
   scale: 1.5;
+}
+
+:global .simplebar-scrollbar:before {
+  /* position: absolute;
+  content: ''; */
+  background: rgb(61, 184, 102);
+  /* border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s linear; */
 }

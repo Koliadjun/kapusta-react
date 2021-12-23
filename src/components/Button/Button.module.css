@@ -50,8 +50,8 @@
   transition: all 0.2s ease-out;
 }
 
-/* 
-@media screen and (min-width: 768px) {
-
+@media screen and (max-width: 767px) {
+  .button {
+    height: 26px;
   }
-   */
+}

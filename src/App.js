@@ -10,25 +10,33 @@ import {
 
 import Loader from 'components/Loader';
 
-import CommentView from './views/CommentView';
-import ReportView from './views/ReportView';
+import CommentView from './views/CommentView/CommentView';
+import ReportView from './views/ReportView/ReportView';
 import { authOperations, authSelectors } from 'redux/auth';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
 import AppBar from 'components/AppBar';
+
+import Footer from 'components/Footer'
+
+import { transactionOperations } from 'redux/transaction';
+import TeamPage from 'views/TeamPage';
+
 // import Transactionslist from 'components/Transactionslist/Transactionslist';
 
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
-  const isLoggedin = true;
-  // const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
+  // const isLoggedin = true;
+  const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
   const isGoogled = useSelector(authSelectors.getIsGoogled);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
+
+    dispatch(transactionOperations.getAllTransaction(2021));
     if (isGoogled) {
       navigate('/comment');
     }
@@ -71,6 +79,10 @@ function App() {
           }
         />
         <Route
+          path="developers"
+          element={<TeamPage />}
+        />
+        <Route
           path="*"
           element={
             <NotFoundView>
@@ -79,6 +91,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -10,10 +10,12 @@ export default function InputCalculator({
   placeholder,
   onChange,
   onClick,
+  value,
 }) {
   return (
     <div className={s.wrapper}>
       <input
+        value={value}
         className={s.input}
         name={name}
         type={text}
