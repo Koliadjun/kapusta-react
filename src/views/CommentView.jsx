@@ -3,14 +3,26 @@ import React from 'react';
 import Container from 'components/Container/Container';
 // import Datepicker from 'components/DatePicker/Datepicker';
 import Tabs from '../components/Tabs/Tabs';
-function CommentView() {
+import BalanceLine from 'components/BalanceLine/BalanceLine';
+import Wrapper from 'components/InitialBalanceFormModal/Wrapper/Wrapper';
+import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal';
+import Input from 'components/InitialBalanceFormModal/Input/Input';
+import Content from 'components/InitialBalanceFormModal/Content/Content';
+function CommentView({ name }) {
   return (
     <>
       <Container>
-        {/* <BalanceLine modal={modal} balance={balance} name={name} /> */}
+        <BalanceLine name={name} />
         <div style={{ margin: 20 }}>{/* <Datepicker date={date} /> */}</div>
         <Tabs />
       </Container>
+      <BalanceModal>
+        <Wrapper>
+          <Input sendBalance={sendBalance} setBalance={setBalance} />
+
+          <Content />
+        </Wrapper>
+      </BalanceModal>
     </>
   );
 }

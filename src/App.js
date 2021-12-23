@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
     if (isGoogled) {
-      navigate('/report');
+      navigate('/comment');
     }
     console.log("----------")
     // eslint-disable-next-line
@@ -47,17 +47,17 @@ function App() {
           index
           path="home"
           element={
-            isLoggedin ? <Navigate replace to="/report" /> : <HomePage />
+            isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />
           }
         />
         <Route exact path="home/:data" element={<HomePage />} />
         <Route
           path="comment"
-          element={isLoggedin ? <CommentView /> : <Navigate replace to="/" />}
+          element={isLoggedin ? <CommentView name={'main'} /> : <Navigate replace to="/" />}
         />
         <Route
           path="report"
-          element={isLoggedin ? <ReportView /> : <Navigate replace to="/" />}
+          element={isLoggedin ? <ReportView name={'report'} /> : <Navigate replace to="/" />}
         />
         <Route
           path="*"
