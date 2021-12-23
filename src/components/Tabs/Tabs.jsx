@@ -9,8 +9,22 @@ import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
 import InputBalance from '../InputBalance/InputBalance';
 import CategoryList from '../CategoryList';
+import { transactionSelectors } from 'redux/transaction';
+import { useSelector } from 'react-redux';
 
 export default function TabsContainer() {
+  const month = useSelector(transactionSelectors.getCurrentMonth);
+  const year = useSelector(transactionSelectors.getCurrentYear);
+  const transactionIncome = useSelector(
+    transactionSelectors.getAllIncomePerMonth(month, year),
+  );
+  const transactionSpend = useSelector(
+    transactionSelectors.getAllSpendPerMonth(month, year),
+  );
+  const transactionSpend1 = useSelector(
+    transactionSelectors.getIncomeReportDataPerMonth(month, year),
+  );
+  console.log(`fuck`, transactionSpend1);
   return (
     <div className={s.container}>
       <Tabs>
@@ -35,9 +49,9 @@ export default function TabsContainer() {
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist />
+              <Transactionslist data={transactionIncome} />
             </div>
-            <div className={s.sumPK}>{/* <Summary /> */}</div>
+            {/* <div className={s.sumPK}><Summary /></div> */}
           </div>
         </TabPanel>
         <div className={s.sumTablet}>{/* <Summary /> */}</div>
@@ -53,7 +67,7 @@ export default function TabsContainer() {
           </div>
           <div className={s.trans_Summ_Cont}>
             <div className={s.transactionsCont}>
-              <Transactionslist />
+              <Transactionslist data={transactionSpend} />
             </div>
             <div className={s.sumPK}>{/* <Summary /> */}</div>
           </div>

@@ -3,20 +3,7 @@ const { transactionOperations } = require('redux/transaction');
 
 
 const initialState = {
-    transaction: {
-        transactions: {
-            income: [],
-            spend: [],
-        },
-        summary: {
-            income: [],
-            spend: [],
-        },
-        reportData: {
-            income: [],
-            spend: []
-        }
-    },
+    transaction: [],
     date: new Date(),
     error: null
 }

@@ -1,12 +1,13 @@
 import React from 'react';
-import data from '../Transactionslist/list.json';
+// import data from '../Transactionslist/list.json';
 import svg from '../../images/svg/sprite.svg';
 import SimpleBar from 'simplebar-react';
 // import 'simplebar/dist/simplebar.min.css';
 import LinesEllipsis from 'react-lines-ellipsis';
 import s from './transactionslist.module.css';
 
-export default function Transactionslist({ onDeleteClick }) {
+export default function Transactionslist({ data }) {
+  console.log(data);
   return (
     <div className={s.container}>
       <ul className={s.tableHeader}>
@@ -17,71 +18,73 @@ export default function Transactionslist({ onDeleteClick }) {
       </ul>
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
-          {data.map(({ id, income, description, date, category, negative }) => (
-            <li key={id} className={s.tabletItem}>
-              <LinesEllipsis
-                className={s.description}
-                text={description}
-                maxLine="0"
-                ellipsis="..."
-                clamped="true"
-                min="1"
-                max="10"
-              ></LinesEllipsis>
-              {/* <span className={s.description}>{description}</span> */}
-              <span className={s.data}>{date}</span>
-              <span className={s.category}>{category}</span>
-              <div className={s.sumWrapper}>
-                <span
-                  className={s.sum}
-                  style={negative ? { color: 'red' } : { color: 'green' }}
-                >
-                  {income}
-                </span>
-                <button
-                  className={s.button}
-                  type="button"
-                  onClick={() => {
-                    onDeleteClick(id);
-                  }}
-                >
-                  <svg className={s.svg} width="18" height="18">
-                    <use href={`${svg}#icon-delete`} />
-                  </svg>
-                </button>
-              </div>
-            </li>
-            // <li className={s.tabletItem} key={id}>
-            //   <div className={s.wrapperDescDataCategory}>
-            //     <div className={s.revers}>
-            //       <span className={s.description}>{description}</span>
-            //       <span className={s.data}>{email}</span>
-            //     </div>
-            //     <div className={s.wrapperDatCategory}>
-            //       <span className={s.category}>{phone}</span>
-            //     </div>
-            //   </div>
-            //   <div className={s.wrapperSumBtn}>
-            //     <span
-            //       className={s.sum}
-            //       style={negative ? { color: 'red' } : { color: 'green' }}
-            //     >
-            //       {income}
-            //     </span>
-            //     <button
-            //       className={s.button}
-            //       type="button"
-            //       onClick={() => {
-            //         onDeleteClick(id);
-            //       }}
-            //     >
-            //       <svg className={s.svg} width="18" height="18">
-            //         <use href={`${svg}#icon-delete`} />
-            //       </svg>
-            //     </button>
-            //   </div>
-            // </li>
-          ))}
+          {data.map(
+            ({ _id, income, description, date, category, negative }) => (
+              <li key={_id} className={s.tabletItem}>
+                <LinesEllipsis
+                  className={s.description}
+                  text={description}
+                  maxLine="0"
+                  ellipsis="..."
+                  clamped="true"
+                  min="1"
+                  max="10"
+                ></LinesEllipsis>
+                {/* <span className={s.description}>{description}</span> */}
+                <span className={s.data}>{date}</span>
+                <span className={s.category}>{category}</span>
+                <div className={s.sumWrapper}>
+                  <span
+                    className={s.sum}
+                    style={negative ? { color: 'red' } : { color: 'green' }}
+                  >
+                    {income}
+                  </span>
+                  <button
+                    className={s.button}
+                    type="button"
+                    onClick={() => {
+                      // onDeleteClick(id);
+                    }}
+                  >
+                    <svg className={s.svg} width="18" height="18">
+                      <use href={`${svg}#icon-delete`} />
+                    </svg>
+                  </button>
+                </div>
+              </li>
+              // <li className={s.tabletItem} key={id}>
+              //   <div className={s.wrapperDescDataCategory}>
+              //     <div className={s.revers}>
+              //       <span className={s.description}>{description}</span>
+              //       <span className={s.data}>{email}</span>
+              //     </div>
+              //     <div className={s.wrapperDatCategory}>
+              //       <span className={s.category}>{phone}</span>
+              //     </div>
+              //   </div>
+              //   <div className={s.wrapperSumBtn}>
+              //     <span
+              //       className={s.sum}
+              //       style={negative ? { color: 'red' } : { color: 'green' }}
+              //     >
+              //       {income}
+              //     </span>
+              //     <button
+              //       className={s.button}
+              //       type="button"
+              //       onClick={() => {
+              //         onDeleteClick(id);
+              //       }}
+              //     >
+              //       <svg className={s.svg} width="18" height="18">
+              //         <use href={`${svg}#icon-delete`} />
+              //       </svg>
+              //     </button>
+              //   </div>
+              // </li>
+            ),
+          )}
         </ul>
       </SimpleBar>
     </div>
