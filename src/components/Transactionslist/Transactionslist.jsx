@@ -18,6 +18,7 @@ export default function Transactionslist({ data }) {
         <li className={s.tableHeaderItem}>Категория</li>
         <li className={s.tableHeaderItem}>Сумма</li>
       </ul>
+
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>
         <ul className={s.tablet}>
           {data.map(({ _id, sum, description, date, category, negative }) => (

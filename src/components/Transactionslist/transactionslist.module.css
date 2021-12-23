@@ -181,3 +181,14 @@
 .svg:hover {
   scale: 1.5;
 }
+
+:global .simplebar-scrollbar:before {
+  /* position: absolute;
+  content: ''; */
+  background: rgb(61, 184, 102);
+  /* border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s linear; */
+}

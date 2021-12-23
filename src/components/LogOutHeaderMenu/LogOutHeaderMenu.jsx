@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { authOperations, authSelectors } from '../../redux/auth';
 import sprite from '../../images/svg/sprite.svg';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import users from './users.json';
@@ -8,17 +10,22 @@ import shortid from 'shortid';
 import s from './LogOutHeaderMenu.module.css';
 import Modal from '../Modal/Modal';
 import ModalContent from '../ModalContent/ModalContent';
-// import { useSelector } from 'react-redux';
+// import ButtonsBlock from '../ButtonsBlock/ButtonsBlock'
 
 function LogInHeaderMenu() {
+  const name = useSelector(authSelectors.getName);
   const [modal, setModal] = useState(false);
-  const { isModalOpen, setIsModalOpen } = useState(false);
+  // const {modalActive, setModalActive}=useState(false)
   const userId = shortid.generate();
   const viewPort = useWindowDimensions();
+  const dispatch = useDispatch();
 
   const toggleBtn = () => {
-    console.log(modal);
     setModal(prevModal => !prevModal);
+  };
+  const logOutModal = () => {
+    dispatch(authOperations.logOut());
+    toggleBtn();
   };
 
   return (
@@ -38,7 +45,7 @@ function LogInHeaderMenu() {
           <div className={s.line}>
             {users.map(user => (
               <p className={s.userName} key={userId}>
-                {user.name}
+                {name}
               </p>
             ))}
           </div>
@@ -71,12 +78,15 @@ function LogInHeaderMenu() {
       )}
       {modal && (
         <div className={s.hederModalOut}>
-          <Modal active={isModalOpen} setActive={setIsModalOpen} />
-          <ModalContent
-            message={'Вы уверены?'}
-            textLeftButton={'да'}
-            textRightButton={'нет'}
-          />
+          <Modal active={modal} setActive={setModal}>
+            <ModalContent
+              message={'Вы уверены?'}
+              textLeftButton={'да'}
+              textRightButton={'нет'}
+              onClickRightButton={toggleBtn}
+              onClickLeftButton={logOutModal}
+            />
+          </Modal>
         </div>
       )}
     </div>
