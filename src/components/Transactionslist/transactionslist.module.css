@@ -21,7 +21,7 @@
 }
 
 .button {
-  width: 16px;
+  /* width: 16px; */
   height: 16px;
   border: none;
   background-color: transparent;
@@ -175,7 +175,7 @@
 }
 
 .svg {
-  height: 18px !important;
+  width: 18px !important;
 }
 
 .svg:hover {

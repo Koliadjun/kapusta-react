@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
 import AppBar from 'components/AppBar';
-import Transactionslist from 'components/Transactionslist/Transactionslist';
+// import Transactionslist from 'components/Transactionslist/Transactionslist';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,9 +47,7 @@ function App() {
         <Route
           index
           path="home"
-          element={
-            isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />
-          }
+          element={isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />}
         />
         <Route exact path="home/:data" element={<HomePage />} />
         <Route
@@ -58,7 +56,7 @@ function App() {
         />
         <Route
           path="report"
-          element={isLoggedin ? <ReportView name={'report'} /> : <Navigate replace to="/" />}
+          element={isLoggedin ? (<ReportView name={'report'} />) : (<Navigate replace to="/" />)}
         />
         <Route
           path="*"
