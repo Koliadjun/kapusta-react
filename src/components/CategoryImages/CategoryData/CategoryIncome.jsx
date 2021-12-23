@@ -1,32 +1,28 @@
+import React from 'react';
+import s from './CategoryList.module.css';
 
-import React from "react"
-import s from './CategoryList.module.css'
-
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import sprite from '../../../images/svg/icon.svg';
-import {transactionSelectors} from '../../../redux/transaction'
+import { transactionSelectors } from '../../../redux/transaction';
 
 // import trans from '../CategoryData/categoriesIncome.json'
 
 const CategoryIncome = () => {
- 
-   const year = useSelector(transactionSelectors.getCurrentYear)
-   const month = useSelector(transactionSelectors.getCurrentMonth)
-  const income = useSelector(transactionSelectors.getIncomeReportDataPerMonth(month, year))
+  const year = useSelector(transactionSelectors.getCurrentYear);
+  const month = useSelector(transactionSelectors.getCurrentMonth);
+  const income = useSelector(
+    transactionSelectors.getIncomeReportDataPerMonth(month, year),
+  );
   console.log(year);
-console.log(income);
+  console.log(`income`, income);
   return (
-      <ul className={s.categoryList}>
+    <ul className={s.categoryList}>
       {income.length === 0 ? (
         <li className={s.noData}>За данный период транзакций нет</li>
       ) : (
         income.map(item => (
-          <li
-            key={item.id}
-            className={s.categoryItem}
-            
-          >
+          <li key={item.id} className={s.categoryItem}>
             <p className={s.costs}>{item.sum}</p>
 
             <svg className={s.icon}>
@@ -41,8 +37,7 @@ console.log(income);
         ))
       )}
     </ul>
-    )
+  );
+};
 
-}
-
-export default CategoryIncome
+export default CategoryIncome;
