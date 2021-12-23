@@ -49,7 +49,7 @@ export default function TabsContainer() {
         description: inputSpendDesk,
         sum: inputSpendSum,
         date: `${year}-${month}-${day}`,
-        category: 'soda',
+        category: inputSpendCategory,
         negative: true,
         day,
         month,
@@ -58,15 +58,14 @@ export default function TabsContainer() {
     );
   };
   const onInputSpendDesk = e => {
-    console.log(e.currentTarget.value);
     setInputSpendDesk(e.currentTarget.value);
   };
   const onInputSpendSum = e => {
     setInputSpendSum(e.currentTarget.value);
   };
   // eslint-disable-next-line
-  const onInputSpendCategory = e => {
-    setInputSpendCategory(e.currentTarget.value);
+  const onInputSpendCategory = data => {
+    setInputSpendCategory(data.value);
   };
   const onSubmitIncomeForm = e => {
     e.preventDefault();
@@ -75,24 +74,26 @@ export default function TabsContainer() {
         description: inputIncomeDesk,
         sum: inputIncomeSum,
         date: `${year}-${month}-${day}`,
-        category: 'sallary',
+        category: inputIncomeCategory,
         negative: false,
         day,
         month,
         year,
       }),
     );
+    setInputIncomeCategory('');
+    setInputIncomeDesk('');
+    setInputIncomeSum('');
   };
   const onInputIncomeDesk = e => {
-    console.log(e.currentTarget.value);
     setInputIncomeDesk(e.currentTarget.value);
   };
   const onInputIncomeSum = e => {
     setInputIncomeSum(e.currentTarget.value);
   };
   // eslint-disable-next-line
-  const onInputIncomeCategory = e => {
-    setInputIncomeCategory(e.currentTarget.value);
+  const onInputIncomeCategory = data => {
+    setInputIncomeCategory(data.value);
   };
   return (
     <div className={s.container}>
@@ -109,7 +110,10 @@ export default function TabsContainer() {
             </div>
             <form onSubmit={onSubmitSpendForm} className={s.input_Cont}>
               <InputDescriptionProduct onChange={onInputSpendDesk} />
-              <CategoryList />
+              <CategoryList
+                categoryType={'Категория товара'}
+                onSelect={onInputSpendCategory}
+              />
               <InputBalance onChange={onInputSpendSum} />
             </form>
             <div className={s.Buttons_cont}>
@@ -134,7 +138,10 @@ export default function TabsContainer() {
             <div className={s.input_Cont}>
               <form onSubmit={onSubmitIncomeForm} className={s.input_Cont}>
                 <InputDescriptionProduct onChange={onInputIncomeDesk} />
-                <CategoryList />
+                <CategoryList
+                  categoryType={'Категория дохода'}
+                  onSelect={onInputIncomeCategory}
+                />
                 <InputBalance onChange={onInputIncomeSum} />
               </form>
             </div>

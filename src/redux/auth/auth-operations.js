@@ -42,7 +42,6 @@ const registration = createAsyncThunk(
 const setBudget = createAsyncThunk(
   'auth/budget',
   async (initialBalance, thunkAPI) => {
-    console.log(`balans`, initialBalance)
     try {
       const { data } = await axios.patch(`/auth/budget`, { initialBalance });
 
@@ -64,13 +63,8 @@ const logIn = createAsyncThunk(
         email,
         password,
       });
-      console.log(`logIn`, data.user.token);
       token.set(data.user.token);
       transactionAPI.token.set(data.user.token)
-      console.log(
-        `axios.defaults.headers.common.Authorization`,
-        axios.defaults.headers.common.Authorization,
-      );
       return data.user;
     } catch (err) {
       if (err.response.status === 401) {
