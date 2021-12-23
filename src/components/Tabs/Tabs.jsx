@@ -2,17 +2,15 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import s from './Tabs.module.css';
 import Summary from 'components/Summary/Summary';
-// import IncomeSpendSection from 'components/IncomeSpendSection/IncomeSpendSection';
 import Transactionslist from '../Transactionslist/Transactionslist';
 import ButtonsBlock from '../ButtonsBlock/ButtonsBlock';
 import DatePicker from '../DatePicker/Datepicker';
 import InputDescriptionProduct from '../InputDescriptionProduct/InputDescriptionProduct';
-// import InputCalculator from '../InputCalculator/InputCalculator';
+import InputCalculator from '../InputCalculator/InputCalculator';
 import CategoryList from '../CategoryList';
 import { transactionOperations, transactionSelectors } from 'redux/transaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import InputBalance from 'components/InputBalance/InputBalance';
 
 export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
@@ -43,7 +41,7 @@ export default function TabsContainer() {
     transactionSelectors.getAllSpendPerMonth(month, year),
   );
 
-  console.log(useSelector(transactionSelectors.getBalance));
+  // console.log(useSelector(transactionSelectors.getBalance));
 
   const onSubmitSpendForm = e => {
     e.preventDefault();
@@ -122,7 +120,11 @@ export default function TabsContainer() {
                 categoryType={'Категория товара'}
                 onSelect={onInputSpendCategory}
               />
-              <InputBalance value={inputSpendSum} onChange={onInputSpendSum} />
+
+              <InputCalculator
+                value={inputSpendSum}
+                onChange={onInputSpendSum}
+              />
             </form>
             <div className={s.Buttons_cont}>
               <ButtonsBlock onClickLeftButton={onSubmitSpendForm} />
@@ -137,9 +139,6 @@ export default function TabsContainer() {
             </div>
           </div>
         </TabPanel>
-        <div className={s.sumTablet}>
-          <Summary data={summarySpend} />
-        </div>
         <TabPanel>
           <div className={s.dPicker_category_Cont}>
             <DatePicker />
@@ -153,7 +152,7 @@ export default function TabsContainer() {
                   categoryType={'Категория дохода'}
                   onSelect={onInputIncomeCategory}
                 />
-                <InputBalance
+                <InputCalculator
                   value={inputIncomeSum}
                   onChange={onInputIncomeSum}
                 />
@@ -170,6 +169,9 @@ export default function TabsContainer() {
             </div>
           </div>
         </TabPanel>
+        <div className={s.sumTablet}>
+          <Summary data={summaryIncome} />
+        </div>
       </Tabs>
     </div>
   );
