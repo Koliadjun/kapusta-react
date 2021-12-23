@@ -28,6 +28,9 @@
   padding: none;
 }
 
+.button:hover svg {
+  fill: #e7192e;
+}
 /* .description {
   width: 100px;
   white-space: nowrap;
@@ -151,6 +154,9 @@
   }
 
   .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-bottom: 10px;
     width: 30px;
     height: 30px;
@@ -179,16 +185,6 @@
 }
 
 .svg:hover {
+  fill: aqua;
   scale: 1.5;
-}
-
-:global .simplebar-scrollbar:before {
-  /* position: absolute;
-  content: ''; */
-  background: rgb(61, 184, 102);
-  /* border-radius: 7px;
-  left: 2px;
-  right: 2px;
-  opacity: 0;
-  transition: opacity 0.2s linear; */
 }
