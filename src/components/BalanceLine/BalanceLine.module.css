@@ -11,6 +11,9 @@
     padding-top: 62px;
     padding-bottom: 0px;
   }
+  .datepicker {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {

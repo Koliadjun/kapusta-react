@@ -27,11 +27,32 @@
   background-color: transparent;
   padding: none;
 }
+.sum {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  margin-right: 10px;
+}
 
-/* .description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
+.svg {
+  width: 18px !important;
+}
+
+.svg:hover {
+  scale: 1.5;
+}
+
+:global .simplebar-scrollbar:before {
+  /* position: absolute;
+  content: ''; */
+  background: rgb(61, 184, 102);
+  /* border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s linear; */
+}
 
 @media screen and (max-width: 768px) {
   .scrollBar {
@@ -39,11 +60,15 @@
     overflow-y: hidden;
   }
   .tabletItem {
-    padding-bottom: 10px;
-    padding-top: 10px;
+    /* padding-bottom: 10px; */
+    /* display: flex; */
+    padding-top: 5px;
     padding-left: 10px;
     color: #52555f;
     border-bottom: 1px solid #f5f6fb;
+  }
+  .sum {
+    margin-right: 0px;
   }
 
   .description {
@@ -64,14 +89,17 @@
     line-height: 0.88;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-right: 20px;
+
+    margin-right: 255px;
   }
 
   .category {
     font-size: 8px;
     line-height: 0.88;
     letter-spacing: 0.04em;
-    margin-right: 75px;
+    margin-right: 0px;
+    margin-left: -210px;
+    position: absolute;
   }
 
   .sumWrapper {
@@ -91,22 +119,30 @@
     border: 2px solid #f5f6fb;
     border-radius: 0 0 20px 20px;
   }
-
+  .categogyHead {
+    padding-right: 17px;
+  }
+  .sumHead {
+    padding-left: 20px;
+  }
   .tableHeader {
     height: 40px;
     display: grid;
     grid-template-columns: 20% 30% 30% 20%;
-    padding-right: 21px;
-    padding-left: 21px;
+    padding-right: 40px;
+    padding-left: 15px;
     font-weight: bold;
     font-size: 12px;
     line-height: 0.857;
     letter-spacing: 0.02em;
+    align-items: center;
+    text-align: center;
     text-transform: uppercase;
     color: #000000;
   }
 
   .tablet {
+    text-align: center;
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     display: grid;
@@ -115,8 +151,8 @@
   .tabletItem {
     height: 40px;
     box-sizing: border-box;
-    padding-right: 21px;
     padding-left: 21px;
+    /* padding-right: 20px; */
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid #f5f6fb;
@@ -124,7 +160,6 @@
     line-height: 0.857;
     letter-spacing: 0.04em;
     color: #52555f;
-    padding-right: 35px;
     display: grid;
     grid-template-columns: 20% 30% 20% 30%;
     align-items: center;
@@ -155,10 +190,11 @@
   }
 
   .sumWrapper {
+    /* width: 200px; */
     position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    padding-right: 10px;
   }
 
   .button {
@@ -175,31 +211,4 @@
     overflow-y: scroll;
     border: 2px solid #f5f6fb;
   }
-}
-
-.sum {
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 0.85;
-  letter-spacing: 0.04em;
-  margin-right: 20px;
-}
-
-.svg {
-  width: 18px !important;
-}
-
-.svg:hover {
-  scale: 1.5;
-}
-
-:global .simplebar-scrollbar:before {
-  /* position: absolute;
-  content: ''; */
-  background: rgb(61, 184, 102);
-  /* border-radius: 7px;
-  left: 2px;
-  right: 2px;
-  opacity: 0;
-  transition: opacity 0.2s linear; */
 }

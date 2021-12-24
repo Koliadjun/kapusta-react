@@ -15,15 +15,23 @@
 .categoryFormSelect {
   color: var(--placeholders-text-color);
   border: none;
-  padding: 0;
 }
 
+:global .css-ngvvkf-MenuList {
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+  background: rgb(255, 255, 255);
+  box-shadow: 0px 10px 60px rgb(170 178 197 / 20%);
+  border: 3px solid #f5f6fb;
+}
 :global .css-1afymel-Menu {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   background: rgb(255, 255, 255);
   width: 98%;
   border: 3px solid #f5f6fb;
+  text-align: none;
 }
 
 :global .css-1efk6oh-Control {
@@ -33,4 +41,10 @@
 
 :global .css-v5p4bu-Control {
   height: 40px;
+}
+@media screen and (max-width: 768px) {
+  :global .css-ngvvkf-MenuList {
+    height: 200px;
+    overflow-y: auto;
+  }
 }

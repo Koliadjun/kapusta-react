@@ -124,6 +124,7 @@ export default function TabsContainer() {
               <InputCalculator
                 value={inputSpendSum}
                 onChange={onInputSpendSum}
+                text={'number'}
               />
             </form>
             <div className={s.Buttons_cont}>
