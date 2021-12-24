@@ -1,7 +1,6 @@
 @media screen and (max-width: 767px) {
   .section {
     height: 800px;
-    padding-top: 15px;
     z-index: -1;
     padding-bottom: 50px;
     background-image: url('../../images/ReportPage/bg-report_part.svg');

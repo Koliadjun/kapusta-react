@@ -72,11 +72,10 @@
   }
   .dPicker_category_Cont {
     /* display: none; */
-    padding-top: 80px;
     flex-wrap: wrap;
     width: 320px;
     position: relative;
-    top: 200px;
+    top: 215px;
   }
   .trans_Summ_Cont {
     padding-top: 0;
@@ -84,7 +83,7 @@
     margin-bottom: 5px;
     /* position: absolute; */
     position: sticky;
-    height: 160px;
+    height: 130px;
     top: 100%;
     width: 100%;
     overflow-y: auto;
