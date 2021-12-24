@@ -13,8 +13,8 @@ export default function Transactionslist({ data }) {
       <ul className={s.tableHeader}>
         <li className={s.tableHeaderItem}>Дата</li>
         <li className={s.tableHeaderItem}>Описание</li>
-        <li className={s.tableHeaderItem}>Категория</li>
-        <li className={s.tableHeaderItem}>Сумма</li>
+        <li className={(s.tableHeaderItem, s.categogyHead)}>Категория</li>
+        <li className={(s.tableHeaderItem, s.sumHead)}>Сумма</li>
       </ul>
 
       <SimpleBar className={s.scrollBar} style={{ maxHeight: 346 }}>

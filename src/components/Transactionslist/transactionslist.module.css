@@ -119,22 +119,30 @@
     border: 2px solid #f5f6fb;
     border-radius: 0 0 20px 20px;
   }
-
+  .categogyHead {
+    padding-right: 17px;
+  }
+  .sumHead {
+    padding-left: 20px;
+  }
   .tableHeader {
     height: 40px;
     display: grid;
     grid-template-columns: 20% 30% 30% 20%;
-    padding-right: 21px;
-    padding-left: 21px;
+    padding-right: 40px;
+    padding-left: 15px;
     font-weight: bold;
     font-size: 12px;
     line-height: 0.857;
     letter-spacing: 0.02em;
+    align-items: center;
+    text-align: center;
     text-transform: uppercase;
     color: #000000;
   }
 
   .tablet {
+    text-align: center;
     border: 2px solid #f5f6fb;
     box-sizing: border-box;
     display: grid;
@@ -143,8 +151,8 @@
   .tabletItem {
     height: 40px;
     box-sizing: border-box;
-    padding-right: 21px;
     padding-left: 21px;
+    /* padding-right: 20px; */
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px solid #f5f6fb;
@@ -152,7 +160,6 @@
     line-height: 0.857;
     letter-spacing: 0.04em;
     color: #52555f;
-    padding-right: 35px;
     display: grid;
     grid-template-columns: 20% 30% 20% 30%;
     align-items: center;
@@ -183,10 +190,11 @@
   }
 
   .sumWrapper {
+    /* width: 200px; */
     position: relative;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    padding-right: 10px;
   }
 
   .button {

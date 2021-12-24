@@ -118,6 +118,9 @@
     background: #ff4d4d;
     color: rgb(255, 255, 255);
   }
+  :global .simplebar-placeholder {
+    height: 0px;
+  }
 }
 
 @media screen and (min-width: 768px) {
