@@ -27,11 +27,32 @@
   background-color: transparent;
   padding: none;
 }
+.sum {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  margin-right: 10px;
+}
 
-/* .description {
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
+.svg {
+  width: 18px !important;
+}
+
+.svg:hover {
+  scale: 1.5;
+}
+
+:global .simplebar-scrollbar:before {
+  /* position: absolute;
+  content: ''; */
+  background: rgb(61, 184, 102);
+  /* border-radius: 7px;
+  left: 2px;
+  right: 2px;
+  opacity: 0;
+  transition: opacity 0.2s linear; */
+}
 
 @media screen and (max-width: 768px) {
   .scrollBar {
@@ -39,11 +60,15 @@
     overflow-y: hidden;
   }
   .tabletItem {
-    padding-bottom: 10px;
-    padding-top: 10px;
+    /* padding-bottom: 10px; */
+    /* display: flex; */
+    padding-top: 5px;
     padding-left: 10px;
     color: #52555f;
     border-bottom: 1px solid #f5f6fb;
+  }
+  .sum {
+    margin-right: 0px;
   }
 
   .description {
@@ -64,14 +89,17 @@
     line-height: 0.88;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-right: 20px;
+
+    margin-right: 255px;
   }
 
   .category {
     font-size: 8px;
     line-height: 0.88;
     letter-spacing: 0.04em;
-    margin-right: 75px;
+    margin-right: 0px;
+    margin-left: -210px;
+    position: absolute;
   }
 
   .sumWrapper {
@@ -175,31 +203,4 @@
     overflow-y: scroll;
     border: 2px solid #f5f6fb;
   }
-}
-
-.sum {
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 0.85;
-  letter-spacing: 0.04em;
-  margin-right: 20px;
-}
-
-.svg {
-  width: 18px !important;
-}
-
-.svg:hover {
-  scale: 1.5;
-}
-
-:global .simplebar-scrollbar:before {
-  /* position: absolute;
-  content: ''; */
-  background: rgb(61, 184, 102);
-  /* border-radius: 7px;
-  left: 2px;
-  right: 2px;
-  opacity: 0;
-  transition: opacity 0.2s linear; */
 }

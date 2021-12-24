@@ -4,7 +4,6 @@
     padding-top: 15px;
     z-index: -1;
     padding-bottom: 50px;
-    text-align: center;
     background-image: url('../../images/ReportPage/bg-report_part.svg');
 
     background-color: #fff;
@@ -18,7 +17,6 @@
   .section {
     padding-top: 15px;
     padding-bottom: 50px;
-    text-align: center;
     background-image: url('../../images/ReportPage/bg-report_part.svg');
 
     background-color: #fff;

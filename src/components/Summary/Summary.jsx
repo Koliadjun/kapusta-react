@@ -19,7 +19,9 @@ export default function Summary({ data }) {
               return (
                 <tr className={s.tr} key={index}>
                   <td className={s.month}>{items[index]}</td>
-                  <td className={s.sum}>{item}</td>
+                  <td className={s.sum}>
+                    {item} <span className={s.grn}>грн</span>
+                  </td>
                 </tr>
               );
             }
