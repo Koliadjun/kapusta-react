@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import s from './HomePage.module.css';
 import queryString from 'query-string';
 import { authOperations } from '../../redux/auth';
@@ -12,13 +12,13 @@ import Container from '../../components/Container';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const {pathname} = useLocation()
+  const { pathname } = useLocation();
   const [loginFormNeeded, setLoginFormNeeded] = useState(true);
 
   const [firstLoaded, setFirstLoaded] = useState(true);
   const token = Object.values(queryString.parse(window.location.href))[0];
 
-  if(pathname.length < 10) localStorage.setItem("navigateTo", pathname)
+  if (pathname.length < 10) localStorage.setItem('navigateTo', '/comment');
 
   useEffect(() => {
     if (firstLoaded && token) {
