@@ -37,9 +37,10 @@ function App() {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
 
+  
+    if (isGoogled || isLoggedin) {
+      navigate(localStorage.getItem('navigateTo'));
 
-    if (isGoogled) {
-      navigate('/comment');
     }
     // eslint-disable-next-line
   }, [isGoogled]);
@@ -55,14 +56,14 @@ function App() {
           index
           path="home"
           element={
-            isLoggedin ? <Navigate replace to="/comment" /> : <HomePage />
+            isLoggedin || isGoogled ? <Navigate replace to={localStorage.getItem('navigateTo')} /> : <HomePage />
           }
         />
         <Route exact path="home/:data" element={<HomePage />} />
         <Route
           path="comment"
           element={
-            isLoggedin ? (
+            isLoggedin || isGoogled ? (
               <CommentView name={'main'} />
             ) : (
               <Navigate replace to="/" />
@@ -72,7 +73,7 @@ function App() {
         <Route
           path="report"
           element={
-            isLoggedin ? (
+            isLoggedin || isGoogled ? (
               <ReportView name={'report'} />
             ) : (
               <Navigate replace to="/" />

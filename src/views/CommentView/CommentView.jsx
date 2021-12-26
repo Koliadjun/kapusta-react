@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
+import {useLocation} from 'react-router-dom';
 
 import Container from 'components/Container/Container';
 // import Datepicker from 'components/DatePicker/Datepicker';
@@ -13,10 +14,15 @@ import { useDispatch } from 'react-redux';
 import { transactionOperations } from 'redux/transaction';
 
 function CommentView({ name }) {
-  const dispatch = useDispatch();
+
+    const dispatch = useDispatch();
+  const {pathname} = useLocation()
   useEffect(() => {
-    dispatch(transactionOperations.getAllTransaction());
-  }, [dispatch]);
+       dispatch(transactionOperations.getAllTransaction());
+    if(pathname.length < 10)  localStorage.setItem("navigateTo", pathname)
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={s.section}>
       <Container>
