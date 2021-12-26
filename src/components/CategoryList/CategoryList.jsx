@@ -74,6 +74,10 @@ export default function CategoryList({
       display: 'none',
     }),
     menu: () => ({
+      background: 'rgb(255, 255, 255)',
+      width: '98%',
+      position: 'absolute',
+      zIndex: '3',
       boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2);',
     }),
     menuList: () => ({
@@ -136,6 +140,10 @@ export default function CategoryList({
       display: 'none',
     }),
     menu: () => ({
+      background: 'rgb(255, 255, 255)',
+      width: '98%',
+      position: 'absolute',
+      zIndex: '3',
       boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2);',
     }),
     menuList: () => ({
@@ -175,6 +183,7 @@ export default function CategoryList({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+      height: '40px',
     }),
     indicatorSeparator: () => ({
       width: '0',
@@ -192,6 +201,11 @@ export default function CategoryList({
       display: 'none',
     }),
     menu: () => ({
+      background: 'rgb(255, 255, 255)',
+      width: '98%',
+      position: 'absolute',
+      zIndex: '3',
+
       boxShadow: '0px 10px 60px rgba(170, 178, 197, 0.2);',
     }),
     menuList: () => ({
