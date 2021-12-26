@@ -76,7 +76,7 @@ export default function TabsContainer() {
       transactionOperations.addOneTransaction({
         description: inputIncomeDesk,
         sum: Number(inputIncomeSum) * 100,
-        date: `${year}-${month}-${day}`,
+        date: `${day}.${month}.${year}`,
         category: inputIncomeCategory,
         negative: false,
         day,
