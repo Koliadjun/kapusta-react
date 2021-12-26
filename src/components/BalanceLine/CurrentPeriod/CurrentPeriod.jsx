@@ -8,12 +8,9 @@ import { transactionOperations } from 'redux/transaction';
 export default function CurrentPeriod() {
   const dispatch = useDispatch();
   const date = useSelector(state => state.transaction.date);
-  // console.log(`report`, date);
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
-  // console.log('month', month);
-  // console.log('year', year);
   const [selectedMonth, setSelectedMonth] = useState(month);
   const [selectedYear, setSelectedYear] = useState(year);
 
@@ -33,7 +30,6 @@ export default function CurrentPeriod() {
   };
 
   const onClickRight = () => {
-    // console.log('onClickRight', selectedMonth, selectedYear);
     if (selectedMonth < 12) {
       setSelectedMonth(prev => (prev += 1));
     } else {
@@ -46,8 +42,6 @@ export default function CurrentPeriod() {
   };
 
   const onClickLeft = () => {
-    // console.log('click left');
-    // console.log('onClickLeft', selectedMonth, selectedYear);
     if (selectedMonth <= 1) {
       setSelectedMonth(12);
       setSelectedYear(prev => (prev -= 1));

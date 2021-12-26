@@ -14,8 +14,6 @@ const CategoryIncome = () => {
     transactionSelectors.getIncomeReportDataPerMonth(month, year),
   );
 
-  // console.log(year);
-  // console.log(`income`, income);
   return (
     <ul className={s.categoryList}>
       {income.length === 0 ? (
@@ -23,7 +21,7 @@ const CategoryIncome = () => {
       ) : (
         income.map(item => (
           <li key={shortid.generate()} className={s.categoryItem}>
-            <p className={s.costs}>{item.sum}</p>
+            <p className={s.costs}>{item.value}</p>
 
             <svg className={s.icon}>
               <use className={s.useSvg} xlinkHref={`${sprite}#${item.name}`} />
