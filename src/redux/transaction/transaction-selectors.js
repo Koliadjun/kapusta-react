@@ -5,12 +5,12 @@ export const getAllTransaction = state => state.transaction.transaction;
 
 export const getAllIncomePerMonth = (month, year) => state => {
   const filter = { year, month, negative: false };
-  const income = getAllTransaction(state).filter(search, filter);
+  const income = getAllTransaction(state).filter(search, filter).sort((prev, next) => prev.day - next.day);
   return income || [];
 };
 export const getAllSpendPerMonth = (month, year) => state => {
   const filter = { year, month, negative: true };
-  const spend = getAllTransaction(state).filter(search, filter);
+  const spend = getAllTransaction(state).filter(search, filter).sort((prev, next) => prev.day - next.day);
   return spend || [];
 };
 export const getAllSpendSummary = year => state => {
