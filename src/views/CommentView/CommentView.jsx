@@ -10,10 +10,15 @@ import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal'
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Content from 'components/InitialBalanceFormModal/Content/Content';
 import s from './CommentView.module.css';
+import { useDispatch } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 
 function CommentView({ name }) {
+
+    const dispatch = useDispatch();
   const {pathname} = useLocation()
   useEffect(() => {
+       dispatch(transactionOperations.getAllTransaction());
     if(pathname.length < 10)  localStorage.setItem("navigateTo", pathname)
     // eslint-disable-next-line
   }, []);

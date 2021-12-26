@@ -29,7 +29,7 @@ export default function Transactionslist({ data }) {
                   className={s.sum}
                   style={negative ? { color: 'red' } : { color: 'green' }}
                 >
-                  {sum} грн
+                  {Number.parseFloat(sum / 100).toFixed(2)} грн
                 </span>
                 <button
                   className={s.button}

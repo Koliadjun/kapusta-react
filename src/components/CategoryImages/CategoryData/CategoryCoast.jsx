@@ -14,7 +14,6 @@ const CategoryCoast = () => {
     transactionSelectors.getSpendReportDataPerMonth(month, year),
   );
 
-  // console.log(`coast`,coast);
   return (
     <ul className={s.categoryList}>
       {coast.length === 0 ? (

@@ -21,7 +21,7 @@ import AppBar from 'components/AppBar';
 
 import Footer from 'components/Footer'
 
-import { transactionOperations } from 'redux/transaction';
+// import { transactionOperations } from 'redux/transaction';
 import TeamPage from 'views/TeamPage';
 
 // import Transactionslist from 'components/Transactionslist/Transactionslist';
@@ -29,6 +29,7 @@ import TeamPage from 'views/TeamPage';
 function App() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  // const isFetchingUser = false
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
   // const isLoggedin = true;
   const isLoggedin = useSelector(authSelectors.getIsLoggedIn);
@@ -36,9 +37,10 @@ function App() {
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
 
-    dispatch(transactionOperations.getAllTransaction());
+  
     if (isGoogled || isLoggedin) {
       navigate(localStorage.getItem('navigateTo'));
+
     }
     // eslint-disable-next-line
   }, [isGoogled]);
@@ -149,7 +151,7 @@ export default App;
 //     if (isGoogled) {
 //       navigate('/report');
 //     }
-//     console.log("----------")
+
 //     // eslint-disable-next-line
 //   }, [isGoogled]);
 
