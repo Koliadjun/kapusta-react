@@ -17,7 +17,7 @@
   .section {
     padding-top: 15px;
     padding-bottom: 50px;
-    background-image: url('../../images/ReportPage/bg-report_part.svg');
+    background-image: url('../../images/ReportPage/bg-report1.svg');
 
     background-color: #fff;
     background-repeat: no-repeat, no-repeat;
@@ -27,10 +27,11 @@
 }
 @media screen and (min-width: 1280px) {
   .section {
-    background-image: url('../../images/ReportPage/bg-report_part.svg'),
+    background-image: url('../../images/ReportPage/bg-report1.svg'),
       url('../../images/ReportPage/bg-report-desktop.svg');
     background-repeat: no-repeat;
     background-repeat: no-repeat, no-repeat;
     background-position: center top -40px, center bottom -4px;
+    background-size: 1280px;
   }
 }
