@@ -41,8 +41,6 @@ export default function TabsContainer() {
     transactionSelectors.getAllSpendPerMonth(month, year),
   );
 
-  // console.log(useSelector(transactionSelectors.getBalance));
-
   const onSubmitSpendForm = e => {
     e.preventDefault();
     dispatch(

@@ -87,7 +87,7 @@ export const getIncomeReportDataPerMonth = (month, year) => state => {
   for (const key in a) {
     result.push({ name: key, value: a[key] });
   }
-  // console.log(result);
+
   return result;
 };
 export const getSpendReportDataPerMonth = (month, year) => state => {

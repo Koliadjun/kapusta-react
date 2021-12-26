@@ -149,7 +149,7 @@ export default App;
 //     if (isGoogled) {
 //       navigate('/report');
 //     }
-//     console.log("----------")
+
 //     // eslint-disable-next-line
 //   }, [isGoogled]);
 

@@ -14,8 +14,6 @@ const CategoryIncome = () => {
     transactionSelectors.getIncomeReportDataPerMonth(month, year),
   );
 
-  // console.log(year);
-  // console.log(`income`, income);
   return (
     <ul className={s.categoryList}>
       {income.length === 0 ? (
