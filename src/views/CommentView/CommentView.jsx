@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Container from 'components/Container/Container';
 // import Datepicker from 'components/DatePicker/Datepicker';
@@ -9,8 +9,14 @@ import BalanceModal from 'components/InitialBalanceFormModal/Modal/BalanceModal'
 import Input from 'components/InitialBalanceFormModal/Input/Input';
 import Content from 'components/InitialBalanceFormModal/Content/Content';
 import s from './CommentView.module.css';
+import { useDispatch } from 'react-redux';
+import { transactionOperations } from 'redux/transaction';
 
 function CommentView({ name }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(transactionOperations.getAllTransaction());
+  }, [dispatch]);
   return (
     <div className={s.section}>
       <Container>
