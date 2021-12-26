@@ -26,11 +26,11 @@ export default function TabsContainer() {
   );
 
   const [inputSpendDesk, setInputSpendDesk] = useState('');
-  const [inputSpendSum, setInputSpendSum] = useState('');
+  const [inputSpendSum, setInputSpendSum] = useState(0);
   // eslint-disable-next-line
   const [inputSpendCategory, setInputSpendCategory] = useState('');
   const [inputIncomeDesk, setInputIncomeDesk] = useState('');
-  const [inputIncomeSum, setInputIncomeSum] = useState('');
+  const [inputIncomeSum, setInputIncomeSum] = useState(0);
   // eslint-disable-next-line
   const [inputIncomeCategory, setInputIncomeCategory] = useState('');
   const dispatch = useDispatch();
@@ -48,8 +48,8 @@ export default function TabsContainer() {
     dispatch(
       transactionOperations.addOneTransaction({
         description: inputSpendDesk,
-        sum: inputSpendSum,
-        date: `${year}-${month}-${day}`,
+        sum: Number(inputSpendSum) * 100,
+        date: `${day}.${month}.${year}`,
         category: inputSpendCategory,
         negative: true,
         day,
@@ -64,7 +64,7 @@ export default function TabsContainer() {
     setInputSpendDesk(e.currentTarget.value);
   };
   const onInputSpendSum = e => {
-    setInputSpendSum(e.currentTarget.value);
+    setInputSpendSum(e);
   };
   // eslint-disable-next-line
   const onInputSpendCategory = data => {
@@ -75,7 +75,7 @@ export default function TabsContainer() {
     dispatch(
       transactionOperations.addOneTransaction({
         description: inputIncomeDesk,
-        sum: inputIncomeSum,
+        sum: Number(inputIncomeSum) * 100,
         date: `${year}-${month}-${day}`,
         category: inputIncomeCategory,
         negative: false,
@@ -92,7 +92,7 @@ export default function TabsContainer() {
     setInputIncomeDesk(e.currentTarget.value);
   };
   const onInputIncomeSum = e => {
-    setInputIncomeSum(e.currentTarget.value);
+    setInputIncomeSum(e);
   };
   // eslint-disable-next-line
   const onInputIncomeCategory = data => {
@@ -124,7 +124,6 @@ export default function TabsContainer() {
               <InputCalculator
                 value={inputSpendSum}
                 onChange={onInputSpendSum}
-                text={'number'}
               />
             </form>
             <div className={s.Buttons_cont}>

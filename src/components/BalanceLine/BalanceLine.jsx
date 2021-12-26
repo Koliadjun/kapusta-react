@@ -12,6 +12,7 @@ import Datepicker from 'components/DatePicker/Datepicker';
 export default function BalanceLine({ name }) {
   const modal = !useSelector(state => state.auth.user.balanceIsSet);
   const balance = useSelector(transactionSelectors.getBalance);
+  console.log(balance);
   return (
     <div className={styles.balanceLine}>
       {modal === false && (

@@ -23,7 +23,7 @@ const CategoryIncome = () => {
       ) : (
         income.map(item => (
           <li key={shortid.generate()} className={s.categoryItem}>
-            <p className={s.costs}>{item.sum}</p>
+            <p className={s.costs}>{item.value}</p>
 
             <svg className={s.icon}>
               <use className={s.useSvg} xlinkHref={`${sprite}#${item.name}`} />

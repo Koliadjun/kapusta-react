@@ -11,10 +11,9 @@ const ReportView = ({ name }) => {
     <section className={s.section}>
       <Container>
         <BalanceLine name={name} />
-              <IncomeSpendSection />
-              
-                  <CategoryImagesList />
-                 
+        <IncomeSpendSection />
+
+        <CategoryImagesList />
       </Container>
     </section>
   );

@@ -22,7 +22,7 @@ export const getAllSpendSummary = year => state => {
       .filter(element => element.month === i + 1)
       .reduce(
         (previousValue, currentValue) =>
-          previousValue + parseInt(currentValue.sum),
+          previousValue + parseInt(currentValue.sum) / 100,
         0,
       );
   }
@@ -38,7 +38,7 @@ export const getAllIncomeSummary = year => state => {
       .filter(element => element.month === i + 1)
       .reduce(
         (previousValue, currentValue) =>
-          previousValue + parseInt(currentValue.sum),
+          previousValue + parseInt(currentValue.sum) / 100,
         0,
       );
   }
@@ -75,7 +75,7 @@ export const getIncomeReportDataPerMonth = (month, year) => state => {
   const income = getAllTransaction(state).filter(search, filter);
   const a = income.reduce((object, item) => {
     var category = item.category;
-    var amount = parseInt(item.sum);
+    var amount = parseInt(item.sum) / 100;
     if (!object.hasOwnProperty(category)) {
       object[category] = 0;
     }
@@ -95,7 +95,7 @@ export const getSpendReportDataPerMonth = (month, year) => state => {
   const income = getAllTransaction(state).filter(search, filter);
   const a = income.reduce((object, item) => {
     var category = item.category;
-    var amount = parseInt(item.sum);
+    var amount = parseInt(item.sum) / 100;
     if (!object.hasOwnProperty(category)) {
       object[category] = 0;
     }
@@ -113,21 +113,21 @@ export const getSpendReportDataPerMonth = (month, year) => state => {
 export const getBalance = state => {
   const filterS = { negative: true };
   const filterI = { negative: false };
-  const balance = state.auth.user.initialBalance;
+  const balance = state.auth.user.initialBalance * 100
   const income = getAllTransaction(state)
     .filter(search, filterI)
     .reduce(
       (previousValue, currentValue) =>
-        previousValue + parseInt(currentValue.sum),
+        previousValue + currentValue.sum,
       0,
     );
   const spend = getAllTransaction(state)
     .filter(search, filterS)
     .reduce(
       (previousValue, currentValue) =>
-        previousValue + parseInt(currentValue.sum),
+        previousValue + currentValue.sum,
       0,
     );
-  const result = balance + income - spend;
+  const result = Number.parseFloat((balance + income - spend) / 100).toFixed(2);
   return result;
 };
