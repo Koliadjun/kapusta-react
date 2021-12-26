@@ -17,7 +17,7 @@ const HomePage = () => {
 
   const [firstLoaded, setFirstLoaded] = useState(true);
   const token = Object.values(queryString.parse(window.location.href))[0];
-  console.log(token)
+
   if(pathname.length < 10) localStorage.setItem("navigateTo", pathname)
 
   useEffect(() => {
