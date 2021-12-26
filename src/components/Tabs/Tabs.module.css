@@ -160,7 +160,8 @@
   }
   :global .react-tabs__tab-panel--selected {
     width: 665px;
-    height: 579px;
+    min-height: 579px;
+    padding-bottom: 20px;
   }
   :global .react-tabs__tab--selected {
     background: #fdfdff;
@@ -196,6 +197,7 @@
   }
   .sumPK {
     display: flex;
+    height: 90%;
   }
   .sumTablet {
     display: none;
