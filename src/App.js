@@ -19,7 +19,7 @@ import HomePage from './views/HomePage';
 import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
 import AppBar from 'components/AppBar';
 
-import Footer from 'components/Footer'
+import Footer from 'components/Footer';
 
 // import { transactionOperations } from 'redux/transaction';
 import TeamPage from 'views/TeamPage';
@@ -80,10 +80,7 @@ function App() {
             )
           }
         />
-        <Route
-          path="developers"
-          element={<TeamPage />}
-        />
+        <Route path="developers" element={<TeamPage />} />
         <Route
           path="*"
           element={

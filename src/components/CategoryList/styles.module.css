@@ -17,7 +17,7 @@
   border: none;
 }
 
-:global .css-ngvvkf-MenuList {
+/* :global .css-ngvvkf-MenuList {
   position: absolute;
   width: 100%;
   z-index: 4;
@@ -42,9 +42,12 @@
 :global .css-v5p4bu-Control {
   height: 40px;
 }
-@media screen and (max-width: 768px) {
+:global .css-2j409o {
+  height: 40px;
+} */
+/* @media screen and (max-width: 768px) {
   :global .css-ngvvkf-MenuList {
     height: 200px;
     overflow-y: auto;
   }
-}
+} */

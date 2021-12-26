@@ -27,9 +27,9 @@ export default function Summary({ data }) {
             }
             return null;
           })}
-          <tr className={s.empty}>
+          {/* <tr className={s.empty}>
             <td></td>
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>

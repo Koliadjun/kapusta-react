@@ -31,7 +31,7 @@
 
 .wrap {
   width: 230px;
-  height: 279px;
+  height: 100%;
   overflow: hidden;
   border-radius: 20px;
 }
