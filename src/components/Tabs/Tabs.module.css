@@ -2,6 +2,7 @@
   margin-top: 25px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 .dPicker_category_Cont {
   display: flex;
@@ -53,13 +54,20 @@
 }
 :global .react-tabs__tab-panel--selected {
   display: block;
-  height: 579px;
+  /* height: 579px; */
   background: #ffffff;
   box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
   border-radius: 0px 30px 30px 30px;
 }
 
 @media screen and (max-width: 767px) {
+  .footertab {
+    display: none;
+  }
+  .container {
+    height: none;
+    position: inherit;
+  }
   .transactionsCont {
     background: #fff;
     width: 300px;
@@ -74,19 +82,21 @@
     /* display: none; */
     flex-wrap: wrap;
     width: 320px;
-    position: relative;
-    top: 215px;
+    /* position: relative;*/
+    margin-top: 210px;
   }
   .trans_Summ_Cont {
     padding-top: 0;
-    margin-top: 210px;
+    /* padding-bottom: 0; */
+    margin-top: 10px;
+    align-content: flex-end;
     margin-bottom: 5px;
     /* position: absolute; */
     position: sticky;
     height: 130px;
-    top: 100%;
     width: 100%;
     overflow-y: auto;
+    top: 100%;
   }
   .input_Cont {
     display: block;
@@ -95,15 +105,20 @@
     display: flex;
     width: 320px;
     flex-direction: column-reverse;
-    position: absolute;
+    position: fixed;
+    top: 0;
     bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
   }
 
   :global .react-tabs__tab-panel--selected {
-    height: 100vh;
-    z-index: 0;
+    height: 100%;
     width: 320px;
     border-radius: 0px 0px 0px 0px;
+  }
+  :global .react-tabs__tab-list {
+    position: relative;
   }
   :global .react-tabs__tab {
     display: table-cell;
@@ -145,6 +160,7 @@
   }
   :global .react-tabs__tab-panel--selected {
     width: 665px;
+    height: 579px;
   }
   :global .react-tabs__tab--selected {
     background: #fdfdff;

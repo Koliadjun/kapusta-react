@@ -11,6 +11,7 @@ import CategoryList from '../CategoryList';
 import { transactionOperations, transactionSelectors } from 'redux/transaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import Footer from '../Footer/Footer';
 
 export default function TabsContainer() {
   const month = useSelector(transactionSelectors.getCurrentMonth);
