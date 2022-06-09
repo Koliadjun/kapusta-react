@@ -29,6 +29,7 @@ const HomePage = () => {
     // eslint-disable-next-line
   }, []);
 
+  console.log('asd');
   const onRegistrationClick = () => {
     setLoginFormNeeded(false);
   };
